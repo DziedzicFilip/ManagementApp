@@ -96,8 +96,7 @@
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NowyTowarViewModel.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
-    <Compile Include="ViewModels\WszystkieProjketyViewModel.cs" />
-    <Compile Include="ViewModels\WszystkieTowaryViewModel.cs" />
+    <Compile Include="ViewModels\WszystkieProjektyViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -106,9 +105,6 @@
     </Compile>
     <Compile Include="Views\WszystkieProjektyView.xaml.cs">
       <DependentUpon>WszystkieProjektyView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WszystkieTowaryView.xaml.cs">
-      <DependentUpon>WszystkieTowaryView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -151,10 +147,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WszystkieProjektyView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WszystkieTowaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

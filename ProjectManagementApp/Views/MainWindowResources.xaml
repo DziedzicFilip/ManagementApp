@@ -3,8 +3,8 @@
                     xmlns:vm="clr-namespace:ProjectManagementApp.ViewModels"
                     xmlns:vw="clr-namespace:ProjectManagementApp.Views"
                     >
-    <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">
-        <vw:WszystkieTowaryView/>
+    <DataTemplate DataType="{x:Type vm:WszystkieProjektyViewModel}">
+        <vw:WszystkieProjektyView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type vm:NowyTowarViewModel}">
         <vw:NowyTowarView/>

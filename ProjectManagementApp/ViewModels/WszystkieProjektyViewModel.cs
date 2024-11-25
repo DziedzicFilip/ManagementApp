@@ -6,11 +6,11 @@ using System.Collections.ObjectModel;
 
 namespace ProjectManagementApp.ViewModels
 {
-    public class WszystkieTowaryViewModel : WorkspaceViewModel
+    public class WszystkieProjektyViewModel : WorkspaceViewModel
     {
-        public WszystkieTowaryViewModel()
+        public WszystkieProjektyViewModel()
         {
-            base.DisplayName = "Towary";
+            base.DisplayName = "Projkety";
 
         }
     }

@@ -36,12 +36,14 @@ namespace ProjectManagementApp.ViewModels
             return new List<CommandViewModel>
             {
                 new CommandViewModel(
-                    "Towary",
-                    new BaseCommand(() => this.ShowAllTowar())),
+                    "Projekty",
+                    new BaseCommand(() => this.WszystkieProjkety())),
 
                 new CommandViewModel(
                     "Towar",
                     new BaseCommand(() => this.CreateTowar()))
+
+            
             };
         }
         #endregion
@@ -85,19 +87,20 @@ namespace ProjectManagementApp.ViewModels
             this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
-        private void ShowAllTowar()
+        private void WszystkieProjkety()
         {
-            WszystkieTowaryViewModel workspace =
-                this.Workspaces.FirstOrDefault(vm => vm is WszystkieTowaryViewModel)
-                as WszystkieTowaryViewModel;
+            WszystkieProjektyViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is WszystkieProjektyViewModel)
+                as WszystkieProjektyViewModel;
             if (workspace == null)
             {
-                workspace = new WszystkieTowaryViewModel();
+                workspace = new WszystkieProjektyViewModel();
                 this.Workspaces.Add(workspace);
             }
 
             this.SetActiveWorkspace(workspace);
         }
+        
         private void SetActiveWorkspace(WorkspaceViewModel workspace)
         {
             Debug.Assert(this.Workspaces.Contains(workspace));
