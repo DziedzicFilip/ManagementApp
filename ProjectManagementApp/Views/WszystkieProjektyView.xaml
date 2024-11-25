@@ -1,0 +1,44 @@
+﻿<Window x:Class="ProjectManagementApp.Views.WszystkieProjektyView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Harmonogram" Height="450" Width="800">
+    <Grid>
+        <!-- Nagłówek widoku harmonogramu -->
+        <TextBlock Text="Harmonogram Projektów" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+
+        <!-- DataGrid do wyświetlania projektów i zadań -->
+        <DataGrid x:Name="ScheduleDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" Margin="10,60,10,10">
+            <DataGrid.Columns>
+                <!-- Kolumna na nazwę projektu -->
+                <DataGridTextColumn Header="Nazwa Projektu" Binding="{Binding ProjectName}" Width="*"/>
+
+                <!-- Kolumna na nazwę zadania -->
+                <DataGridTextColumn Header="Nazwa Zadania" Binding="{Binding TaskName}" Width="*"/>
+
+                <!-- Kolumna na datę rozpoczęcia -->
+                <DataGridTextColumn Header="Data Rozpoczęcia" Binding="{Binding StartDate}" Width="*"/>
+
+                <!-- Kolumna na datę zakończenia -->
+                <DataGridTextColumn Header="Data Zakończenia" Binding="{Binding EndDate}" Width="*"/>
+
+                <!-- Kolumna na status zadania -->
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
+
+                <!-- Kolumna na tagi -->
+                <DataGridTextColumn Header="Tagi" Binding="{Binding Tags}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Przycisk do dodania nowego zadania -->
+        <Button Content="Dodaj Zadanie" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="120" Margin="10,0,0,10" Command="{Binding AddTaskCommand}"/>
+
+        <!-- Przycisk do sortowania po różnych kryteriach -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10">
+            <Button Content="Sortuj po Statusie" Command="{Binding SortByStatusCommand}" Margin="5"/>
+            <Button Content="Sortuj po Tagach" Command="{Binding SortByTagsCommand}" Margin="5"/>
+            <Button Content="Sortuj po Dacie" Command="{Binding SortByDateCommand}" Margin="5"/>
+            <Button Content="Sortuj Alfabetycznie" Command="{Binding SortAlphabeticallyCommand}" Margin="5"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
