@@ -9,6 +9,13 @@
     <DataTemplate DataType="{x:Type vm:NowyTowarViewModel}">
         <vw:NowyTowarView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyProjektViewModel}">
+        <vw:NowyProjektView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:ProjektInfromacjeViewModel}">
+        <vw:ProjektInformacjeView/>
+    </DataTemplate>
+
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
         <Setter Property="HeaderTemplate">

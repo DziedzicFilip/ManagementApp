@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -14,10 +15,12 @@ using System.Windows.Shapes;
 
 namespace ProjectManagementApp.Views
 {
-    
-    public partial class WszystkieProjektyView : UserControl
+    /// <summary>
+    /// Logika interakcji dla klasy NowyProjektView.xaml
+    /// </summary>
+    public partial class NowyProjektView : UserControl
     {
-        public WszystkieProjektyView()
+        public NowyProjektView()
         {
             InitializeComponent();
         }

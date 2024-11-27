@@ -94,14 +94,22 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\NowyProjektViewModel.cs" />
     <Compile Include="ViewModels\NowyTowarViewModel.cs" />
+    <Compile Include="ViewModels\ProjektInfromacjeViewModel.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
     <Compile Include="ViewModels\WszystkieProjektyViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\NowyProjektView.xaml.cs">
+      <DependentUpon>NowyProjektView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NowyTowarView.xaml.cs">
       <DependentUpon>NowyTowarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProjektInformacjeView.xaml.cs">
+      <DependentUpon>ProjektInformacjeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WszystkieProjektyView.xaml.cs">
       <DependentUpon>WszystkieProjektyView.xaml</DependentUpon>
@@ -142,7 +150,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\NowyProjektView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\NowyTowarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProjektInformacjeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -37,13 +37,26 @@ namespace ProjectManagementApp.ViewModels
             {
                 new CommandViewModel(
                     "Projekty",
-                    new BaseCommand(() => this.WszystkieProjkety())),
+                    new BaseCommand(() =>  this.ShowWorkspace<WszystkieProjektyViewModel>())),
 
                 new CommandViewModel(
-                    "Towar",
-                    new BaseCommand(() => this.CreateTowar()))
+                    "Nowy Projekt",
+                    new BaseCommand(() => this.CreateView(new NowyProjektViewModel() ))),
 
-            
+                   new CommandViewModel(
+                    "Nowy Event",
+                    new BaseCommand(() => this.CreateView(new NowyProjektViewModel() ))),
+
+                new CommandViewModel(
+                    "Kalendarz/DeadLine",
+                    new BaseCommand(() => this.ShowWorkspace<WszystkieProjektyViewModel>())),
+
+             
+
+                
+
+
+
             };
         }
         #endregion
@@ -81,20 +94,18 @@ namespace ProjectManagementApp.ViewModels
         #endregion // Workspaces
 
         #region Private Helpers
-        private void CreateTowar()
+
+        private void CreateView(WorkspaceViewModel nowy)
         {
-            NowyTowarViewModel workspace = new NowyTowarViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
+            this.Workspaces.Add(nowy);
+            this.SetActiveWorkspace(nowy);
         }
-        private void WszystkieProjkety()
+        private void ShowWorkspace<T>() where T : WorkspaceViewModel, new()
         {
-            WszystkieProjektyViewModel workspace =
-                this.Workspaces.FirstOrDefault(vm => vm is WszystkieProjektyViewModel)
-                as WszystkieProjektyViewModel;
+            T workspace = this.Workspaces.FirstOrDefault(vm => vm is T) as T;
             if (workspace == null)
             {
-                workspace = new WszystkieProjektyViewModel();
+                workspace = new T();
                 this.Workspaces.Add(workspace);
             }
 
@@ -109,6 +120,8 @@ namespace ProjectManagementApp.ViewModels
             if (collectionView != null)
                 collectionView.MoveCurrentTo(workspace);
         }
+
+        
         #endregion
     }
 }

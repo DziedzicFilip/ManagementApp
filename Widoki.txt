@@ -1,0 +1,32 @@
+-Harmonogram-Wszystkie Eventy i Projekty 
+-DeadLine - Kalendarz z samymi Projektami
+----PROJEKT-------
+	- Nowy Projekt
+	- Info Projekt 
+	- Wszystkie Projekty  
+	- Dodaj Załącznik
+	- Dodaj Notatkę 
+	- Wyświetl Notatkę
+	- Wyświetl Historia projektu 
+-------Event------------ 
+	- Nowy Event
+	- Info Event
+	- Wszystkie Event
+	- Dodaj Załącznik
+	- Dodaj Notatkę 
+	- Wyświetl Notatkę
+	- Wyświetl historie Eventu 
+-------Podsumowanie--------
+	---- Okno Podsumowania - Wykresy z danego okresu - dane 
+	---- Podsumowanie danego projektu  dane  ile czasu w jaki dzień 
+------Logowanie i Rejestracja ----------
+	-Logowanie 
+	-Rejestracja
+	-Wyloguj 
+	-Zaloguj 
+-------Powiadomienia------
+	-Widok
+-------Przypomnienia------
+	-Widok
+-------Czas Pracy------
+	-Widok Czasu Pracy 
