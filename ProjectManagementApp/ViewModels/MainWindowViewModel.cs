@@ -44,16 +44,35 @@ namespace ProjectManagementApp.ViewModels
                     new BaseCommand(() => this.CreateView(new NowyProjektViewModel() ))),
 
                    new CommandViewModel(
-                    "Nowy Event",
-                    new BaseCommand(() => this.CreateView(new NowyProjektViewModel() ))),
+                    "Projket Informacje",
+                    new BaseCommand(() => this.CreateView(new ProjektInfromacjeViewModel() ))),
 
                 new CommandViewModel(
-                    "Kalendarz/DeadLine",
-                    new BaseCommand(() => this.ShowWorkspace<WszystkieProjektyViewModel>())),
+                    "Tresc Notatki",
+                    new BaseCommand(() => this.CreateView(new WyswietlNotatkeViewModel() ))),
+                new CommandViewModel(
+                    "Historia Projektu ",
+                    new BaseCommand(() => this.CreateView(new WyswietlHistorieProjektuViewModel() ))),
+                new CommandViewModel(
+                    "Nowy Event ",
+                    new BaseCommand(() => this.CreateView(new NowyEventViewModel() ))),
+                new CommandViewModel(
+                    "Event informacje",
+                    new BaseCommand(() => this.CreateView(new InformacjeEventViewModel() ))),
+                 new CommandViewModel(
+                    "Eventy",
+                    new BaseCommand(() =>  this.ShowWorkspace<WszystkieEventyViewModel>())),
+                  new CommandViewModel(
+                    "Event Historia",
+                    new BaseCommand(() => this.CreateView(new WyswietlHistorieEventuViewModel () ))),
 
-             
+                  
 
-                
+
+
+
+
+
 
 
 

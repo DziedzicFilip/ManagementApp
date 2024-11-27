@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementApp.ViewModels
 {
-    public class ProjektInfromacjeViewModel : WorkspaceViewModel
+    public class WyswietlHistorieEventuViewModel : WorkspaceViewModel
     {
-        ProjektInfromacjeViewModel() {
-
-            base.DisplayName = " Projekt Informacje";
+        public WyswietlHistorieEventuViewModel() {
+            base.DisplayName = " Historia Eventu";
         }
     }
 }

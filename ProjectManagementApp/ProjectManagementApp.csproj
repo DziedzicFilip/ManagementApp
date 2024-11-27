@@ -91,28 +91,49 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\BaseCommand.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
+    <Compile Include="ViewModels\Eventy\InformacjeEventViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\NowyProjektViewModel.cs" />
-    <Compile Include="ViewModels\NowyTowarViewModel.cs" />
-    <Compile Include="ViewModels\ProjektInfromacjeViewModel.cs" />
+    <Compile Include="ViewModels\Eventy\NowyEventViewModel.cs" />
+    <Compile Include="ViewModels\Projekty\NowyProjektViewModel.cs" />
+    <Compile Include="ViewModels\Projekty\ProjektInfromacjeViewModel.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
-    <Compile Include="ViewModels\WszystkieProjektyViewModel.cs" />
+    <Compile Include="ViewModels\Projekty\WszystkieProjektyViewModel.cs" />
+    <Compile Include="ViewModels\Projekty\WyswietlHistorieProjektuViewModel.cs" />
+    <Compile Include="ViewModels\Eventy\WszystkieEventyViewModel.cs" />
+    <Compile Include="ViewModels\Eventy\WyswietlHistorieEventuViewModel.cs" />
+    <Compile Include="ViewModels\Dodatki\WyswietlNotatkeViewModel.cs" />
+    <Compile Include="Views\Events\InformacjeEventView.xaml.cs">
+      <DependentUpon>InformacjeEventView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NowyProjektView.xaml.cs">
+    <Compile Include="Views\Events\NowyEventView.xaml.cs">
+      <DependentUpon>NowyEventView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Projekty\NowyProjektView.xaml.cs">
       <DependentUpon>NowyProjektView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NowyTowarView.xaml.cs">
-      <DependentUpon>NowyTowarView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ProjektInformacjeView.xaml.cs">
+    <Compile Include="Views\Projekty\ProjektInformacjeView.xaml.cs">
       <DependentUpon>ProjektInformacjeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WszystkieProjektyView.xaml.cs">
+    <Compile Include="Views\Projekty\WszystkieProjektyView.xaml.cs">
       <DependentUpon>WszystkieProjektyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Projekty\WyswietlHistorieProjketuView.xaml.cs">
+      <DependentUpon>WyswietlHistorieProjketuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Events\WszystkieEventyView.xaml.cs">
+      <DependentUpon>WszystkieEventyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Events\WyswietlHistorieEventuView.xaml.cs">
+      <DependentUpon>WyswietlHistorieEventuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dodatki\WyswietlNotatkeView.xaml.cs">
+      <DependentUpon>WyswietlNotatkeView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +163,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\Events\InformacjeEventView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,26 +175,40 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NowyProjektView.xaml">
+    <Page Include="Views\Events\NowyEventView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NowyTowarView.xaml">
+    <Page Include="Views\Projekty\NowyProjektView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ProjektInformacjeView.xaml">
+    <Page Include="Views\Projekty\ProjektInformacjeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WszystkieProjektyView.xaml">
+    <Page Include="Views\Projekty\WszystkieProjektyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Projekty\WyswietlHistorieProjketuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Events\WszystkieEventyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Events\WyswietlHistorieEventuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dodatki\WyswietlNotatkeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\CommunityToolkit.Mvvm.8.3.2\build\CommunityToolkit.Mvvm.targets" Condition="Exists('..\packages\CommunityToolkit.Mvvm.8.3.2\build\CommunityToolkit.Mvvm.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

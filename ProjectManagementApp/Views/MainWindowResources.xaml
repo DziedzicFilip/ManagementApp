@@ -6,15 +6,39 @@
     <DataTemplate DataType="{x:Type vm:WszystkieProjektyViewModel}">
         <vw:WszystkieProjektyView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NowyTowarViewModel}">
-        <vw:NowyTowarView/>
-    </DataTemplate>
     <DataTemplate DataType="{x:Type vm:NowyProjektViewModel}">
         <vw:NowyProjektView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type vm:ProjektInfromacjeViewModel}">
         <vw:ProjektInformacjeView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:WyswietlNotatkeViewModel}">
+        <vw:WyswietlNotatkeView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:WyswietlHistorieProjektuViewModel}">
+        <vw:WyswietlHistorieProjketuView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyEventViewModel}">
+        <vw:NowyEventView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:InformacjeEventViewModel}">
+        <vw:InformacjeEventView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:WszystkieEventyViewModel}">
+        <vw:WszystkieEventyView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:WyswietlHistorieEventuViewModel}">
+        <vw:WyswietlHistorieEventuView/>
+    </DataTemplate>
+    
+
+
+
+
+
+
+
+
 
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
