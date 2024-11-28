@@ -1,12 +1,70 @@
 ﻿<UserControl x:Class="ProjectManagementApp.Views.NowyProjektView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ProjectManagementApp.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="WHite">
-        <Label>interfejs - Dodawanie nowego projektu</Label>
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+              Width="400">
+
+    <Grid Margin="20">
+        <!-- Tytuł formularza z większym marginesem u góry -->
+       
+
+        <StackPanel VerticalAlignment="Top">
+            <TextBlock Text="Dodaj Nowy Projekt" FontSize="20" FontWeight="Bold" Margin="0,0,0,30" HorizontalAlignment="Center"/>
+            <!-- Pole do wprowadzenia Nazwy projektu -->
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock Text="Nazwa projektu:" FontWeight="Bold"/>
+                <TextBox Name="ProjectNameTextBox" Width="300" />
+            </StackPanel>
+
+            <!-- Pole do wprowadzenia Opisu -->
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock Text="Opis projektu:" FontWeight="Bold"/>
+                <TextBox Name="ProjectDescriptionTextBox" Width="300" Height="100" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+            </StackPanel>
+
+            <!-- Data rozpoczęcia -->
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock Text="Data rozpoczęcia:" FontWeight="Bold"/>
+                <DatePicker Name="StartDatePicker" Width="300"/>
+            </StackPanel>
+
+            <!-- Data zakończenia -->
+         
+
+            <!-- Status -->
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock Text="Status projektu:" FontWeight="Bold"/>
+                <ComboBox Name="ProjectStatusComboBox" Width="300">
+                    <ComboBoxItem Content="Nie Rozpoczęty"/>
+                    <ComboBoxItem Content="W Trakcie"/>
+                    <ComboBoxItem Content="Zakończony"/>
+                    <ComboBoxItem Content="Wstrzymany"/>
+                </ComboBox>
+            </StackPanel>
+
+            <!-- Priorytet -->
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock Text="Priorytet projektu:" FontWeight="Bold"/>
+                <ComboBox Name="PriorityComboBox" Width="300">
+                    <ComboBoxItem Content="Niski"/>
+                    <ComboBoxItem Content="Średni"/>
+                    <ComboBoxItem Content="Wysoki"/>
+                </ComboBox>
+            </StackPanel>
+
+            <!-- Termin -->
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock Text="Termin realizacji:" FontWeight="Bold"/>
+                <DatePicker Name="DeadlineDatePicker" Width="300"/>
+            </StackPanel>
+
+            <!-- Przyciski -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <Button Content="Dodaj Projekt" Width="120" Click="AddProject_Click" Margin="0,0,10,0"/>
+                <Button Content="Anuluj" Width="120" Click="Cancel_Click"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -24,5 +24,41 @@ namespace ProjectManagementApp.Views
         {
             InitializeComponent();
         }
+        private void AddProject_Click(object sender, RoutedEventArgs e)
+        {
+            string projectName = ProjectNameTextBox.Text;
+            string projectDescription = ProjectDescriptionTextBox.Text;
+            DateTime? startDate = StartDatePicker.SelectedDate;
+            
+            string projectStatus = (ProjectStatusComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
+            string priority = (PriorityComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
+            DateTime? deadline = DeadlineDatePicker.SelectedDate;
+
+            // Wykonaj logikę dodawania projektu (np. zapis do bazy danych)
+
+            MessageBox.Show("Projekt został dodany pomyślnie!");
+
+            // Możesz wyczyścić formularz po dodaniu projektu
+            ClearForm();
+        }
+
+        // Obsługuje kliknięcie przycisku "Anuluj"
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            // Zamyka UserControl lub zamienia na widok główny
+            this.Visibility = Visibility.Collapsed;
+        }
+
+        // Funkcja do czyszczenia formularza
+        private void ClearForm()
+        {
+            ProjectNameTextBox.Clear();
+            ProjectDescriptionTextBox.Clear();
+            StartDatePicker.SelectedDate = null;
+           
+            ProjectStatusComboBox.SelectedIndex = -1;
+            PriorityComboBox.SelectedIndex = -1;
+            DeadlineDatePicker.SelectedDate = null;
+        }
     }
 }
