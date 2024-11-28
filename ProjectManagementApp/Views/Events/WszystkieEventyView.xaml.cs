@@ -18,7 +18,7 @@ namespace ProjectManagementApp.Views
     /// <summary>
     /// Logika interakcji dla klasy WszystkieEventyView.xaml
     /// </summary>
-    public partial class WszystkieEventyView : UserControl
+    public partial class WszystkieEventyView : WszystkieViewBase
     {
         public WszystkieEventyView()
         {

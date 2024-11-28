@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace ProjectManagementApp.Views
 {
     
-    public partial class WszystkieProjektyView : UserControl
+    public partial class WszystkieProjektyView : WszystkieViewBase
     {
         public WszystkieProjektyView()
         {

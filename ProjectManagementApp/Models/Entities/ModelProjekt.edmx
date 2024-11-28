@@ -1,0 +1,1148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ZarzadanieProjektami2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BudzetProjektu">
+          <Key>
+            <PropertyRef Name="budzet_id" />
+          </Key>
+          <Property Name="budzet_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="projekt_id" Type="int" />
+          <Property Name="calkowity_budzet" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="wydana_kwota" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="pozostala_kwota" Type="decimal" Precision="15" Scale="2" />
+        </EntityType>
+        <EntityType Name="HistoriaDzialanProjektu">
+          <Key>
+            <PropertyRef Name="historia_id" />
+          </Key>
+          <Property Name="historia_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="projekt_id" Type="int" />
+          <Property Name="dzialanie" Type="text" />
+          <Property Name="data_zdarzenia" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LogiZadan">
+          <Key>
+            <PropertyRef Name="log_id" />
+          </Key>
+          <Property Name="log_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="zadanie_id" Type="int" />
+          <Property Name="dzialanie" Type="text" />
+          <Property Name="status_przed" Type="varchar" MaxLength="20" />
+          <Property Name="status_po" Type="varchar" MaxLength="20" />
+          <Property Name="data_zmiany" Type="datetime" />
+        </EntityType>
+        <EntityType Name="NotatkiProjekty">
+          <Key>
+            <PropertyRef Name="notatka_id" />
+          </Key>
+          <Property Name="notatka_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="projekt_id" Type="int" />
+          <Property Name="tresc_notatki" Type="text" />
+          <Property Name="data_utworzenia" Type="datetime" />
+        </EntityType>
+        <EntityType Name="NotatkiWydarzenia">
+          <Key>
+            <PropertyRef Name="notatka_id" />
+          </Key>
+          <Property Name="notatka_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wydarzenie_id" Type="int" />
+          <Property Name="tresc_notatki" Type="text" />
+          <Property Name="data_utworzenia" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PlikiProjekty">
+          <Key>
+            <PropertyRef Name="plik_id" />
+          </Key>
+          <Property Name="plik_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="projekt_id" Type="int" />
+          <Property Name="nazwa_pliku" Type="varchar" MaxLength="255" />
+          <Property Name="sciezka_pliku" Type="varchar" MaxLength="255" />
+          <Property Name="data_wgrania" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PlikiWydarzenia">
+          <Key>
+            <PropertyRef Name="plik_id" />
+          </Key>
+          <Property Name="plik_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wydarzenie_id" Type="int" />
+          <Property Name="nazwa_pliku" Type="varchar" MaxLength="255" />
+          <Property Name="sciezka_pliku" Type="varchar" MaxLength="255" />
+          <Property Name="data_wgrania" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PodsumowanieCzasu">
+          <Key>
+            <PropertyRef Name="podsumowanie_id" />
+          </Key>
+          <Property Name="podsumowanie_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="projekt_id" Type="int" />
+          <Property Name="calkowity_czas" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="data_rozpoczecia" Type="datetime" />
+          <Property Name="data_zakonczenia" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Projekty">
+          <Key>
+            <PropertyRef Name="projekt_id" />
+          </Key>
+          <Property Name="projekt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="opis" Type="text" />
+          <Property Name="data_rozpoczecia" Type="datetime" />
+          <Property Name="data_zakonczenia" Type="datetime" />
+          <Property Name="status" Type="varchar" MaxLength="20" />
+          <Property Name="priorytet" Type="varchar" MaxLength="20" />
+          <Property Name="termin" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RejestrCzasuPracyProjekt">
+          <Key>
+            <PropertyRef Name="rejestr_id" />
+          </Key>
+          <Property Name="rejestr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="projekt_id" Type="int" />
+          <Property Name="czas_spedzony" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="data" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RyzykaProjektu">
+          <Key>
+            <PropertyRef Name="ryzyko_id" />
+          </Key>
+          <Property Name="ryzyko_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="projekt_id" Type="int" />
+          <Property Name="opis" Type="text" />
+          <Property Name="wplyw" Type="varchar" MaxLength="20" />
+          <Property Name="prawdopodobienstwo" Type="varchar" MaxLength="20" />
+          <Property Name="srodki_zapobiegawcze" Type="text" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tagi">
+          <Key>
+            <PropertyRef Name="tag_id" />
+          </Key>
+          <Property Name="tag_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TagiProjekty">
+          <Key>
+            <PropertyRef Name="projekt_id" />
+            <PropertyRef Name="tag_id" />
+          </Key>
+          <Property Name="projekt_id" Type="int" Nullable="false" />
+          <Property Name="tag_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TagiWydarzenia">
+          <Key>
+            <PropertyRef Name="wydarzenie_id" />
+            <PropertyRef Name="tag_id" />
+          </Key>
+          <Property Name="wydarzenie_id" Type="int" Nullable="false" />
+          <Property Name="tag_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TagiZadania">
+          <Key>
+            <PropertyRef Name="zadanie_id" />
+            <PropertyRef Name="tag_id" />
+          </Key>
+          <Property Name="zadanie_id" Type="int" Nullable="false" />
+          <Property Name="tag_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wydarzenia">
+          <Key>
+            <PropertyRef Name="wydarzenie_id" />
+          </Key>
+          <Property Name="wydarzenie_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="255" />
+          <Property Name="data_rozpoczecia" Type="datetime" />
+          <Property Name="data_zakonczenia" Type="datetime" />
+          <Property Name="opis" Type="text" />
+        </EntityType>
+        <EntityType Name="Zadania">
+          <Key>
+            <PropertyRef Name="zadanie_id" />
+          </Key>
+          <Property Name="zadanie_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="projekt_id" Type="int" />
+          <Property Name="nazwa" Type="varchar" MaxLength="255" />
+          <Property Name="opis" Type="text" />
+          <Property Name="status" Type="varchar" MaxLength="20" />
+          <Property Name="data_rozpoczecia" Type="datetime" />
+          <Property Name="data_zakonczenia" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__BudzetPro__proje__6D0D32F4">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BudzetProjektu" Type="Self.BudzetProjektu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="BudzetProjektu">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HistoriaD__proje__52593CB8">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HistoriaDzialanProjektu" Type="Self.HistoriaDzialanProjektu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="HistoriaDzialanProjektu">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LogiZadan__zadan__778AC167">
+          <End Role="Zadania" Type="Self.Zadania" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LogiZadan" Type="Self.LogiZadan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zadania">
+              <PropertyRef Name="zadanie_id" />
+            </Principal>
+            <Dependent Role="LogiZadan">
+              <PropertyRef Name="zadanie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NotatkiPr__proje__3E52440B">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NotatkiProjekty" Type="Self.NotatkiProjekty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="NotatkiProjekty">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NotatkiWy__wydar__47DBAE45">
+          <End Role="Wydarzenia" Type="Self.Wydarzenia" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NotatkiWydarzenia" Type="Self.NotatkiWydarzenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wydarzenia">
+              <PropertyRef Name="wydarzenie_id" />
+            </Principal>
+            <Dependent Role="NotatkiWydarzenia">
+              <PropertyRef Name="wydarzenie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PlikiProj__proje__4222D4EF">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PlikiProjekty" Type="Self.PlikiProjekty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="PlikiProjekty">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PlikiWyda__wydar__4BAC3F29">
+          <End Role="Wydarzenia" Type="Self.Wydarzenia" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PlikiWydarzenia" Type="Self.PlikiWydarzenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wydarzenia">
+              <PropertyRef Name="wydarzenie_id" />
+            </Principal>
+            <Dependent Role="PlikiWydarzenia">
+              <PropertyRef Name="wydarzenie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Podsumowa__proje__5812160E">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PodsumowanieCzasu" Type="Self.PodsumowanieCzasu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="PodsumowanieCzasu">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RejestrCz__proje__5535A963">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RejestrCzasuPracyProjekt" Type="Self.RejestrCzasuPracyProjekt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="RejestrCzasuPracyProjekt">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RyzykaPro__proje__71D1E811">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RyzykaProjektu" Type="Self.RyzykaProjektu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="RyzykaProjektu">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TagiProje__proje__619B8048">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TagiProjekty" Type="Self.TagiProjekty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="TagiProjekty">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TagiProje__tag_i__628FA481">
+          <End Role="Tagi" Type="Self.Tagi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TagiProjekty" Type="Self.TagiProjekty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tagi">
+              <PropertyRef Name="tag_id" />
+            </Principal>
+            <Dependent Role="TagiProjekty">
+              <PropertyRef Name="tag_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TagiWydar__tag_i__6A30C649">
+          <End Role="Tagi" Type="Self.Tagi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TagiWydarzenia" Type="Self.TagiWydarzenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tagi">
+              <PropertyRef Name="tag_id" />
+            </Principal>
+            <Dependent Role="TagiWydarzenia">
+              <PropertyRef Name="tag_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TagiWydar__wydar__693CA210">
+          <End Role="Wydarzenia" Type="Self.Wydarzenia" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TagiWydarzenia" Type="Self.TagiWydarzenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wydarzenia">
+              <PropertyRef Name="wydarzenie_id" />
+            </Principal>
+            <Dependent Role="TagiWydarzenia">
+              <PropertyRef Name="wydarzenie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TagiZadan__tag_i__66603565">
+          <End Role="Tagi" Type="Self.Tagi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TagiZadania" Type="Self.TagiZadania" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tagi">
+              <PropertyRef Name="tag_id" />
+            </Principal>
+            <Dependent Role="TagiZadania">
+              <PropertyRef Name="tag_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TagiZadan__zadan__656C112C">
+          <End Role="Zadania" Type="Self.Zadania" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TagiZadania" Type="Self.TagiZadania" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zadania">
+              <PropertyRef Name="zadanie_id" />
+            </Principal>
+            <Dependent Role="TagiZadania">
+              <PropertyRef Name="zadanie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zadania__projekt__5CD6CB2B">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Zadania" Type="Self.Zadania" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="Zadania">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ZarzadanieProjektami2ModelStoreContainer">
+          <EntitySet Name="BudzetProjektu" EntityType="Self.BudzetProjektu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistoriaDzialanProjektu" EntityType="Self.HistoriaDzialanProjektu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogiZadan" EntityType="Self.LogiZadan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NotatkiProjekty" EntityType="Self.NotatkiProjekty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NotatkiWydarzenia" EntityType="Self.NotatkiWydarzenia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlikiProjekty" EntityType="Self.PlikiProjekty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlikiWydarzenia" EntityType="Self.PlikiWydarzenia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PodsumowanieCzasu" EntityType="Self.PodsumowanieCzasu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projekty" EntityType="Self.Projekty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RejestrCzasuPracyProjekt" EntityType="Self.RejestrCzasuPracyProjekt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RyzykaProjektu" EntityType="Self.RyzykaProjektu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tagi" EntityType="Self.Tagi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TagiProjekty" EntityType="Self.TagiProjekty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TagiWydarzenia" EntityType="Self.TagiWydarzenia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TagiZadania" EntityType="Self.TagiZadania" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wydarzenia" EntityType="Self.Wydarzenia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zadania" EntityType="Self.Zadania" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__BudzetPro__proje__6D0D32F4" Association="Self.FK__BudzetPro__proje__6D0D32F4">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="BudzetProjektu" EntitySet="BudzetProjektu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HistoriaD__proje__52593CB8" Association="Self.FK__HistoriaD__proje__52593CB8">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="HistoriaDzialanProjektu" EntitySet="HistoriaDzialanProjektu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LogiZadan__zadan__778AC167" Association="Self.FK__LogiZadan__zadan__778AC167">
+            <End Role="Zadania" EntitySet="Zadania" />
+            <End Role="LogiZadan" EntitySet="LogiZadan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NotatkiPr__proje__3E52440B" Association="Self.FK__NotatkiPr__proje__3E52440B">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="NotatkiProjekty" EntitySet="NotatkiProjekty" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NotatkiWy__wydar__47DBAE45" Association="Self.FK__NotatkiWy__wydar__47DBAE45">
+            <End Role="Wydarzenia" EntitySet="Wydarzenia" />
+            <End Role="NotatkiWydarzenia" EntitySet="NotatkiWydarzenia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PlikiProj__proje__4222D4EF" Association="Self.FK__PlikiProj__proje__4222D4EF">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="PlikiProjekty" EntitySet="PlikiProjekty" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PlikiWyda__wydar__4BAC3F29" Association="Self.FK__PlikiWyda__wydar__4BAC3F29">
+            <End Role="Wydarzenia" EntitySet="Wydarzenia" />
+            <End Role="PlikiWydarzenia" EntitySet="PlikiWydarzenia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Podsumowa__proje__5812160E" Association="Self.FK__Podsumowa__proje__5812160E">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="PodsumowanieCzasu" EntitySet="PodsumowanieCzasu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RejestrCz__proje__5535A963" Association="Self.FK__RejestrCz__proje__5535A963">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="RejestrCzasuPracyProjekt" EntitySet="RejestrCzasuPracyProjekt" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RyzykaPro__proje__71D1E811" Association="Self.FK__RyzykaPro__proje__71D1E811">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="RyzykaProjektu" EntitySet="RyzykaProjektu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TagiProje__proje__619B8048" Association="Self.FK__TagiProje__proje__619B8048">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="TagiProjekty" EntitySet="TagiProjekty" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TagiProje__tag_i__628FA481" Association="Self.FK__TagiProje__tag_i__628FA481">
+            <End Role="Tagi" EntitySet="Tagi" />
+            <End Role="TagiProjekty" EntitySet="TagiProjekty" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TagiWydar__tag_i__6A30C649" Association="Self.FK__TagiWydar__tag_i__6A30C649">
+            <End Role="Tagi" EntitySet="Tagi" />
+            <End Role="TagiWydarzenia" EntitySet="TagiWydarzenia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TagiWydar__wydar__693CA210" Association="Self.FK__TagiWydar__wydar__693CA210">
+            <End Role="Wydarzenia" EntitySet="Wydarzenia" />
+            <End Role="TagiWydarzenia" EntitySet="TagiWydarzenia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TagiZadan__tag_i__66603565" Association="Self.FK__TagiZadan__tag_i__66603565">
+            <End Role="Tagi" EntitySet="Tagi" />
+            <End Role="TagiZadania" EntitySet="TagiZadania" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TagiZadan__zadan__656C112C" Association="Self.FK__TagiZadan__zadan__656C112C">
+            <End Role="Zadania" EntitySet="Zadania" />
+            <End Role="TagiZadania" EntitySet="TagiZadania" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zadania__projekt__5CD6CB2B" Association="Self.FK__Zadania__projekt__5CD6CB2B">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="Zadania" EntitySet="Zadania" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ZarzadanieProjektami2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BudzetProjektu">
+          <Key>
+            <PropertyRef Name="budzet_id" />
+          </Key>
+          <Property Name="budzet_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projekt_id" Type="Int32" />
+          <Property Name="calkowity_budzet" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="wydana_kwota" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="pozostala_kwota" Type="Decimal" Precision="15" Scale="2" />
+          <NavigationProperty Name="Projekty" Relationship="Self.FK__BudzetPro__proje__6D0D32F4" FromRole="BudzetProjektu" ToRole="Projekty" />
+        </EntityType>
+        <EntityType Name="HistoriaDzialanProjektu">
+          <Key>
+            <PropertyRef Name="historia_id" />
+          </Key>
+          <Property Name="historia_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projekt_id" Type="Int32" />
+          <Property Name="dzialanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="data_zdarzenia" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Projekty" Relationship="Self.FK__HistoriaD__proje__52593CB8" FromRole="HistoriaDzialanProjektu" ToRole="Projekty" />
+        </EntityType>
+        <EntityType Name="LogiZadan">
+          <Key>
+            <PropertyRef Name="log_id" />
+          </Key>
+          <Property Name="log_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="zadanie_id" Type="Int32" />
+          <Property Name="dzialanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="status_przed" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="status_po" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="data_zmiany" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Zadania" Relationship="Self.FK__LogiZadan__zadan__778AC167" FromRole="LogiZadan" ToRole="Zadania" />
+        </EntityType>
+        <EntityType Name="NotatkiProjekty">
+          <Key>
+            <PropertyRef Name="notatka_id" />
+          </Key>
+          <Property Name="notatka_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projekt_id" Type="Int32" />
+          <Property Name="tresc_notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="data_utworzenia" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Projekty" Relationship="Self.FK__NotatkiPr__proje__3E52440B" FromRole="NotatkiProjekty" ToRole="Projekty" />
+        </EntityType>
+        <EntityType Name="NotatkiWydarzenia">
+          <Key>
+            <PropertyRef Name="notatka_id" />
+          </Key>
+          <Property Name="notatka_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wydarzenie_id" Type="Int32" />
+          <Property Name="tresc_notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="data_utworzenia" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Wydarzenia" Relationship="Self.FK__NotatkiWy__wydar__47DBAE45" FromRole="NotatkiWydarzenia" ToRole="Wydarzenia" />
+        </EntityType>
+        <EntityType Name="PlikiProjekty">
+          <Key>
+            <PropertyRef Name="plik_id" />
+          </Key>
+          <Property Name="plik_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projekt_id" Type="Int32" />
+          <Property Name="nazwa_pliku" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="sciezka_pliku" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="data_wgrania" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Projekty" Relationship="Self.FK__PlikiProj__proje__4222D4EF" FromRole="PlikiProjekty" ToRole="Projekty" />
+        </EntityType>
+        <EntityType Name="PlikiWydarzenia">
+          <Key>
+            <PropertyRef Name="plik_id" />
+          </Key>
+          <Property Name="plik_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wydarzenie_id" Type="Int32" />
+          <Property Name="nazwa_pliku" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="sciezka_pliku" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="data_wgrania" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Wydarzenia" Relationship="Self.FK__PlikiWyda__wydar__4BAC3F29" FromRole="PlikiWydarzenia" ToRole="Wydarzenia" />
+        </EntityType>
+        <EntityType Name="PodsumowanieCzasu">
+          <Key>
+            <PropertyRef Name="podsumowanie_id" />
+          </Key>
+          <Property Name="podsumowanie_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projekt_id" Type="Int32" />
+          <Property Name="calkowity_czas" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="data_rozpoczecia" Type="DateTime" Precision="3" />
+          <Property Name="data_zakonczenia" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Projekty" Relationship="Self.FK__Podsumowa__proje__5812160E" FromRole="PodsumowanieCzasu" ToRole="Projekty" />
+        </EntityType>
+        <EntityType Name="Projekty">
+          <Key>
+            <PropertyRef Name="projekt_id" />
+          </Key>
+          <Property Name="projekt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="data_rozpoczecia" Type="DateTime" Precision="3" />
+          <Property Name="data_zakonczenia" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="priorytet" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="termin" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BudzetProjektu" Relationship="Self.FK__BudzetPro__proje__6D0D32F4" FromRole="Projekty" ToRole="BudzetProjektu" />
+          <NavigationProperty Name="HistoriaDzialanProjektu" Relationship="Self.FK__HistoriaD__proje__52593CB8" FromRole="Projekty" ToRole="HistoriaDzialanProjektu" />
+          <NavigationProperty Name="NotatkiProjekty" Relationship="Self.FK__NotatkiPr__proje__3E52440B" FromRole="Projekty" ToRole="NotatkiProjekty" />
+          <NavigationProperty Name="PlikiProjekty" Relationship="Self.FK__PlikiProj__proje__4222D4EF" FromRole="Projekty" ToRole="PlikiProjekty" />
+          <NavigationProperty Name="PodsumowanieCzasu" Relationship="Self.FK__Podsumowa__proje__5812160E" FromRole="Projekty" ToRole="PodsumowanieCzasu" />
+          <NavigationProperty Name="RejestrCzasuPracyProjekt" Relationship="Self.FK__RejestrCz__proje__5535A963" FromRole="Projekty" ToRole="RejestrCzasuPracyProjekt" />
+          <NavigationProperty Name="RyzykaProjektu" Relationship="Self.FK__RyzykaPro__proje__71D1E811" FromRole="Projekty" ToRole="RyzykaProjektu" />
+          <NavigationProperty Name="Zadania" Relationship="Self.FK__Zadania__projekt__5CD6CB2B" FromRole="Projekty" ToRole="Zadania" />
+          <NavigationProperty Name="Tagi" Relationship="Self.TagiProjekty" FromRole="Projekty" ToRole="Tagi" />
+        </EntityType>
+        <EntityType Name="RejestrCzasuPracyProjekt">
+          <Key>
+            <PropertyRef Name="rejestr_id" />
+          </Key>
+          <Property Name="rejestr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projekt_id" Type="Int32" />
+          <Property Name="czas_spedzony" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="data" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Projekty" Relationship="Self.FK__RejestrCz__proje__5535A963" FromRole="RejestrCzasuPracyProjekt" ToRole="Projekty" />
+        </EntityType>
+        <EntityType Name="RyzykaProjektu">
+          <Key>
+            <PropertyRef Name="ryzyko_id" />
+          </Key>
+          <Property Name="ryzyko_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projekt_id" Type="Int32" />
+          <Property Name="opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="wplyw" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="prawdopodobienstwo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="srodki_zapobiegawcze" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Projekty" Relationship="Self.FK__RyzykaPro__proje__71D1E811" FromRole="RyzykaProjektu" ToRole="Projekty" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tagi">
+          <Key>
+            <PropertyRef Name="tag_id" />
+          </Key>
+          <Property Name="tag_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Projekty" Relationship="Self.TagiProjekty" FromRole="Tagi" ToRole="Projekty" />
+          <NavigationProperty Name="Wydarzenia" Relationship="Self.TagiWydarzenia" FromRole="Tagi" ToRole="Wydarzenia" />
+          <NavigationProperty Name="Zadania" Relationship="Self.TagiZadania" FromRole="Tagi" ToRole="Zadania" />
+        </EntityType>
+        <EntityType Name="Wydarzenia">
+          <Key>
+            <PropertyRef Name="wydarzenie_id" />
+          </Key>
+          <Property Name="wydarzenie_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="data_rozpoczecia" Type="DateTime" Precision="3" />
+          <Property Name="data_zakonczenia" Type="DateTime" Precision="3" />
+          <Property Name="opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NotatkiWydarzenia" Relationship="Self.FK__NotatkiWy__wydar__47DBAE45" FromRole="Wydarzenia" ToRole="NotatkiWydarzenia" />
+          <NavigationProperty Name="PlikiWydarzenia" Relationship="Self.FK__PlikiWyda__wydar__4BAC3F29" FromRole="Wydarzenia" ToRole="PlikiWydarzenia" />
+          <NavigationProperty Name="Tagi" Relationship="Self.TagiWydarzenia" FromRole="Wydarzenia" ToRole="Tagi" />
+        </EntityType>
+        <EntityType Name="Zadania">
+          <Key>
+            <PropertyRef Name="zadanie_id" />
+          </Key>
+          <Property Name="zadanie_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projekt_id" Type="Int32" />
+          <Property Name="nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="data_rozpoczecia" Type="DateTime" Precision="3" />
+          <Property Name="data_zakonczenia" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="LogiZadan" Relationship="Self.FK__LogiZadan__zadan__778AC167" FromRole="Zadania" ToRole="LogiZadan" />
+          <NavigationProperty Name="Projekty" Relationship="Self.FK__Zadania__projekt__5CD6CB2B" FromRole="Zadania" ToRole="Projekty" />
+          <NavigationProperty Name="Tagi" Relationship="Self.TagiZadania" FromRole="Zadania" ToRole="Tagi" />
+        </EntityType>
+        <Association Name="FK__BudzetPro__proje__6D0D32F4">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BudzetProjektu" Type="Self.BudzetProjektu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="BudzetProjektu">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HistoriaD__proje__52593CB8">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HistoriaDzialanProjektu" Type="Self.HistoriaDzialanProjektu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="HistoriaDzialanProjektu">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LogiZadan__zadan__778AC167">
+          <End Role="Zadania" Type="Self.Zadania" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LogiZadan" Type="Self.LogiZadan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zadania">
+              <PropertyRef Name="zadanie_id" />
+            </Principal>
+            <Dependent Role="LogiZadan">
+              <PropertyRef Name="zadanie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NotatkiPr__proje__3E52440B">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NotatkiProjekty" Type="Self.NotatkiProjekty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="NotatkiProjekty">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NotatkiWy__wydar__47DBAE45">
+          <End Role="Wydarzenia" Type="Self.Wydarzenia" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NotatkiWydarzenia" Type="Self.NotatkiWydarzenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wydarzenia">
+              <PropertyRef Name="wydarzenie_id" />
+            </Principal>
+            <Dependent Role="NotatkiWydarzenia">
+              <PropertyRef Name="wydarzenie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PlikiProj__proje__4222D4EF">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PlikiProjekty" Type="Self.PlikiProjekty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="PlikiProjekty">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PlikiWyda__wydar__4BAC3F29">
+          <End Role="Wydarzenia" Type="Self.Wydarzenia" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PlikiWydarzenia" Type="Self.PlikiWydarzenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wydarzenia">
+              <PropertyRef Name="wydarzenie_id" />
+            </Principal>
+            <Dependent Role="PlikiWydarzenia">
+              <PropertyRef Name="wydarzenie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Podsumowa__proje__5812160E">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PodsumowanieCzasu" Type="Self.PodsumowanieCzasu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="PodsumowanieCzasu">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RejestrCz__proje__5535A963">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RejestrCzasuPracyProjekt" Type="Self.RejestrCzasuPracyProjekt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="RejestrCzasuPracyProjekt">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RyzykaPro__proje__71D1E811">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RyzykaProjektu" Type="Self.RyzykaProjektu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="RyzykaProjektu">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zadania__projekt__5CD6CB2B">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Zadania" Type="Self.Zadania" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekty">
+              <PropertyRef Name="projekt_id" />
+            </Principal>
+            <Dependent Role="Zadania">
+              <PropertyRef Name="projekt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TagiProjekty">
+          <End Role="Projekty" Type="Self.Projekty" Multiplicity="*" />
+          <End Role="Tagi" Type="Self.Tagi" Multiplicity="*" />
+        </Association>
+        <Association Name="TagiWydarzenia">
+          <End Role="Tagi" Type="Self.Tagi" Multiplicity="*" />
+          <End Role="Wydarzenia" Type="Self.Wydarzenia" Multiplicity="*" />
+        </Association>
+        <Association Name="TagiZadania">
+          <End Role="Tagi" Type="Self.Tagi" Multiplicity="*" />
+          <End Role="Zadania" Type="Self.Zadania" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="ZarzadanieProjektami2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BudzetProjektu" EntityType="Self.BudzetProjektu" />
+          <EntitySet Name="HistoriaDzialanProjektu" EntityType="Self.HistoriaDzialanProjektu" />
+          <EntitySet Name="LogiZadan" EntityType="Self.LogiZadan" />
+          <EntitySet Name="NotatkiProjekty" EntityType="Self.NotatkiProjekty" />
+          <EntitySet Name="NotatkiWydarzenia" EntityType="Self.NotatkiWydarzenia" />
+          <EntitySet Name="PlikiProjekty" EntityType="Self.PlikiProjekty" />
+          <EntitySet Name="PlikiWydarzenia" EntityType="Self.PlikiWydarzenia" />
+          <EntitySet Name="PodsumowanieCzasu" EntityType="Self.PodsumowanieCzasu" />
+          <EntitySet Name="Projekty" EntityType="Self.Projekty" />
+          <EntitySet Name="RejestrCzasuPracyProjekt" EntityType="Self.RejestrCzasuPracyProjekt" />
+          <EntitySet Name="RyzykaProjektu" EntityType="Self.RyzykaProjektu" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tagi" EntityType="Self.Tagi" />
+          <EntitySet Name="Wydarzenia" EntityType="Self.Wydarzenia" />
+          <EntitySet Name="Zadania" EntityType="Self.Zadania" />
+          <AssociationSet Name="FK__BudzetPro__proje__6D0D32F4" Association="Self.FK__BudzetPro__proje__6D0D32F4">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="BudzetProjektu" EntitySet="BudzetProjektu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HistoriaD__proje__52593CB8" Association="Self.FK__HistoriaD__proje__52593CB8">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="HistoriaDzialanProjektu" EntitySet="HistoriaDzialanProjektu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LogiZadan__zadan__778AC167" Association="Self.FK__LogiZadan__zadan__778AC167">
+            <End Role="Zadania" EntitySet="Zadania" />
+            <End Role="LogiZadan" EntitySet="LogiZadan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NotatkiPr__proje__3E52440B" Association="Self.FK__NotatkiPr__proje__3E52440B">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="NotatkiProjekty" EntitySet="NotatkiProjekty" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NotatkiWy__wydar__47DBAE45" Association="Self.FK__NotatkiWy__wydar__47DBAE45">
+            <End Role="Wydarzenia" EntitySet="Wydarzenia" />
+            <End Role="NotatkiWydarzenia" EntitySet="NotatkiWydarzenia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PlikiProj__proje__4222D4EF" Association="Self.FK__PlikiProj__proje__4222D4EF">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="PlikiProjekty" EntitySet="PlikiProjekty" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PlikiWyda__wydar__4BAC3F29" Association="Self.FK__PlikiWyda__wydar__4BAC3F29">
+            <End Role="Wydarzenia" EntitySet="Wydarzenia" />
+            <End Role="PlikiWydarzenia" EntitySet="PlikiWydarzenia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Podsumowa__proje__5812160E" Association="Self.FK__Podsumowa__proje__5812160E">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="PodsumowanieCzasu" EntitySet="PodsumowanieCzasu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RejestrCz__proje__5535A963" Association="Self.FK__RejestrCz__proje__5535A963">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="RejestrCzasuPracyProjekt" EntitySet="RejestrCzasuPracyProjekt" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RyzykaPro__proje__71D1E811" Association="Self.FK__RyzykaPro__proje__71D1E811">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="RyzykaProjektu" EntitySet="RyzykaProjektu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zadania__projekt__5CD6CB2B" Association="Self.FK__Zadania__projekt__5CD6CB2B">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="Zadania" EntitySet="Zadania" />
+          </AssociationSet>
+          <AssociationSet Name="TagiProjekty" Association="Self.TagiProjekty">
+            <End Role="Projekty" EntitySet="Projekty" />
+            <End Role="Tagi" EntitySet="Tagi" />
+          </AssociationSet>
+          <AssociationSet Name="TagiWydarzenia" Association="Self.TagiWydarzenia">
+            <End Role="Tagi" EntitySet="Tagi" />
+            <End Role="Wydarzenia" EntitySet="Wydarzenia" />
+          </AssociationSet>
+          <AssociationSet Name="TagiZadania" Association="Self.TagiZadania">
+            <End Role="Tagi" EntitySet="Tagi" />
+            <End Role="Zadania" EntitySet="Zadania" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ZarzadanieProjektami2ModelStoreContainer" CdmEntityContainer="ZarzadanieProjektami2Entities">
+          <EntitySetMapping Name="BudzetProjektu">
+            <EntityTypeMapping TypeName="ZarzadanieProjektami2Model.BudzetProjektu">
+              <MappingFragment StoreEntitySet="BudzetProjektu">
+                <ScalarProperty Name="budzet_id" ColumnName="budzet_id" />
+                <ScalarProperty Name="projekt_id" ColumnName="projekt_id" />
+                <ScalarProperty Name="calkowity_budzet" ColumnName="calkowity_budzet" />
+                <ScalarProperty Name="wydana_kwota" ColumnName="wydana_kwota" />
+                <ScalarProperty Name="pozostala_kwota" ColumnName="pozostala_kwota" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistoriaDzialanProjektu">
+            <EntityTypeMapping TypeName="ZarzadanieProjektami2Model.HistoriaDzialanProjektu">
+              <MappingFragment StoreEntitySet="HistoriaDzialanProjektu">
+                <ScalarProperty Name="historia_id" ColumnName="historia_id" />
+                <ScalarProperty Name="projekt_id" ColumnName="projekt_id" />
+                <ScalarProperty Name="dzialanie" ColumnName="dzialanie" />
+                <ScalarProperty Name="data_zdarzenia" ColumnName="data_zdarzenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogiZadan">
+            <EntityTypeMapping TypeName="ZarzadanieProjektami2Model.LogiZadan">
+              <MappingFragment StoreEntitySet="LogiZadan">
+                <ScalarProperty Name="log_id" ColumnName="log_id" />
+                <ScalarProperty Name="zadanie_id" ColumnName="zadanie_id" />
+                <ScalarProperty Name="dzialanie" ColumnName="dzialanie" />
+                <ScalarProperty Name="status_przed" ColumnName="status_przed" />
+                <ScalarProperty Name="status_po" ColumnName="status_po" />
+                <ScalarProperty Name="data_zmiany" ColumnName="data_zmiany" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NotatkiProjekty">
+            <EntityTypeMapping TypeName="ZarzadanieProjektami2Model.NotatkiProjekty">
+              <MappingFragment StoreEntitySet="NotatkiProjekty">
+                <ScalarProperty Name="notatka_id" ColumnName="notatka_id" />
+                <ScalarProperty Name="projekt_id" ColumnName="projekt_id" />
+                <ScalarProperty Name="tresc_notatki" ColumnName="tresc_notatki" />
+                <ScalarProperty Name="data_utworzenia" ColumnName="data_utworzenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NotatkiWydarzenia">
+            <EntityTypeMapping TypeName="ZarzadanieProjektami2Model.NotatkiWydarzenia">
+              <MappingFragment StoreEntitySet="NotatkiWydarzenia">
+                <ScalarProperty Name="notatka_id" ColumnName="notatka_id" />
+                <ScalarProperty Name="wydarzenie_id" ColumnName="wydarzenie_id" />
+                <ScalarProperty Name="tresc_notatki" ColumnName="tresc_notatki" />
+                <ScalarProperty Name="data_utworzenia" ColumnName="data_utworzenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlikiProjekty">
+            <EntityTypeMapping TypeName="ZarzadanieProjektami2Model.PlikiProjekty">
+              <MappingFragment StoreEntitySet="PlikiProjekty">
+                <ScalarProperty Name="plik_id" ColumnName="plik_id" />
+                <ScalarProperty Name="projekt_id" ColumnName="projekt_id" />
+                <ScalarProperty Name="nazwa_pliku" ColumnName="nazwa_pliku" />
+                <ScalarProperty Name="sciezka_pliku" ColumnName="sciezka_pliku" />
+                <ScalarProperty Name="data_wgrania" ColumnName="data_wgrania" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlikiWydarzenia">
+            <EntityTypeMapping TypeName="ZarzadanieProjektami2Model.PlikiWydarzenia">
+              <MappingFragment StoreEntitySet="PlikiWydarzenia">
+                <ScalarProperty Name="plik_id" ColumnName="plik_id" />
+                <ScalarProperty Name="wydarzenie_id" ColumnName="wydarzenie_id" />
+                <ScalarProperty Name="nazwa_pliku" ColumnName="nazwa_pliku" />
+                <ScalarProperty Name="sciezka_pliku" ColumnName="sciezka_pliku" />
+                <ScalarProperty Name="data_wgrania" ColumnName="data_wgrania" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PodsumowanieCzasu">
+            <EntityTypeMapping TypeName="ZarzadanieProjektami2Model.PodsumowanieCzasu">
+              <MappingFragment StoreEntitySet="PodsumowanieCzasu">
+                <ScalarProperty Name="podsumowanie_id" ColumnName="podsumowanie_id" />
+                <ScalarProperty Name="projekt_id" ColumnName="projekt_id" />
+                <ScalarProperty Name="calkowity_czas" ColumnName="calkowity_czas" />
+                <ScalarProperty Name="data_rozpoczecia" ColumnName="data_rozpoczecia" />
+                <ScalarProperty Name="data_zakonczenia" ColumnName="data_zakonczenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projekty">
+            <EntityTypeMapping TypeName="ZarzadanieProjektami2Model.Projekty">
+              <MappingFragment StoreEntitySet="Projekty">
+                <ScalarProperty Name="projekt_id" ColumnName="projekt_id" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="data_rozpoczecia" ColumnName="data_rozpoczecia" />
+                <ScalarProperty Name="data_zakonczenia" ColumnName="data_zakonczenia" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="priorytet" ColumnName="priorytet" />
+                <ScalarProperty Name="termin" ColumnName="termin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RejestrCzasuPracyProjekt">
+            <EntityTypeMapping TypeName="ZarzadanieProjektami2Model.RejestrCzasuPracyProjekt">
+              <MappingFragment StoreEntitySet="RejestrCzasuPracyProjekt">
+                <ScalarProperty Name="rejestr_id" ColumnName="rejestr_id" />
+                <ScalarProperty Name="projekt_id" ColumnName="projekt_id" />
+                <ScalarProperty Name="czas_spedzony" ColumnName="czas_spedzony" />
+                <ScalarProperty Name="data" ColumnName="data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RyzykaProjektu">
+            <EntityTypeMapping TypeName="ZarzadanieProjektami2Model.RyzykaProjektu">
+              <MappingFragment StoreEntitySet="RyzykaProjektu">
+                <ScalarProperty Name="ryzyko_id" ColumnName="ryzyko_id" />
+                <ScalarProperty Name="projekt_id" ColumnName="projekt_id" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="wplyw" ColumnName="wplyw" />
+                <ScalarProperty Name="prawdopodobienstwo" ColumnName="prawdopodobienstwo" />
+                <ScalarProperty Name="srodki_zapobiegawcze" ColumnName="srodki_zapobiegawcze" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ZarzadanieProjektami2Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tagi">
+            <EntityTypeMapping TypeName="ZarzadanieProjektami2Model.Tagi">
+              <MappingFragment StoreEntitySet="Tagi">
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wydarzenia">
+            <EntityTypeMapping TypeName="ZarzadanieProjektami2Model.Wydarzenia">
+              <MappingFragment StoreEntitySet="Wydarzenia">
+                <ScalarProperty Name="wydarzenie_id" ColumnName="wydarzenie_id" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="data_rozpoczecia" ColumnName="data_rozpoczecia" />
+                <ScalarProperty Name="data_zakonczenia" ColumnName="data_zakonczenia" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zadania">
+            <EntityTypeMapping TypeName="ZarzadanieProjektami2Model.Zadania">
+              <MappingFragment StoreEntitySet="Zadania">
+                <ScalarProperty Name="zadanie_id" ColumnName="zadanie_id" />
+                <ScalarProperty Name="projekt_id" ColumnName="projekt_id" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="data_rozpoczecia" ColumnName="data_rozpoczecia" />
+                <ScalarProperty Name="data_zakonczenia" ColumnName="data_zakonczenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="TagiProjekty" TypeName="ZarzadanieProjektami2Model.TagiProjekty" StoreEntitySet="TagiProjekty">
+            <EndProperty Name="Projekty">
+              <ScalarProperty Name="projekt_id" ColumnName="projekt_id" />
+            </EndProperty>
+            <EndProperty Name="Tagi">
+              <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TagiWydarzenia" TypeName="ZarzadanieProjektami2Model.TagiWydarzenia" StoreEntitySet="TagiWydarzenia">
+            <EndProperty Name="Tagi">
+              <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+            </EndProperty>
+            <EndProperty Name="Wydarzenia">
+              <ScalarProperty Name="wydarzenie_id" ColumnName="wydarzenie_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TagiZadania" TypeName="ZarzadanieProjektami2Model.TagiZadania" StoreEntitySet="TagiZadania">
+            <EndProperty Name="Tagi">
+              <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+            </EndProperty>
+            <EndProperty Name="Zadania">
+              <ScalarProperty Name="zadanie_id" ColumnName="zadanie_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
