@@ -3,12 +3,40 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:ProjectManagementApp.Views">
 
-
     <Style TargetType="{x:Type local:WszystkieViewBase}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:WszystkieViewBase}">
-                    <Label>elemty wspolne</Label>
+                    <Grid>
+                        <!-- Definiowanie wierszy -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <!-- Naglowek -->
+                            <RowDefinition Height="Auto"/>
+                            <!-- Panel filtrow i przycisk Dodaj -->
+                            <RowDefinition Height="*"/>
+                            <!-- Tabela -->
+                        </Grid.RowDefinitions>
+
+
+                        <!-- Panel Filtrow -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,10,10,0" Grid.Row="1">
+                       
+                            <ComboBox Width="150" Margin="5">
+                                <ComboBoxItem Content="Data rozpoczecia"/>
+                                <ComboBoxItem Content="Data zakonczenia"/>
+                                <ComboBoxItem Content="Alfabetycznie"/>
+                                <ComboBoxItem Content="Tagi"/>
+                            </ComboBox>
+                            <Button Content="Filtruj" Width="80" Margin="5"/>
+                            <Button Content="Dodaj" Width="100" Margin="5" HorizontalAlignment="Right"/>
+                            <Button Content="Usun" Width="100" Margin="5" HorizontalAlignment="Right"/>
+                        </StackPanel>
+
+                        <!-- Miejsce na Tabele -->
+                        <ContentPresenter Grid.Row="2" Margin="10,10,10,10"/>
+                    </Grid>
+
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

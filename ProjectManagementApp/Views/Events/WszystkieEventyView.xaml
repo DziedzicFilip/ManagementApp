@@ -6,7 +6,46 @@
              xmlns:local="clr-namespace:ProjectManagementApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
-        <Label>Wszystkie eventy</Label>
+    <Grid>
+        <!-- Nagłówek -->
+        <TextBlock Text="Eventy" 
+                FontSize="24" 
+                FontWeight="Bold" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Top" 
+                Margin="0,20,0,0"/>
+
+        <!-- Tabela -->
+        <DataGrid x:Name="ScheduleDataGrid" 
+               AutoGenerateColumns="False" 
+               CanUserAddRows="False" 
+               Margin="10,60,10,10" 
+               IsReadOnly="True" 
+               HeadersVisibility="Column" 
+               GridLinesVisibility="All">
+
+            <!-- Kolumny -->
+            <DataGrid.Columns>
+                <!-- Nazwa -->
+                <DataGridTextColumn Header="Nazwa" 
+                                 Binding="{Binding ProjectName}" 
+                                 Width="*" />
+
+                <!-- Data Rozpoczęcia -->
+                <DataGridTextColumn Header="Data Rozpoczecia" 
+                                 Binding="{Binding StartDate}" 
+                                 Width="*" />
+
+                <!-- Data Zakończenia -->
+                <DataGridTextColumn Header="Data Zakonczenia" 
+                                 Binding="{Binding EndDate}" 
+                                 Width="*" />
+
+                <!-- Tagi -->
+                <DataGridTextColumn Header="Tagi" 
+                                 Binding="{Binding Tags}" 
+                                 Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
-    </local:WszystkieViewBase>
+</local:WszystkieViewBase>

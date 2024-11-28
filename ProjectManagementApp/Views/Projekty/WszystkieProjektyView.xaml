@@ -5,43 +5,53 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjectManagementApp.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="400" d:DesignWidth="600">
+
     <Grid>
-        <TextBlock Text="Projekty" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+        <!-- Nagłówek -->
+        <TextBlock Text="Projekty" 
+                   FontSize="24" 
+                   FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" 
+                   Margin="0,20,0,0"/>
 
+        <!-- Tabela -->
+        <DataGrid x:Name="ScheduleDataGrid" 
+                  AutoGenerateColumns="False" 
+                  CanUserAddRows="False" 
+                  Margin="10,60,10,10" 
+                  IsReadOnly="True" 
+                  HeadersVisibility="Column" 
+                  GridLinesVisibility="All">
 
-        <DataGrid x:Name="ScheduleDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" Margin="10,60,10,10">
+            <!-- Kolumny -->
             <DataGrid.Columns>
+                <!-- Nazwa -->
+                <DataGridTextColumn Header="Nazwa" 
+                                    Binding="{Binding ProjectName}" 
+                                    Width="*" />
 
-                <DataGridTextColumn Header="Nazwa Projektu" Binding="{Binding ProjectName}" Width="*"/>
+                <!-- Data Rozpoczęcia -->
+                <DataGridTextColumn Header="Data Rozpoczecia" 
+                                    Binding="{Binding StartDate}" 
+                                    Width="*" />
 
+                <!-- Data Zakończenia -->
+                <DataGridTextColumn Header="Data Zakonczenia" 
+                                    Binding="{Binding EndDate}" 
+                                    Width="*" />
 
-                <DataGridTextColumn Header="Nazwa Zadania" Binding="{Binding TaskName}" Width="*"/>
+                <!-- Status -->
+                <DataGridTextColumn Header="Status" 
+                                    Binding="{Binding Status}" 
+                                    Width="*" />
 
-
-                <DataGridTextColumn Header="Data Rozpoczęcia" Binding="{Binding StartDate}" Width="*"/>
-
-
-                <DataGridTextColumn Header="Data Zakończenia" Binding="{Binding EndDate}" Width="*"/>
-
-
-                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
-
-
-                <DataGridTextColumn Header="Tagi" Binding="{Binding Tags}" Width="*"/>
+                <!-- Tagi -->
+                <DataGridTextColumn Header="Tagi" 
+                                    Binding="{Binding Tags}" 
+                                    Width="*" />
             </DataGrid.Columns>
         </DataGrid>
-
-
-        <Button Content="Dodaj Zadanie" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="120" Margin="10,0,0,10" Command="{Binding AddTaskCommand}"/>
-
-
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10">
-            <Button Content="Sortuj po Statusie" Command="{Binding SortByStatusCommand}" Margin="5"/>
-            <Button Content="Sortuj po Tagach" Command="{Binding SortByTagsCommand}" Margin="5"/>
-            <Button Content="Sortuj po Dacie" Command="{Binding SortByDateCommand}" Margin="5"/>
-            <Button Content="Sortuj Alfabetycznie" Command="{Binding SortAlphabeticallyCommand}" Margin="5"/>
-        </StackPanel>
-
     </Grid>
 </local:WszystkieViewBase>
