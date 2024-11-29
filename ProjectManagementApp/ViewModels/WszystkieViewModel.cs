@@ -34,8 +34,8 @@ namespace ProjectManagementApp.ViewModels
         }
         #endregion
         #region List
-        private ObservableCollection<Projekty> _List;
-        public ObservableCollection<Projekty> List
+        private ObservableCollection<T> _List;
+        public ObservableCollection<T> List
         {
             get
             {

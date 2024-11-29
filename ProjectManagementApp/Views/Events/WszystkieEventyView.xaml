@@ -22,28 +22,29 @@
                Margin="10,60,10,10" 
                IsReadOnly="True" 
                HeadersVisibility="Column" 
-               GridLinesVisibility="All">
+               GridLinesVisibility="All"
+                    ItemsSource="{Binding List}">
 
             <!-- Kolumny -->
             <DataGrid.Columns>
                 <!-- Nazwa -->
                 <DataGridTextColumn Header="Nazwa" 
-                                 Binding="{Binding ProjectName}" 
+                                 Binding="{Binding nazwa}" 
                                  Width="*" />
 
                 <!-- Data Rozpoczęcia -->
                 <DataGridTextColumn Header="Data Rozpoczecia" 
-                                 Binding="{Binding StartDate}" 
+                                 Binding="{Binding data_rozpoczecia}" 
                                  Width="*" />
 
                 <!-- Data Zakończenia -->
                 <DataGridTextColumn Header="Data Zakonczenia" 
-                                 Binding="{Binding EndDate}" 
+                                 Binding="{Binding data_zakonczenia}" 
                                  Width="*" />
 
                 <!-- Tagi -->
-                <DataGridTextColumn Header="Tagi" 
-                                 Binding="{Binding Tags}" 
+                <DataGridTextColumn Header="Opis" 
+                                 Binding="{Binding opis}" 
                                  Width="*" />
             </DataGrid.Columns>
         </DataGrid>

@@ -16,7 +16,7 @@ namespace ProjectManagementApp.ViewModels
         public WszystkieProjektyViewModel()
             :base("Projkety")
         {
-            
+           
             
         }
         #endregion

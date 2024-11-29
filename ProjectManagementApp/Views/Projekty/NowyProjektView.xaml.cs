@@ -18,7 +18,7 @@ namespace ProjectManagementApp.Views
     /// <summary>
     /// Logika interakcji dla klasy NowyProjektView.xaml
     /// </summary>
-    public partial class NowyProjektView : UserControl
+    public partial class NowyProjektView : JedenViewBase
     {
         public NowyProjektView()
         {

@@ -1,15 +1,28 @@
-﻿using System;
+﻿using ProjectManagementApp.Models.Entities;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ProjectManagementApp.ViewModels
 {
-    public class WszystkieEventyViewModel : WorkspaceViewModel
+    public class WszystkieEventyViewModel : WszystkieViewModel<Wydarzenia>
     {
-          public  WszystkieEventyViewModel() {
-            base.DisplayName = " Eventy";
+          public  WszystkieEventyViewModel():base("Wydarzenia") {
+
+           
             }
+        #region Helpers
+
+        public override void Load()
+        {
+            List = new ObservableCollection<Wydarzenia>
+                (
+                   zarzadanieProjektami2Entities.Wydarzenia.ToList()
+                );
+        }
+        #endregion
     }
-}
+    }
