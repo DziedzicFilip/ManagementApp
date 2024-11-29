@@ -9,56 +9,19 @@ using System.Windows.Input;
 
 namespace ProjectManagementApp.ViewModels
 {
-    public class WszystkieProjektyViewModel : WorkspaceViewModel
+    public class WszystkieProjektyViewModel : WszystkieViewModel<Projekty>
     {
-        #region DB
-        private readonly ZarzadanieProjektami2Entities zarzadanieProjektami2Entities;
-        
-        
-        #endregion
-        #region LoadCommand
-        private BaseCommand _LoadCommand;
-        public ICommand LoadCommand
-        {
-            get
-            {
-                if(_LoadCommand == null)
-                
-                    _LoadCommand = new BaseCommand(() => load());
-                return _LoadCommand;   
-                
-            }
-                
-
-        }
-        #endregion
-        #region List
-        private ObservableCollection<Projekty> _List;
-        public ObservableCollection<Projekty> List
-        {
-            get {
-                if (_List == null)
-                {
-                    load();
-                }
-                return _List;
-            }
-            set
-            {
-                _List = value;
-                OnPropertyChanged(() => List);
-            }
-        }
-        #endregion
+       
         #region Constructor
         public WszystkieProjektyViewModel()
+            :base("Projkety")
         {
-            base.DisplayName = "Projkety";
-            zarzadanieProjektami2Entities = new ZarzadanieProjektami2Entities();
+            
+            
         }
         #endregion
         #region Helpers
-        private void load()
+        public override void Load()
         {
             List = new ObservableCollection<Projekty>
                 (

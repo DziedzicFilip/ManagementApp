@@ -172,6 +172,7 @@
     <Compile Include="ViewModels\Eventy\WszystkieEventyViewModel.cs" />
     <Compile Include="ViewModels\Eventy\WyswietlHistorieEventuViewModel.cs" />
     <Compile Include="ViewModels\Dodatki\WyswietlNotatkeViewModel.cs" />
+    <Compile Include="ViewModels\WszystkieViewModel.cs" />
     <Compile Include="Views\Events\InformacjeEventView.xaml.cs">
       <DependentUpon>InformacjeEventView.xaml</DependentUpon>
     </Compile>
