@@ -12,32 +12,29 @@
        
 
         <StackPanel VerticalAlignment="Top">
-            <TextBlock Text="Dodaj Nowy Projekt" FontSize="20" FontWeight="Bold" Margin="0,0,0,30" HorizontalAlignment="Center"/>
-            <!-- Pole do wprowadzenia Nazwy projektu -->
+
+            <!-- Pole do wprowadzenia Nazwy  -->
             <StackPanel Margin="0,0,0,10">
-                <TextBlock Text="Nazwa projektu:" FontWeight="Bold"/>
-                <TextBox Name="ProjectNameTextBox" Width="300" />
+                <TextBlock Text="Nazwa:" FontWeight="Bold"/>
+                <TextBox Name="ProjectNameTextBox" Width="300"  Text="{Binding Path=Nazwa, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
             <!-- Pole do wprowadzenia Opisu -->
             <StackPanel Margin="0,0,0,10">
-                <TextBlock Text="Opis projektu:" FontWeight="Bold"/>
-                <TextBox Name="ProjectDescriptionTextBox" Width="300" Height="100" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+                <TextBlock Text="Opis :" FontWeight="Bold"/>
+                <TextBox Name="ProjectDescriptionTextBox" Width="300" Height="100" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding Path=Opis, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
-            <!-- Data rozpoczęcia -->
+            <!-- Data rozpoczecia -->
             <StackPanel Margin="0,0,0,10">
-                <TextBlock Text="Data rozpoczęcia:" FontWeight="Bold"/>
-                <DatePicker Name="StartDatePicker" Width="300"/>
+                <TextBlock Text="Data rozpoczecia:" FontWeight="Bold" />
+                <DatePicker Name="StartDatePicker" Width="300" Text="{Binding Path=data_rozpoczecia, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
-
-            <!-- Data zakończenia -->
-         
 
             <!-- Status -->
             <StackPanel Margin="0,0,0,10">
-                <TextBlock Text="Status projektu:" FontWeight="Bold"/>
-                <ComboBox Name="ProjectStatusComboBox" Width="300">
+                <TextBlock Text="Status projektu:" FontWeight="Bold" />
+                <ComboBox Name="ProjectStatusComboBox" Width="300" Text="{Binding Path=status, UpdateSourceTrigger=PropertyChanged}" >
                     <ComboBoxItem Content="Nie Rozpoczęty"/>
                     <ComboBoxItem Content="W Trakcie"/>
                     <ComboBoxItem Content="Zakończony"/>
@@ -47,8 +44,8 @@
 
             <!-- Priorytet -->
             <StackPanel Margin="0,0,0,10">
-                <TextBlock Text="Priorytet projektu:" FontWeight="Bold"/>
-                <ComboBox Name="PriorityComboBox" Width="300">
+                <TextBlock Text="Priorytet projektu:" FontWeight="Bold" />
+                <ComboBox Name="PriorityComboBox" Width="300"  Text="{Binding Path=priorytet, UpdateSourceTrigger=PropertyChanged}" >
                     <ComboBoxItem Content="Niski"/>
                     <ComboBoxItem Content="Średni"/>
                     <ComboBoxItem Content="Wysoki"/>
@@ -58,13 +55,7 @@
             <!-- Termin -->
             <StackPanel Margin="0,0,0,10">
                 <TextBlock Text="Termin realizacji:" FontWeight="Bold"/>
-                <DatePicker Name="DeadlineDatePicker" Width="300"/>
-            </StackPanel>
-
-            <!-- Przyciski -->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                <Button Content="Dodaj Projekt" Width="120" Click="AddProject_Click" Margin="0,0,10,0"/>
-                <Button Content="Anuluj" Width="120" Click="Cancel_Click"/>
+                <DatePicker Name="DeadlineDatePicker" Width="300"  Text="{Binding Path=termin,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
         </StackPanel>
     </Grid>
