@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace ProjectManagementApp.ViewModels
@@ -49,6 +50,8 @@ namespace ProjectManagementApp.ViewModels
             base.DisplayName = "Nowy Projekt";
             zarzadanieProjektami2Entities = new ZarzadanieProjektami2Entities();
             projekt = new Projekty();
+            OnPropertyChanged(() => data_rozpoczecia); 
+            OnPropertyChanged(() => termin);
         }
         #endregion
         #region Propertis
@@ -61,7 +64,7 @@ namespace ProjectManagementApp.ViewModels
             set
             {
                 projekt.nazwa = value;
-                OnPropertyChanged(() => projekt);
+                OnPropertyChanged(() => Nazwa);
 
 
             }
@@ -79,7 +82,7 @@ namespace ProjectManagementApp.ViewModels
             set
             {
                 projekt.opis = value;
-                OnPropertyChanged(() => projekt);
+                OnPropertyChanged(() => opis);
             }
         }
 
@@ -90,7 +93,7 @@ namespace ProjectManagementApp.ViewModels
             set
             {
                 projekt.data_rozpoczecia = value;
-                OnPropertyChanged(() => projekt);
+                OnPropertyChanged(() => data_rozpoczecia);
 
 
             }
@@ -106,7 +109,7 @@ namespace ProjectManagementApp.ViewModels
             set
             {
                 projekt.status = value;
-                OnPropertyChanged(() => projekt);
+                OnPropertyChanged(() => status);
 
             }
 
@@ -122,21 +125,18 @@ namespace ProjectManagementApp.ViewModels
             set
             {
                 projekt.priorytet = value;
-                OnPropertyChanged(() => projekt);
+                OnPropertyChanged(() => priorytet);
             }
             
         }
 
         public DateTime? termin
         {
-            get
-            {
-                return (DateTime)projekt.termin;
-            }
+            get => projekt?.termin ?? DateTime.Now;
             set
             {
                 projekt.termin = value;
-                OnPropertyChanged(() => projekt);
+                OnPropertyChanged(() => termin);
 
             }
         }
@@ -161,8 +161,16 @@ namespace ProjectManagementApp.ViewModels
             if (projekt.termin == null)
                 projekt.termin = DateTime.Now.AddDays(7);
 
-            zarzadanieProjektami2Entities.Projekty.Add(projekt);
-            zarzadanieProjektami2Entities.SaveChanges();
+            try
+            {
+                zarzadanieProjektami2Entities.Projekty.Add(projekt);
+                zarzadanieProjektami2Entities.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                // Tutaj możesz wyświetlić komunikat o błędzie lub zapisać go do logów
+                MessageBox.Show("Wystąpił błąd: " + ex.Message);
+            }
             Close();
         }
         #endregion
