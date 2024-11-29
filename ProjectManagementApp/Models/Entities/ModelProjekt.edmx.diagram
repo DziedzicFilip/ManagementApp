@@ -4,22 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d11c849305344526845c858b48737a8b" Name="Diagram1" ZoomLevel="21">
-        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.BudzetProjektu" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.HistoriaDzialanProjektu" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.LogiZadan" Width="1.5" PointX="7.5" PointY="19.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.NotatkiProjekty" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.NotatkiWydarzenia" Width="1.5" PointX="7.5" PointY="24.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.PlikiProjekty" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+      <Diagram DiagramId="d11c849305344526845c858b48737a8b" Name="Diagram1" ZoomLevel="101">
+        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.BudzetProjektu" Width="1.5" PointX="8" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.HistoriaDzialanProjektu" Width="1.5" PointX="8" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.LogiZadan" Width="1.5" PointX="12.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.NotatkiProjekty" Width="1.5" PointX="8" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.NotatkiWydarzenia" Width="1.5" PointX="12.5" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.PlikiProjekty" Width="1.5" PointX="8" PointY="12.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ZarzadanieProjektami2Model.PlikiWydarzenia" Width="1.5" PointX="7.5" PointY="26.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.PodsumowanieCzasu" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.Projekty" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.RejestrCzasuPracyProjekt" Width="1.5" PointX="3" PointY="18.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.RyzykaProjektu" Width="1.5" PointX="3" PointY="21.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.Tagi" Width="1.5" PointX="3" PointY="25.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.Wydarzenia" Width="1.5" PointX="5.25" PointY="25.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.Zadania" Width="1.5" PointX="5.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.PodsumowanieCzasu" Width="1.5" PointX="8" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.Projekty" Width="1.5" PointX="5.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.RejestrCzasuPracyProjekt" Width="1.5" PointX="8" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.RyzykaProjektu" Width="1.5" PointX="8" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.Tagi" Width="1.5" PointX="8" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.Wydarzenia" Width="1.5" PointX="10.25" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZarzadanieProjektami2Model.Zadania" Width="1.5" PointX="44.75" PointY="14" IsExpanded="true" />
         <AssociationConnector Association="ZarzadanieProjektami2Model.FK__BudzetPro__proje__6D0D32F4" ManuallyRouted="false" />
         <AssociationConnector Association="ZarzadanieProjektami2Model.FK__HistoriaD__proje__52593CB8" ManuallyRouted="false" />
         <AssociationConnector Association="ZarzadanieProjektami2Model.FK__LogiZadan__zadan__778AC167" ManuallyRouted="false" />
