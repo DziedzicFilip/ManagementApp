@@ -180,6 +180,7 @@
     <Compile Include="ViewModels\JedenViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Eventy\NowyEventViewModel.cs" />
+    <Compile Include="ViewModels\Tagi\NowyTagViewModel.cs" />
     <Compile Include="ViewModels\Projekty\NowyProjektViewModel.cs" />
     <Compile Include="ViewModels\Projekty\ProjektInfromacjeViewModel.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
@@ -189,7 +190,7 @@
     <Compile Include="ViewModels\Eventy\WyswietlHistorieEventuViewModel.cs" />
     <Compile Include="ViewModels\Dodatki\WyswietlNotatkeViewModel.cs" />
     <Compile Include="ViewModels\Abstract\WszystkieViewModel.cs" />
-    <Compile Include="ViewModels\WszystkieTagiViewModel.cs" />
+    <Compile Include="ViewModels\Tagi\WszystkieTagiViewModel.cs" />
     <Compile Include="Views\Events\InformacjeEventView.xaml.cs">
       <DependentUpon>InformacjeEventView.xaml</DependentUpon>
     </Compile>
@@ -199,6 +200,9 @@
     </Compile>
     <Compile Include="Views\Events\NowyEventView.xaml.cs">
       <DependentUpon>NowyEventView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tagi\NowyTagView.xaml.cs">
+      <DependentUpon>NowyTagView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Projekty\NowyProjektView.xaml.cs">
       <DependentUpon>NowyProjektView.xaml</DependentUpon>
@@ -222,7 +226,7 @@
       <DependentUpon>WyswietlNotatkeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Base\WszystkieViewBase.cs" />
-    <Compile Include="Views\WszystkieTagiView.xaml.cs">
+    <Compile Include="Views\Tagi\WszystkieTagiView.xaml.cs">
       <DependentUpon>WszystkieTagiView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -280,6 +284,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Tagi\NowyTagView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Projekty\NowyProjektView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -308,7 +316,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WszystkieTagiView.xaml">
+    <Page Include="Views\Tagi\WszystkieTagiView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

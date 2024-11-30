@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Windows.Data;
+using ProjectManagementApp.Views;
 
 namespace ProjectManagementApp.ViewModels
 {
@@ -68,8 +69,12 @@ namespace ProjectManagementApp.ViewModels
                   new CommandViewModel(
                     "Event Historia",
                     new BaseCommand(() => this.CreateView(new WyswietlHistorieEventuViewModel () ))),
+                   new CommandViewModel(
+                    "Nowy Tag",
+                    new BaseCommand(() => this.CreateView(new NowyTagViewModel () ))),
 
-                  
+
+
 
 
 

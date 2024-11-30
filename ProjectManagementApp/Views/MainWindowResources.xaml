@@ -33,6 +33,9 @@
     <DataTemplate DataType="{x:Type vm:WszystkieTagiViewModel}">
         <vw:WszystkieTagiView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyTagViewModel}">
+        <vw:NowyTagView/>
+    </DataTemplate>
 
 
 
