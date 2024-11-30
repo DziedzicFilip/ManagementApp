@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjectManagementApp.Views"
+                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="20">
@@ -29,11 +30,122 @@
                 <TextBlock Text="Data rozpoczecia:" FontWeight="Bold" />
                 <DatePicker Name="StartDatePicker" Width="300" SelectedDate="{Binding Path=Data_rozpoczecia, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock Text="Godzina rozpoczęcia:" FontWeight="Bold"/>
+                <ComboBox Name="HourComboBox" Width="100" SelectedItem="{Binding Path=Godzina_rozpoczecia, Mode=TwoWay}">
+                    <ComboBox.ItemsSource>
+                        <x:Array Type="{x:Type sys:Int32}">
+                            <sys:Int32>0</sys:Int32>
+                            <sys:Int32>1</sys:Int32>
+                            <sys:Int32>2</sys:Int32>
+                            <sys:Int32>3</sys:Int32>
+                            <sys:Int32>4</sys:Int32>
+                            <sys:Int32>5</sys:Int32>
+                            <sys:Int32>6</sys:Int32>
+                            <sys:Int32>7</sys:Int32>
+                            <sys:Int32>8</sys:Int32>
+                            <sys:Int32>9</sys:Int32>
+                            <sys:Int32>10</sys:Int32>
+                            <sys:Int32>11</sys:Int32>
+                            <sys:Int32>12</sys:Int32>
+                            <sys:Int32>13</sys:Int32>
+                            <sys:Int32>14</sys:Int32>
+                            <sys:Int32>15</sys:Int32>
+                            <sys:Int32>16</sys:Int32>
+                            <sys:Int32>17</sys:Int32>
+                            <sys:Int32>18</sys:Int32>
+                            <sys:Int32>19</sys:Int32>
+                            <sys:Int32>20</sys:Int32>
+                            <sys:Int32>21</sys:Int32>
+                            <sys:Int32>22</sys:Int32>
+                            <sys:Int32>23</sys:Int32>
+                        </x:Array>
+                    </ComboBox.ItemsSource>
+                </ComboBox>
+            </StackPanel>
 
+            <!-- Minuty rozpoczęcia -->
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock Text="Minuty rozpoczęcia:" FontWeight="Bold"/>
+                <ComboBox Name="MinuteComboBox" Width="100" SelectedItem="{Binding Path=Minuta_rozpoczecia, Mode=TwoWay}">
+                    <ComboBox.ItemsSource>
+                        <x:Array Type="{x:Type sys:Int32}">
+                            <sys:Int32>0</sys:Int32>
+                            <sys:Int32>5</sys:Int32>
+                            <sys:Int32>10</sys:Int32>
+                            <sys:Int32>15</sys:Int32>
+                            <sys:Int32>20</sys:Int32>
+                            <sys:Int32>25</sys:Int32>
+                            <sys:Int32>30</sys:Int32>
+                            <sys:Int32>35</sys:Int32>
+                            <sys:Int32>40</sys:Int32>
+                            <sys:Int32>45</sys:Int32>
+                            <sys:Int32>50</sys:Int32>
+                            <sys:Int32>55</sys:Int32>
+                        </x:Array>
+                    </ComboBox.ItemsSource>
+                </ComboBox>
+            </StackPanel>
             <!-- Data zakonczenia -->
             <StackPanel Margin="0,0,0,10">
                 <TextBlock Text="Termin realizacji:" FontWeight="Bold"/>
                 <DatePicker Name="DeadlineDatePicker" Width="300"  SelectedDate="{Binding Path=Data_zakonczenia,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock Text="Godzina rozpoczęcia:" FontWeight="Bold"/>
+                <ComboBox Name="HourComboBoxEnd" Width="100" SelectedItem="{Binding Path=Godzina_rozpoczecia, Mode=TwoWay}">
+                    <ComboBox.ItemsSource>
+                        <x:Array Type="{x:Type sys:Int32}">
+                            <sys:Int32>0</sys:Int32>
+                            <sys:Int32>1</sys:Int32>
+                            <sys:Int32>2</sys:Int32>
+                            <sys:Int32>3</sys:Int32>
+                            <sys:Int32>4</sys:Int32>
+                            <sys:Int32>5</sys:Int32>
+                            <sys:Int32>6</sys:Int32>
+                            <sys:Int32>7</sys:Int32>
+                            <sys:Int32>8</sys:Int32>
+                            <sys:Int32>9</sys:Int32>
+                            <sys:Int32>10</sys:Int32>
+                            <sys:Int32>11</sys:Int32>
+                            <sys:Int32>12</sys:Int32>
+                            <sys:Int32>13</sys:Int32>
+                            <sys:Int32>14</sys:Int32>
+                            <sys:Int32>15</sys:Int32>
+                            <sys:Int32>16</sys:Int32>
+                            <sys:Int32>17</sys:Int32>
+                            <sys:Int32>18</sys:Int32>
+                            <sys:Int32>19</sys:Int32>
+                            <sys:Int32>20</sys:Int32>
+                            <sys:Int32>21</sys:Int32>
+                            <sys:Int32>22</sys:Int32>
+                            <sys:Int32>23</sys:Int32>
+                        </x:Array>
+                    </ComboBox.ItemsSource>
+                </ComboBox>
+            </StackPanel>
+
+            <!-- Minuty rozpoczęcia -->
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock Text="Minuty rozpoczęcia:" FontWeight="Bold"/>
+                <ComboBox Name="MinuteComboBoxEnd" Width="100" SelectedItem="{Binding Path=Minuta_rozpoczecia, Mode=TwoWay}">
+                    <ComboBox.ItemsSource>
+                        <x:Array Type="{x:Type sys:Int32}">
+                            <sys:Int32>0</sys:Int32>
+                            <sys:Int32>5</sys:Int32>
+                            <sys:Int32>10</sys:Int32>
+                            <sys:Int32>15</sys:Int32>
+                            <sys:Int32>20</sys:Int32>
+                            <sys:Int32>25</sys:Int32>
+                            <sys:Int32>30</sys:Int32>
+                            <sys:Int32>35</sys:Int32>
+                            <sys:Int32>40</sys:Int32>
+                            <sys:Int32>45</sys:Int32>
+                            <sys:Int32>50</sys:Int32>
+                            <sys:Int32>55</sys:Int32>
+                        </x:Array>
+                    </ComboBox.ItemsSource>
+                </ComboBox>
             </StackPanel>
         </StackPanel>
     </Grid>
