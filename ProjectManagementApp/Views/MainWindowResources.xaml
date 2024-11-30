@@ -30,7 +30,6 @@
     <DataTemplate DataType="{x:Type vm:WyswietlHistorieEventuViewModel}">
         <vw:WyswietlHistorieEventuView/>
     </DataTemplate>
-    
 
 
 
@@ -41,63 +40,36 @@
 
 
 
-    <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
-        <Setter Property="HeaderTemplate">
+
+    <Style x:Key="MainHCCStyle" TargetType="HeaderedContentControl">
+        <!-- Nagłówek -->
+        <Setter Property="Header">
             <Setter.Value>
-                <DataTemplate>
-                    <Border 
-            Background="Blue" 
-            BorderBrush="LightGray" 
-            BorderThickness="1" 
-            CornerRadius="5" 
-            Margin="4" 
-            Padding="4" 
-            SnapsToDevicePixels="True" 
-            >
-                        <TextBlock 
-              FontSize="14"
-              FontWeight="Bold"
-              Foreground="White" 
-              HorizontalAlignment="Center"  
-              Text="{TemplateBinding Content}" 
-              />
-                    </Border>
-                </DataTemplate>
+                <TextBlock Text="Opcje" FontSize="18" FontWeight="SemiBold" Foreground="White" Margin="12"/>
             </Setter.Value>
         </Setter>
-        <Setter Property="IsTabStop" Value="False" />
-        <Setter Property="Template">
+
+        <!-- Tło HeaderedContentControl -->
+        <Setter Property="Background" Value="#333333"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="BorderBrush" Value="#4B4B4B"/>
+        <Setter Property="BorderThickness" Value="2"/>
+
+        <!-- Efekty wizualne: cień -->
+        <Setter Property="Effect">
             <Setter.Value>
-                <!-- 
-        This template ensures that content of a HeaderedContentControl 
-        fills the available vertical space. 
-        -->
-                <ControlTemplate TargetType="{x:Type HeaderedContentControl}">
-                    <DockPanel>
-                        <ContentPresenter 
-              DockPanel.Dock="Top"
-              ContentSource="Header" 
-              ContentTemplate="{TemplateBinding HeaderTemplate}" 
-              />
-                        <ContentPresenter 
-              ContentSource="Content" 
-              ContentTemplate="{TemplateBinding ContentTemplate}" 
-              />
-                    </DockPanel>
-                </ControlTemplate>
+                <DropShadowEffect Color="Black" BlurRadius="5" Direction="270" ShadowDepth="2"/>
             </Setter.Value>
         </Setter>
-    </Style>
 
-    <!--
-  This style ensures that the borders in the main window are consistent.
-  -->
-    <Style x:Key="MainBorderStyle" TargetType="{x:Type Border}">
-        <Setter Property="Background" Value="WhiteSmoke" />
-        <Setter Property="BorderBrush" Value="LightGray" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="5" />
-        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <!-- Interakcje - zmiana koloru po najechaniu myszką -->
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#555555"/>
+                <Setter Property="BorderBrush" Value="#666666"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <!--
