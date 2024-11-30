@@ -162,6 +162,7 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
     <Compile Include="ViewModels\Eventy\InformacjeEventViewModel.cs" />
+    <Compile Include="ViewModels\JedenViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Eventy\NowyEventViewModel.cs" />
     <Compile Include="ViewModels\Projekty\NowyProjektViewModel.cs" />
@@ -172,11 +173,11 @@
     <Compile Include="ViewModels\Eventy\WszystkieEventyViewModel.cs" />
     <Compile Include="ViewModels\Eventy\WyswietlHistorieEventuViewModel.cs" />
     <Compile Include="ViewModels\Dodatki\WyswietlNotatkeViewModel.cs" />
-    <Compile Include="ViewModels\WszystkieViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\WszystkieViewModel.cs" />
     <Compile Include="Views\Events\InformacjeEventView.xaml.cs">
       <DependentUpon>InformacjeEventView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\JedenViewBase.cs" />
+    <Compile Include="Views\Base\JedenViewBase.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -204,7 +205,7 @@
     <Compile Include="Views\Dodatki\WyswietlNotatkeView.xaml.cs">
       <DependentUpon>WyswietlNotatkeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WszystkieViewBase.cs" />
+    <Compile Include="Views\Base\WszystkieViewBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

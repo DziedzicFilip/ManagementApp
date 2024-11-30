@@ -18,7 +18,7 @@ namespace ProjectManagementApp.Views
     /// <summary>
     /// Logika interakcji dla klasy NowyEventView.xaml
     /// </summary>
-    public partial class NowyEventView : UserControl
+    public partial class NowyEventView : JedenViewBase
     {
         public NowyEventView()
         {

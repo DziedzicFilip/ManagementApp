@@ -2,6 +2,7 @@
 using ProjectManagementApp.Models.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
@@ -11,45 +12,16 @@ using System.Windows.Input;
 
 namespace ProjectManagementApp.ViewModels
 {
-    public class NowyProjektViewModel : WorkspaceViewModel
+    public class NowyProjektViewModel : JedenViewModel<Projekty>
     {
 
-        #region DB
-        private ZarzadanieProjektami2Entities zarzadanieProjektami2Entities;
-        #endregion
-        #region Item
-        private Projekty projekt;
-        #endregion
-        #region Command
-        private BaseCommand _Add;
-        public ICommand Add
-        {
-            get
-            {
-                if (_Add == null)
-                    _Add = new BaseCommand(() => ADD());
-                return _Add;
-            }
-
-        }
-        private ICommand _Cancel;
-        public ICommand Cancel
-        {
-            get
-            {
-                if (_Cancel == null)
-                    _Cancel = new BaseCommand(() => Close());
-                return _Cancel;
-            }
-        }
-        #endregion
+      
         #region Constructor
-        public NowyProjektViewModel()
+        public NowyProjektViewModel():base("Nowy Projekt")
         {
 
-            base.DisplayName = "Nowy Projekt";
-            zarzadanieProjektami2Entities = new ZarzadanieProjektami2Entities();
-            projekt = new Projekty();
+        
+            item = new Projekty();
             OnPropertyChanged(() => data_rozpoczecia); 
             OnPropertyChanged(() => termin);
         }
@@ -59,11 +31,11 @@ namespace ProjectManagementApp.ViewModels
         {
             get
             {
-                return projekt.nazwa;
+                return item.nazwa;
             }
             set
             {
-                projekt.nazwa = value;
+                item.nazwa = value;
                 OnPropertyChanged(() => Nazwa);
 
 
@@ -76,12 +48,12 @@ namespace ProjectManagementApp.ViewModels
         {
             get
             {
-                return projekt?.opis;
+                return item?.opis;
 
             }
             set
             {
-                projekt.opis = value;
+                item.opis = value;
                 OnPropertyChanged(() => opis);
             }
         }
@@ -89,10 +61,10 @@ namespace ProjectManagementApp.ViewModels
 
         public DateTime? data_rozpoczecia
         {
-            get => projekt?.data_rozpoczecia ?? DateTime.Now;
+            get => item?.data_rozpoczecia ?? DateTime.Now;
             set
             {
-                projekt.data_rozpoczecia = value;
+                item.data_rozpoczecia = value;
                 OnPropertyChanged(() => data_rozpoczecia);
 
 
@@ -104,11 +76,11 @@ namespace ProjectManagementApp.ViewModels
         {
             get
             {
-                return projekt.status;
+                return item.status;
             }
             set
             {
-                projekt.status = value;
+                item.status = value;
                 OnPropertyChanged(() => status);
 
             }
@@ -120,11 +92,11 @@ namespace ProjectManagementApp.ViewModels
         {
             get
             {
-                return projekt.priorytet;
+                return item.priorytet;
             }
             set
             {
-                projekt.priorytet = value;
+                item.priorytet = value;
                 OnPropertyChanged(() => priorytet);
             }
             
@@ -132,10 +104,10 @@ namespace ProjectManagementApp.ViewModels
 
         public DateTime? termin
         {
-            get => projekt?.termin ?? DateTime.Now;
+            get => item?.termin ?? DateTime.Now;
             set
             {
-                projekt.termin = value;
+                item.termin = value;
                 OnPropertyChanged(() => termin);
 
             }
@@ -148,29 +120,14 @@ namespace ProjectManagementApp.ViewModels
 
         #region Helpers
      
-        public void Close()
+        
+        public override void ADD()
         {
-            OnRequestClose();
-        }
-        public void ADD()
-        {
-            if (projekt.data_rozpoczecia == null )
-            {
-                projekt.data_rozpoczecia = DateTime.Now;
-            }
-            if (projekt.termin == null)
-                projekt.termin = DateTime.Now.AddDays(7);
-
-            try
-            {
-                zarzadanieProjektami2Entities.Projekty.Add(projekt);
+        
+                zarzadanieProjektami2Entities.Projekty.Add(item);
                 zarzadanieProjektami2Entities.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                // Tutaj możesz wyświetlić komunikat o błędzie lub zapisać go do logów
-                MessageBox.Show("Wystąpił błąd: " + ex.Message);
-            }
+           
+           
             Close();
         }
         #endregion

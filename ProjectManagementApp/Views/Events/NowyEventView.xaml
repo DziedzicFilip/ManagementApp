@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="ProjectManagementApp.Views.NowyEventView"
+﻿<local:JedenViewBase x:Class="ProjectManagementApp.Views.NowyEventView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,35 @@
              xmlns:local="clr-namespace:ProjectManagementApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
-        <Label>Nowy Event</Label>
+    <Grid Margin="20">
+        <!-- Tytuł formularza z większym marginesem u góry -->
+
+
+        <StackPanel VerticalAlignment="Top">
+
+            <!-- Pole do wprowadzenia Nazwy  -->
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock Text="Nazwa:" FontWeight="Bold"/>
+                <TextBox Name="ProjectNameTextBox" Width="300"  Text="{Binding Path=Nazwa, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <!-- Pole do wprowadzenia Opisu -->
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock Text="Opis :" FontWeight="Bold"/>
+                <TextBox Name="DescriptionTextBox" Width="300" Text="{Binding Path=opis, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+
+            <!-- Data rozpoczecia -->
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock Text="Data rozpoczecia:" FontWeight="Bold" />
+                <DatePicker Name="StartDatePicker" Width="300" SelectedDate="{Binding Path=Data_rozpoczecia, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+
+            <!-- Data zakonczenia -->
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock Text="Termin realizacji:" FontWeight="Bold"/>
+                <DatePicker Name="DeadlineDatePicker" Width="300"  SelectedDate="{Binding Path=Data_zakonczenia,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+        </StackPanel>
     </Grid>
-</UserControl>
+</local:JedenViewBase>
