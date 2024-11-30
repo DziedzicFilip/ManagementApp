@@ -189,6 +189,7 @@
     <Compile Include="ViewModels\Eventy\WyswietlHistorieEventuViewModel.cs" />
     <Compile Include="ViewModels\Dodatki\WyswietlNotatkeViewModel.cs" />
     <Compile Include="ViewModels\Abstract\WszystkieViewModel.cs" />
+    <Compile Include="ViewModels\WszystkieTagiViewModel.cs" />
     <Compile Include="Views\Events\InformacjeEventView.xaml.cs">
       <DependentUpon>InformacjeEventView.xaml</DependentUpon>
     </Compile>
@@ -221,6 +222,9 @@
       <DependentUpon>WyswietlNotatkeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Base\WszystkieViewBase.cs" />
+    <Compile Include="Views\WszystkieTagiView.xaml.cs">
+      <DependentUpon>WszystkieTagiView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -301,6 +305,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Dodatki\WyswietlNotatkeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WszystkieTagiView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

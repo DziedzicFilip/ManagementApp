@@ -30,6 +30,9 @@
     <DataTemplate DataType="{x:Type vm:WyswietlHistorieEventuViewModel}">
         <vw:WyswietlHistorieEventuView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:WszystkieTagiViewModel}">
+        <vw:WszystkieTagiView/>
+    </DataTemplate>
 
 
 

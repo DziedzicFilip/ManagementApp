@@ -62,6 +62,9 @@ namespace ProjectManagementApp.ViewModels
                  new CommandViewModel(
                     "Eventy",
                     new BaseCommand(() =>  this.ShowWorkspace<WszystkieEventyViewModel>())),
+                    new CommandViewModel(
+                    "Tagi",
+                    new BaseCommand(() =>  this.ShowWorkspace<WszystkieTagiViewModel>())),
                   new CommandViewModel(
                     "Event Historia",
                     new BaseCommand(() => this.CreateView(new WyswietlHistorieEventuViewModel () ))),
