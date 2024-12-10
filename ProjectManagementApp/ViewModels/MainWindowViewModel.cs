@@ -72,6 +72,9 @@ namespace ProjectManagementApp.ViewModels
                    new CommandViewModel(
                     "Nowy Tag",
                     new BaseCommand(() => this.CreateView(new NowyTagViewModel () ))),
+                    new CommandViewModel(
+                    "Kalendarz",
+                    new BaseCommand(() => this.CreateView(new KalendarzViewModel () ))),
 
 
 
