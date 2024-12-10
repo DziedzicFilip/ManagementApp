@@ -1,56 +1,52 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.ComponentModel;
-using System.Collections.Generic;
 
 namespace ProjectManagementApp.ViewModels
 {
-    public class KalendarzViewModel : WorkspaceViewModel, INotifyPropertyChanged
+    public class KalendarzViewModel : WorkspaceViewModel
     {
-        public ObservableCollection<DayHeaderViewModel> WeekDays { get; set; }
+        public ObservableCollection<DayViewModel> WeekEvents { get; set; }
 
         public KalendarzViewModel()
         {
-            WeekDays = new ObservableCollection<DayHeaderViewModel>(GetWeekDays());
+            WeekEvents = GenerateWeekEvents();
         }
 
-        private IEnumerable<DayHeaderViewModel> GetWeekDays()
+        private ObservableCollection<DayViewModel> GenerateWeekEvents()
         {
             var today = DateTime.Today;
-            int currentDayOfWeek = (int)today.DayOfWeek; // Pobranie numeru dzisiejszego dnia tygodnia (0 = niedziela)
+            var mondayOfWeek = today.AddDays(DayOfWeek.Monday - today.DayOfWeek);
 
-            // Obliczamy daty tygodnia dla bieżącego tygodnia
-            DateTime monday = today.AddDays(-currentDayOfWeek + 1);
-
-            return Enumerable.Range(0, 7).Select(i => new DayHeaderViewModel
-            {
-                Name = GetDayName(i),
-                Date = monday.AddDays(i),
-            });
+            // Tworzenie dni tygodnia z przykładowymi eventami
+            return new ObservableCollection<DayViewModel>(
+                Enumerable.Range(0, 7)
+                          .Select(i => new DayViewModel
+                          {
+                              Date = mondayOfWeek.AddDays(i),
+                              DayName = Enum.GetName(typeof(DayOfWeek), DayOfWeek.Monday + i),
+                              Events = new ObservableCollection<EventViewModel>
+                              {
+                                  new EventViewModel { Title = $"Event 1 - {mondayOfWeek.AddDays(i):dd.MM}" },
+                                  new EventViewModel { Title = $"Event 2 - {mondayOfWeek.AddDays(i):dd.MM}" },
+                                  new EventViewModel { Title = $"Event 3 - {mondayOfWeek.AddDays(i):dd.MM}" }
+                              },
+                              DayIndex = i
+                          })
+            );
         }
-
-        private string GetDayName(int dayIndex)
-        {
-            return dayIndex switch
-            {
-                0 => "Poniedziałek",
-                1 => "Wtorek",
-                2 => "Środa",
-                3 => "Czwartek",
-                4 => "Piątek",
-                5 => "Sobota",
-                6 => "Niedziela",
-                _ => string.Empty,
-            };
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 
-    public class DayHeaderViewModel
+    public class DayViewModel
     {
-        public string Name { get; set; }
+        public string DayName { get; set; }
         public DateTime Date { get; set; }
+        public ObservableCollection<EventViewModel> Events { get; set; }
+        public int DayIndex { get; set; }
+    }
+
+    public class EventViewModel
+    {
+        public string Title { get; set; }
     }
 }
