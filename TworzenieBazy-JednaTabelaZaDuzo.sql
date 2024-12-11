@@ -29,7 +29,7 @@ CREATE TABLE PlikiProjekty (
     FOREIGN KEY (projekt_id) REFERENCES Projekty(projekt_id) ON DELETE CASCADE
 );
 
--- 4. Tabela Wydarzenia (usuniêta relacja z Projektami)
+-- 4. Tabela Wydarzenia 
 CREATE TABLE Wydarzenia (
     wydarzenie_id INT IDENTITY(1,1) PRIMARY KEY,
     nazwa VARCHAR(255),
@@ -58,13 +58,13 @@ CREATE TABLE PlikiWydarzenia (
 );
 
 -- 7. Tabela Rejestr Czasu Pracy nad Projektem
-CREATE TABLE RejestrCzasuPracy (
-    rejestr_id INT IDENTITY(1,1) PRIMARY KEY,
-    projekt_id INT,
-    data_rozpoczecia DATETIME,
-    data_zakonczenia DATETIME,
-    FOREIGN KEY (projekt_id) REFERENCES Projekty(projekt_id) ON DELETE CASCADE
-);
+--CREATE TABLE RejestrCzasuPracy (
+  --  rejestr_id INT IDENTITY(1,1) PRIMARY KEY,
+   -- projekt_id INT,
+   -- data_rozpoczecia DATETIME,
+   -- data_zakonczenia DATETIME,
+   -- FOREIGN KEY (projekt_id) REFERENCES Projekty(projekt_id) ON DELETE CASCADE
+--); 
 
 -- 8. Tabela Historia Dzia³añ Projektu
 CREATE TABLE HistoriaDzialanProjektu (
