@@ -33,6 +33,18 @@ namespace ProjectManagementApp.ViewModels
 
         }
         #endregion
+        #region RefreshCommand
+        private BaseCommand _RefreshCommand;
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                if (_RefreshCommand == null)
+                    _RefreshCommand = new BaseCommand(() => Refresh());
+                return _RefreshCommand;
+            }
+        }
+        #endregion
         #region List
         private ObservableCollection<T> _List;
         public ObservableCollection<T> List
@@ -61,7 +73,13 @@ namespace ProjectManagementApp.ViewModels
         #endregion
         #region Helpers
         public abstract void Load();
+        public  void Refresh()
+        {
+            List.Clear();
+            Load();
+        }
         #endregion
+
     }
 
 }
