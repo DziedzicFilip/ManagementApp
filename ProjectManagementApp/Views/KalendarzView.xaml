@@ -11,13 +11,13 @@
     </UserControl.DataContext>
 
     <Grid Margin="10">
-        <!-- Nagłówki dni tygodnia z datami -->
+        <!-- Nagłówki dni tygodnia -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!-- Nagłówki dni tygodnia z datami -->
+        <!-- Nagłówki dni tygodnia -->
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -28,23 +28,13 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
-            <!-- Dynamiczne generowanie nazw z datami -->
-            <ItemsControl ItemsSource="{Binding WeekDays}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <Grid />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding Name}" TextAlignment="Center" FontWeight="Bold" />
-                            <TextBlock Text="{Binding Date, StringFormat=d}" TextAlignment="Center" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <TextBlock Text="Poniedziałek" TextAlignment="Center" FontWeight="Bold" Grid.Column="0" />
+            <TextBlock Text="Wtorek" TextAlignment="Center" FontWeight="Bold" Grid.Column="1" />
+            <TextBlock Text="Środa" TextAlignment="Center" FontWeight="Bold" Grid.Column="2" />
+            <TextBlock Text="Czwartek" TextAlignment="Center" FontWeight="Bold" Grid.Column="3" />
+            <TextBlock Text="Piątek" TextAlignment="Center" FontWeight="Bold" Grid.Column="4" />
+            <TextBlock Text="Sobota" TextAlignment="Center" FontWeight="Bold" Grid.Column="5" />
+            <TextBlock Text="Niedziela" TextAlignment="Center" FontWeight="Bold" Grid.Column="6" />
         </Grid>
 
         <!-- Siatka z eventami -->
