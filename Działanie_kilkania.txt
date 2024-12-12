@@ -1,0 +1,141 @@
+Aby zaimplementować funkcję, która pozwala na otwarcie nowego okna z detalami projektu po kliknięciu na wiersz w tabeli DataGrid, wykonaj poniższe kroki. Cały proces obejmuje modyfikację plików XAML i kodu-behind w celu prawidłowego działania zdarzenia SelectionChanged oraz wyświetlania szczegółów projektu w nowym oknie.
+
+Krok 1: Zmodyfikuj plik XAML WszystkieProjektyView.xaml
+W pliku WszystkieProjektyView.xaml musisz dodać powiązanie dla zdarzenia SelectionChanged w DataGrid, aby metoda w kodzie-behind mogła zostać wywołana, kiedy użytkownik wybierze wiersz w tabeli.
+
+Zmiany w pliku XAML:
+
+Otwórz plik WszystkieProjektyView.xaml.
+Zaktualizuj element DataGrid, dodając atrybut SelectionChanged, który wskazuje na metodę, która ma zostać wywołana przy zmianie zaznaczenia wiersza w tabeli.
+xml
+Skopiuj kod
+<DataGrid x:Name="ScheduleDataGrid"
+          AutoGenerateColumns="False"
+          CanUserAddRows="False"
+          Margin="10,60,10,10"
+          IsReadOnly="True"
+          HeadersVisibility="Column"
+          GridLinesVisibility="All"
+          ItemsSource="{Binding List}"
+          Grid.Row="0"
+          SelectionChanged="ScheduleDataGrid_SelectionChanged">
+    <DataGrid.Columns>
+        <DataGridTextColumn Header="Nazwa" Binding="{Binding nazwa}" Width="*" />
+        <DataGridTextColumn Header="Data Rozpoczęcia" Binding="{Binding data_rozpoczecia}" Width="*" />
+        <DataGridTextColumn Header="Data Zakończenia" Binding="{Binding data_zakonczenia}" Width="*" />
+        <DataGridTextColumn Header="Status" Binding="{Binding status}" Width="*" />
+        <DataGridTextColumn Header="Termin" Binding="{Binding termin}" Width="*" />
+        <DataGridTextColumn Header="Priorytet" Binding="{Binding priorytet}" Width="*" />
+    </DataGrid.Columns>
+</DataGrid>
+Co się zmienia:
+
+Atrybut SelectionChanged="ScheduleDataGrid_SelectionChanged" mówi, że po zmianie zaznaczenia wiersza w tabeli DataGrid wywołana zostanie metoda ScheduleDataGrid_SelectionChanged.
+Krok 2: Dodaj metodę ScheduleDataGrid_SelectionChanged w kodzie-behind (WszystkieProjektyView.xaml.cs)
+Następnie musisz zdefiniować metodę ScheduleDataGrid_SelectionChanged w pliku .cs, która otworzy nowe okno z szczegółami wybranego projektu.
+
+Zmiany w pliku WszystkieProjektyView.xaml.cs:
+
+Otwórz plik WszystkieProjektyView.xaml.cs.
+Dodaj metodę ScheduleDataGrid_SelectionChanged:
+csharp
+Skopiuj kod
+using ProjectManagementApp.Models.Entities;
+using ProjectManagementApp.ViewModels;
+using ProjectManagementApp.Views;
+using System.Windows;
+using System.Windows.Controls;
+
+namespace ProjectManagementApp.Views
+{
+    public partial class WszystkieProjektyView : UserControl
+    {
+        public WszystkieProjektyView()
+        {
+            InitializeComponent();
+            this.DataContext = new WszystkieProjektyViewModel();
+        }
+
+        // Metoda obsługująca zdarzenie SelectionChanged w DataGrid
+        private void ScheduleDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ScheduleDataGrid.SelectedItem is Projekty selectedProject)
+            {
+                // Sprawdzenie, czy wybrano projekt
+                var viewModel = (WszystkieProjektyViewModel)this.DataContext;
+                viewModel.OpenProjectDetails(selectedProject);  // Otwarcie okna szczegółów
+            }
+        }
+    }
+}
+Co się dzieje w tym kodzie:
+
+Sprawdzamy, czy wybrany element (SelectedItem) w tabeli DataGrid jest obiektem typu Projekty.
+Jeśli tak, tworzymy instancję klasy WszystkieProjektyViewModel, która zawiera logikę do otwarcia okna z szczegółami wybranego projektu.
+Następnie wywołujemy metodę OpenProjectDetails(selectedProject), przekazując wybrany projekt, aby otworzyć nowe okno z jego szczegółami.
+Krok 3: Dodaj metodę OpenProjectDetails w ViewModelu
+W pliku WszystkieProjektyViewModel.cs musisz dodać metodę, która otworzy nowe okno z detalami wybranego projektu.
+
+Zmiany w pliku WszystkieProjektyViewModel.cs:
+
+Otwórz plik WszystkieProjektyViewModel.cs.
+Dodaj metodę OpenProjectDetails, która otworzy nowe okno z detalami wybranego projektu:
+csharp
+Skopiuj kod
+public void OpenProjectDetails(Projekty selectedProject)
+{
+    // Tworzenie nowego okna z detalami wybranego projektu
+    var projectDetailsWindow = new ProjectDetailsWindow();
+    projectDetailsWindow.DataContext = new ProjectDetailsViewModel(selectedProject);  // Przekazanie projektu do ViewModelu
+    projectDetailsWindow.Show();
+}
+Co się dzieje w tym kodzie:
+
+Tworzymy nowe okno ProjectDetailsWindow, które wyświetli szczegóły projektu.
+Przekazujemy wybrany projekt (selectedProject) do ViewModelu ProjectDetailsViewModel, aby okno mogło wyświetlić dane projektu.
+Następnie wyświetlamy okno metodą Show().
+Krok 4: Tworzenie okna szczegółów projektu
+Musisz utworzyć nowe okno, które będzie wyświetlać szczegóły wybranego projektu. Zakładając, że okno nazywa się ProjectDetailsWindow, oto jak możesz je zaimplementować:
+
+W XAML dla ProjectDetailsWindow.xaml dodaj kontener, w którym wyświetlisz dane:
+xml
+Skopiuj kod
+<Window x:Class="ProjectManagementApp.Views.ProjectDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Project Details" Height="300" Width="400">
+    <Grid>
+        <TextBlock Text="Project Details" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+        <!-- Dodaj inne elementy UI do wyświetlania szczegółów projektu -->
+    </Grid>
+</Window>
+W ProjectDetailsWindow.xaml.cs zaktualizuj konstruktor, aby przekazać dane do okna.
+csharp
+Skopiuj kod
+public partial class ProjectDetailsWindow : Window
+{
+    public ProjectDetailsWindow(Projekty selectedProject)
+    {
+        InitializeComponent();
+        this.DataContext = new ProjectDetailsViewModel(selectedProject); // Przekazanie projektu do ViewModelu
+    }
+}
+Krok 5: ViewModel dla szczegółów projektu
+W pliku ProjectDetailsViewModel.cs utwórz ViewModel, który obsłuży dane projektu i przekaże je do okna szczegółów.
+
+Kod dla ProjectDetailsViewModel.cs:
+
+csharp
+Skopiuj kod
+public class ProjectDetailsViewModel
+{
+    public Projekty Project { get; set; }
+
+    public ProjectDetailsViewModel(Projekty selectedProject)
+    {
+        Project = selectedProject;  // Przechowywanie projektu w ViewModelu
+    }
+}
+Podsumowanie
+Po kliknięciu w wiersz w tabeli DataGrid zdarzenie SelectionChanged wywołuje metodę ScheduleDataGrid_SelectionChanged, która otwiera okno z detalami wybranego projektu.
+Okno ProjectDetailsWindow wyświetla dane wybranego projektu, dzięki ViewModelowi ProjectDetailsViewModel, który przechowuje informacje o projekcie.

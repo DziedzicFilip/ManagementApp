@@ -185,6 +185,7 @@
     <Compile Include="ViewModels\NowyEventWindowViewModel.cs" />
     <Compile Include="ViewModels\NowyProjektWindowViewModel.cs" />
     <Compile Include="ViewModels\NowyTagWindowViewModel.cs" />
+    <Compile Include="ViewModels\ProjectDetailsViewModel.cs" />
     <Compile Include="ViewModels\RyzykaProjektuViewModel.cs" />
     <Compile Include="ViewModels\Tagi\NowyTagViewModel.cs" />
     <Compile Include="ViewModels\Projekty\NowyProjektViewModel.cs" />
@@ -197,6 +198,7 @@
     <Compile Include="ViewModels\Dodatki\WyswietlNotatkeViewModel.cs" />
     <Compile Include="ViewModels\Abstract\WszystkieViewModel.cs" />
     <Compile Include="ViewModels\Tagi\WszystkieTagiViewModel.cs" />
+    <Compile Include="ViewModels\WybierzProjektViewModel.cs" />
     <Compile Include="Views\Events\InformacjeEventView.xaml.cs">
       <DependentUpon>InformacjeEventView.xaml</DependentUpon>
     </Compile>
@@ -218,6 +220,9 @@
     </Compile>
     <Compile Include="Views\NowyTagWindowView.xaml.cs">
       <DependentUpon>NowyTagWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProjectDetailsWindow.xaml.cs">
+      <DependentUpon>ProjectDetailsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Projekty\RyzykaProjektuView.xaml.cs">
       <DependentUpon>RyzykaProjektuView.xaml</DependentUpon>
@@ -249,6 +254,9 @@
     <Compile Include="Views\Base\WszystkieViewBase.cs" />
     <Compile Include="Views\Tagi\WszystkieTagiView.xaml.cs">
       <DependentUpon>WszystkieTagiView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WybierzProjektView.xaml.cs">
+      <DependentUpon>WybierzProjektView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -321,6 +329,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ProjectDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Projekty\RyzykaProjektuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -358,6 +370,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Tagi\WszystkieTagiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WybierzProjektView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

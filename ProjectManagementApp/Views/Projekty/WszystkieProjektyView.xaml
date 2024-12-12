@@ -33,33 +33,15 @@
                   HeadersVisibility="Column" 
                   GridLinesVisibility="All"
                   ItemsSource="{Binding List}"
-                  Grid.Row="0">
-            <!-- Kolumny -->
+                  Grid.Row="0"
+                  SelectionChanged="ScheduleDataGrid_SelectionChanged">
             <DataGrid.Columns>
-                <!-- Nazwa -->
-                <DataGridTextColumn Header="Nazwa" 
-                                    Binding="{Binding nazwa}" 
-                                    Width="*" />
-                <!-- Data Rozpoczęcia -->
-                <DataGridTextColumn Header="Data Rozpoczecia" 
-                                    Binding="{Binding data_rozpoczecia}" 
-                                    Width="*" />
-                <!-- Data Zakończenia -->
-                <DataGridTextColumn Header="Data Zakonczenia" 
-                                    Binding="{Binding data_zakonczenia}" 
-                                    Width="*" />
-                <!-- Status -->
-                <DataGridTextColumn Header="Status" 
-                                    Binding="{Binding status}" 
-                                    Width="*" />
-                <!-- Termin -->
-                <DataGridTextColumn Header="Termin" 
-                                    Binding="{Binding termin}" 
-                                    Width="*" />
-                <!-- Priorytet -->
-                <DataGridTextColumn Header="Priorytet" 
-                                    Binding="{Binding priorytet}" 
-                                    Width="*" />
+                <DataGridTextColumn Header="Nazwa" Binding="{Binding nazwa}" Width="*" />
+                <DataGridTextColumn Header="Data Rozpoczęcia" Binding="{Binding data_rozpoczecia}" Width="*" />
+                <DataGridTextColumn Header="Data Zakończenia" Binding="{Binding data_zakonczenia}" Width="*" />
+                <DataGridTextColumn Header="Status" Binding="{Binding status}" Width="*" />
+                <DataGridTextColumn Header="Termin" Binding="{Binding termin}" Width="*" />
+                <DataGridTextColumn Header="Priorytet" Binding="{Binding priorytet}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
 

@@ -1,0 +1,51 @@
+﻿<Window x:Class="ProjectManagementApp.Views.ProjectDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Szczegóły Projektu" Height="400" Width="600"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <!-- Nagłówek -->
+        <TextBlock Text="Szczegóły Projektu" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <!-- Kolumna z informacjami o projekcie -->
+        <StackPanel>
+            <!-- Nazwa -->
+            <TextBlock Text="Nazwa:" FontWeight="Bold"/>
+            <TextBlock Text="{Binding nazwa}" Margin="0,5"/>
+
+            <!-- Opis -->
+            <TextBlock Text="Opis:" FontWeight="Bold"/>
+            <TextBlock Text="{Binding opis}" Margin="0,5"/>
+
+            <!-- Data Rozpoczęcia -->
+            <TextBlock Text="Data Rozpoczęcia:" FontWeight="Bold"/>
+            <TextBlock Text="{Binding data_rozpoczecia}" Margin="0,5"/>
+
+            <!-- Data Zakończenia -->
+            <TextBlock Text="Data Zakończenia:" FontWeight="Bold"/>
+            <TextBlock Text="{Binding data_zakonczenia}" Margin="0,5"/>
+
+            <!-- Status -->
+            <TextBlock Text="Status:" FontWeight="Bold"/>
+            <TextBlock Text="{Binding status}" Margin="0,5"/>
+
+            <!-- Priorytet -->
+            <TextBlock Text="Priorytet:" FontWeight="Bold"/>
+            <TextBlock Text="{Binding priorytet}" Margin="0,5"/>
+
+            <!-- Termin -->
+            <TextBlock Text="Termin:" FontWeight="Bold"/>
+            <TextBlock Text="{Binding termin}" Margin="0,5"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -78,6 +78,9 @@ namespace ProjectManagementApp.ViewModels
                      new CommandViewModel(
                     "Ryzyka",
                     new BaseCommand(() =>  this.ShowWorkspace<RyzykaProjektuViewModel>())),
+                     new CommandViewModel(
+                    "Wybierz Projekt",
+                    new BaseCommand(() => this.CreateView(new WybierzProjektViewModel() ))),
 
 
 

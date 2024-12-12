@@ -13,17 +13,11 @@ namespace ProjectManagementApp.ViewModels
 {
     public class WszystkieProjektyViewModel : WszystkieViewModel<Projekty>
     {
-
         #region Constructor
         public WszystkieProjektyViewModel()
             : base("Projekty")
         {
-            //OpenNewProjectCommand = new RelayCommand(OpenNewProject);
         }
-        #endregion
-
-        #region Properties
-        
         #endregion
 
         #region Helpers
@@ -35,14 +29,16 @@ namespace ProjectManagementApp.ViewModels
             );
         }
         #endregion
-
-        #region Commands
-        public override  void OpenNewProject()
+        public override void OpenNewProject()
         {
-           
-            var newProjectWindow = new NowyProjektWindow();  
-            newProjectWindow.Show();
-
+            throw new NotImplementedException();
+        }
+        #region Commands
+        // Otwieranie nowego okna szczegółów projektu
+        public void OpenProjectDetails(Projekty selectedProject)
+        {
+            var projectDetailsWindow = new ProjectDetailsWindow(selectedProject);
+            projectDetailsWindow.ShowDialog();  // Użyj ShowDialog() aby czekać na zamknięcie okna
         }
         #endregion
     }
