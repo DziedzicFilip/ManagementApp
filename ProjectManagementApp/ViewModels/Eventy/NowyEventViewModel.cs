@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ProjectManagementApp.ViewModels
 {
@@ -147,7 +148,7 @@ namespace ProjectManagementApp.ViewModels
 
             zarzadanieProjektami2Entities.Wydarzenia.Add(item);
             zarzadanieProjektami2Entities.SaveChanges();
-
+            MessageBox.Show("Event został pomyślnie dodany!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
 
             Close();
         }

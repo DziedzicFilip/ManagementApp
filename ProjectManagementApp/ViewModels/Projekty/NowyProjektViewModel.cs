@@ -126,8 +126,8 @@ namespace ProjectManagementApp.ViewModels
         
                 zarzadanieProjektami2Entities.Projekty.Add(item);
                 zarzadanieProjektami2Entities.SaveChanges();
-           
-           
+            MessageBox.Show("Projekt został pomyślnie dodany!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+
             Close();
         }
         #endregion

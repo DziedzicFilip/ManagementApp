@@ -11,17 +11,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ProjectManagementApp.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy NowyTagView.xaml
+    /// Logika interakcji dla klasy NowyTagWindowView.xaml
     /// </summary>
-    public partial class NowyTagView : JedenViewBase
+    public partial class NowyTagWindowView : Window
     {
-        public NowyTagView()
+        public NowyTagWindowView()
         {
             InitializeComponent();
             this.DataContext = new NowyTagViewModel();

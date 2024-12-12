@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ProjectManagementApp.ViewModels
 {
@@ -34,7 +35,7 @@ namespace ProjectManagementApp.ViewModels
             zarzadanieProjektami2Entities.Tagi.Add(item);
             zarzadanieProjektami2Entities.SaveChanges();
 
-
+            MessageBox.Show("TAG został pomyślnie dodany!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
             Close();
         }
     }

@@ -42,6 +42,7 @@ namespace ProjectManagementApp.ViewModels
            
             var newProjectWindow = new NowyProjektWindow();  
             newProjectWindow.Show();
+
         }
         #endregion
     }

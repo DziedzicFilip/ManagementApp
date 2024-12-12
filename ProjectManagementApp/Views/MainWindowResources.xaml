@@ -46,8 +46,9 @@
     <DataTemplate DataType="{x:Type vm:NowyProjektWindowViewModel}">
         <vw:NowyProjektWindow/>
     </DataTemplate>
-
-
+    <DataTemplate DataType="{x:Type vm:NowyTagWindowViewModel}">
+        <vw:NowyTagWindowView/>
+    </DataTemplate>
     <DataTemplate DataType="{x:Type vm:NowyEventWindowViewModel}">
         <vw:NowyEventWindow/>
     </DataTemplate>
