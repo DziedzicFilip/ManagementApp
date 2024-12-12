@@ -18,12 +18,12 @@ namespace ProjectManagementApp.ViewModels
         public WszystkieProjektyViewModel()
             : base("Projekty")
         {
-            OpenNewProjectCommand = new RelayCommand(OpenNewProject);
+            //OpenNewProjectCommand = new RelayCommand(OpenNewProject);
         }
         #endregion
 
         #region Properties
-        public ICommand OpenNewProjectCommand { get; private set; }
+        
         #endregion
 
         #region Helpers
@@ -37,10 +37,10 @@ namespace ProjectManagementApp.ViewModels
         #endregion
 
         #region Commands
-        private void OpenNewProject()
+        public override  void OpenNewProject()
         {
-            // Otwieramy nowe okno NowProjektWindow
-            var newProjectWindow = new NowyProjektWindow();  // Zmieniamy na NowyProjektWindow
+           
+            var newProjectWindow = new NowyProjektWindow();  
             newProjectWindow.Show();
         }
         #endregion

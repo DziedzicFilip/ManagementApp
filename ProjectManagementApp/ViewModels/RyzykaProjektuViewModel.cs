@@ -34,6 +34,12 @@ namespace ProjectManagementApp.ViewModels
                 }
             );
         }
+        public override void OpenNewProject()
+        {
+
+            var newProjectWindow = new NowyProjektWindow();
+            newProjectWindow.Show();
+        }
 
 
 

@@ -52,5 +52,6 @@
             
         </DataGrid>
         <Button Content="Odswiez" Width="50" Height="50" Margin="5" HorizontalAlignment="Right" Command="{Binding RefreshCommand}" />
+        <Button Content="Dodaj" Width="50" Height="50" Margin="100" HorizontalAlignment="Right" Command="{Binding OpenNewProjectCommand}" />
     </Grid>
 </local:WszystkieViewBase>

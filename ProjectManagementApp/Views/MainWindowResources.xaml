@@ -48,6 +48,11 @@
     </DataTemplate>
 
 
+    <DataTemplate DataType="{x:Type vm:NowyEventWindowViewModel}">
+        <vw:NowyEventWindow/>
+    </DataTemplate>
+
+
 
 
 

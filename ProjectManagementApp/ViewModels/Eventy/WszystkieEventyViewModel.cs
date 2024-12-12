@@ -1,4 +1,5 @@
 ﻿using ProjectManagementApp.Models.Entities;
+using ProjectManagementApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,6 +23,12 @@ namespace ProjectManagementApp.ViewModels
                 (
                    zarzadanieProjektami2Entities.Wydarzenia.ToList()
                 );
+        }
+        public override void OpenNewProject()
+        {
+
+            var newEventWindow = new NowyEventWindow();
+            newEventWindow.Show();
         }
         #endregion
     }

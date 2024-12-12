@@ -1,4 +1,5 @@
 ﻿using ProjectManagementApp.Models.Entities;
+using ProjectManagementApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,6 +22,12 @@ namespace ProjectManagementApp.ViewModels
                 (
                    zarzadanieProjektami2Entities.Tagi.ToList()
                 );
+        }
+        public override void OpenNewProject()
+        {
+
+            var newProjectWindow = new NowyProjektWindow();
+            newProjectWindow.Show();
         }
     }
    

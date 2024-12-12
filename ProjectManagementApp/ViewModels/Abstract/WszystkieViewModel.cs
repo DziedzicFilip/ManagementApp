@@ -1,4 +1,5 @@
-﻿using ProjectManagementApp.Helper;
+﻿using CommunityToolkit.Mvvm.Input;
+using ProjectManagementApp.Helper;
 using ProjectManagementApp.Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -47,7 +48,7 @@ namespace ProjectManagementApp.ViewModels
         #endregion
 
         #region OpenNewProjectCommand
-
+        public ICommand OpenNewProjectCommand { get; private set; }
         #endregion
         #region List
         private ObservableCollection<T> _List;
@@ -73,6 +74,7 @@ namespace ProjectManagementApp.ViewModels
         {
             zarzadanieProjektami2Entities = new ZarzadanieProjektami2Entities();
             base.DisplayName = displayName;
+            OpenNewProjectCommand = new RelayCommand(OpenNewProject);
         }
         #endregion
         #region Helpers
@@ -82,6 +84,7 @@ namespace ProjectManagementApp.ViewModels
             List.Clear();
             Load();
         }
+        public abstract void OpenNewProject();
         #endregion
 
     }
