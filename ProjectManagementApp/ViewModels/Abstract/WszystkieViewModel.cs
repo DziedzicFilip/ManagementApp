@@ -45,6 +45,10 @@ namespace ProjectManagementApp.ViewModels
             }
         }
         #endregion
+
+        #region OpenNewProjectCommand
+
+        #endregion
         #region List
         private ObservableCollection<T> _List;
         public ObservableCollection<T> List

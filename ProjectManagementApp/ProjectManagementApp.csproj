@@ -182,6 +182,7 @@
     <Compile Include="ViewModels\KalendarzViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Eventy\NowyEventViewModel.cs" />
+    <Compile Include="ViewModels\NowyProjektWindowViewModel.cs" />
     <Compile Include="ViewModels\RyzykaProjektuViewModel.cs" />
     <Compile Include="ViewModels\Tagi\NowyTagViewModel.cs" />
     <Compile Include="ViewModels\Projekty\NowyProjektViewModel.cs" />
@@ -206,6 +207,9 @@
     </Compile>
     <Compile Include="Views\Events\NowyEventView.xaml.cs">
       <DependentUpon>NowyEventView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NowyProjektWindow.xaml.cs">
+      <DependentUpon>NowyProjektWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Projekty\RyzykaProjektuView.xaml.cs">
       <DependentUpon>RyzykaProjektuView.xaml</DependentUpon>
@@ -294,6 +298,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Events\NowyEventView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NowyProjektWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

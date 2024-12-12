@@ -43,6 +43,9 @@
         <vw:RyzykaProjektuView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:NowyProjektWindowViewModel}">
+        <vw:NowyProjektWindow/>
+    </DataTemplate>
 
 
 
