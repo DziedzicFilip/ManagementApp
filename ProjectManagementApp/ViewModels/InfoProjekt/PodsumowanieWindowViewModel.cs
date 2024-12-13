@@ -11,13 +11,15 @@ namespace ProjectManagementApp.ViewModels
 {
     public  class PodsumowanieWindowViewModel : WszystkieViewModel<InfoProjekt>
     {
-        public PodsumowanieWindowViewModel():base(" ") { }
+        public int ProjektID { get; set; }
+        public PodsumowanieWindowViewModel(int projektID) :base(" ") { ProjektID = projektID; }
         public override void Load()
         {
+
             List = new ObservableCollection<InfoProjekt>
             (
                 from PodsumowanieCzasu in zarzadanieProjektami2Entities.PodsumowanieCzasu
-                where PodsumowanieCzasu.projekt_id == 1093
+                where PodsumowanieCzasu.projekt_id == ProjektID
                 select new InfoProjekt
                 {
                     CalkowityCzas = (double)(PodsumowanieCzasu.calkowity_czas),

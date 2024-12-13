@@ -20,10 +20,10 @@ namespace ProjectManagementApp.Views
     /// </summary>
     public partial class CzasPracyWindowView : Window
     {
-        public CzasPracyWindowView()
+        public CzasPracyWindowView(int projektID)
         {
             InitializeComponent();
-            this.DataContext = new CzasPracyWindowViewModel();
+            this.DataContext = new CzasPracyWindowViewModel(projektID);
         }
     }
 }

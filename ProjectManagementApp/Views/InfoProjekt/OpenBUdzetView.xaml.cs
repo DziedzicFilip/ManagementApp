@@ -20,10 +20,10 @@ namespace ProjectManagementApp.Views
     /// </summary>
     public partial class OpenBUdzetView : Window
     {
-        public OpenBUdzetView()
+        public OpenBUdzetView(int projektID)
         {
             InitializeComponent();
-            this.DataContext = new OpenBUdzetViewModel();
+            this.DataContext = new OpenBUdzetViewModel( projektID);
         }
     }
 }

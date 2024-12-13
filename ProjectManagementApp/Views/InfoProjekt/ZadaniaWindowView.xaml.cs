@@ -20,10 +20,10 @@ namespace ProjectManagementApp.Views
     /// </summary>
     public partial class ZadaniaWindowView : Window
     {
-        public ZadaniaWindowView()
+        public ZadaniaWindowView(int projektID)
         {
             InitializeComponent();
-            this.DataContext = new ZadaniaWindowViewModel();
+            this.DataContext = new ZadaniaWindowViewModel( projektID);
         }
     }
 }

@@ -20,10 +20,10 @@ namespace ProjectManagementApp.Views
     /// </summary>
     public partial class HistoriaWindowView : Window
     {
-        public HistoriaWindowView()
+        public HistoriaWindowView(int projektID)
         {
             InitializeComponent();
-            this.DataContext = new HistoriaWindowViewModel();
+            this.DataContext = new HistoriaWindowViewModel(  projektID);
         }
     }
 }

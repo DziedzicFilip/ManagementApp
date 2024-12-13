@@ -20,10 +20,10 @@ namespace ProjectManagementApp.Views
     /// </summary>
     public partial class PodsumowanieWindowView : Window
     {
-        public PodsumowanieWindowView()
+        public PodsumowanieWindowView(int projektID)
         {
             InitializeComponent();
-            this.DataContext = new PodsumowanieWindowViewModel();
+            this.DataContext = new PodsumowanieWindowViewModel(projektID);
         }
     }
 }

@@ -19,10 +19,10 @@ namespace ProjectManagementApp.Views
     /// </summary>
     public partial class PlikiWindowView : Window
     {
-        public PlikiWindowView()
+        public PlikiWindowView(int projektID)
         {
             InitializeComponent();
-            this.DataContext = new PlikiWindowViewModel();
+            this.DataContext = new PlikiWindowViewModel( projektID);
         }
     }
 }

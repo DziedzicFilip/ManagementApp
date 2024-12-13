@@ -5,13 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using ProjectManagementApp.Models.Entities;
 
 namespace ProjectManagementApp.ViewModels
 {
    public class CzasPracyWindowViewModel : WszystkieViewModel<InfoProjekt>
     {
-        public CzasPracyWindowViewModel():base(" ") {
-        
+        public int ProjektID { get; set; }
+        public CzasPracyWindowViewModel(int projektID) :base(" ") {
+            ProjektID = projektID;
 
 
         }
@@ -20,7 +22,7 @@ namespace ProjectManagementApp.ViewModels
             List = new ObservableCollection<InfoProjekt>
             (
                 from RejestrCzasuPracyProjekt in zarzadanieProjektami2Entities.RejestrCzasuPracyProjekt
-                where RejestrCzasuPracyProjekt.projekt_id == 1093
+                where RejestrCzasuPracyProjekt.projekt_id == ProjektID
                 select new InfoProjekt
                 {
                     CzasSpedzony = (double)(RejestrCzasuPracyProjekt.czas_spedzony ?? 0m),

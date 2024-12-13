@@ -54,49 +54,49 @@ namespace ProjectManagementApp.ViewModels
         public void OpenNotatkiWindow()
         {
             Console.WriteLine("Otwarcie okna Notatki");
-            var notatkiWindow = new NotatkiWindowView();  // Używaj odpowiedniego widoku
+            var notatkiWindow = new NotatkiWindowView(ProjektID);  // Używaj odpowiedniego widoku
             notatkiWindow.Show();
         }
 
         public void OpenCzasPracyWindow()
         {
             Console.WriteLine("Otwarcie okna Czas Pracy");
-            var czasPracyWindow = new CzasPracyWindowView();  // Używaj odpowiedniego widoku
+            var czasPracyWindow = new CzasPracyWindowView(ProjektID);  // Używaj odpowiedniego widoku
             czasPracyWindow.Show();
         }
 
         public void OpenHistoriaWindow()
         {
             Console.WriteLine("Otwarcie okna Historia");
-            var historiaWindow = new HistoriaWindowView();  // Używaj odpowiedniego widoku
+            var historiaWindow = new HistoriaWindowView(ProjektID);  // Używaj odpowiedniego widoku
             historiaWindow.Show();
         }
 
         public void OpenPlikiWindow()
         {
             Console.WriteLine("Otwarcie okna Pliki");
-            var plikiWindow = new PlikiWindowView();  // Używaj odpowiedniego widoku
+            var plikiWindow = new PlikiWindowView(ProjektID);  // Używaj odpowiedniego widoku
             plikiWindow.Show();
         }
 
         public void OpenBudzetWindow()
         {
             Console.WriteLine("Otwarcie okna Budżet");
-            var budzetWindow = new OpenBUdzetView();  // Używaj odpowiedniego widoku
+            var budzetWindow = new OpenBUdzetView(ProjektID);  // Używaj odpowiedniego widoku
             budzetWindow.Show();
         }
 
         public void OpenZadaniaWindow()
         {
             Console.WriteLine("Otwarcie okna Zadania");
-            var zadaniaWindow = new ZadaniaWindowView();  // Używaj odpowiedniego widoku
+            var zadaniaWindow = new ZadaniaWindowView(ProjektID);  // Używaj odpowiedniego widoku
             zadaniaWindow.Show();
         }
 
         public void OpenPodsumowanieWindow()
         {
             Console.WriteLine("Otwarcie okna Podsumowanie");
-            var podsumowanieWindow = new PodsumowanieWindowView();  // Używaj odpowiedniego widoku
+            var podsumowanieWindow = new PodsumowanieWindowView(ProjektID);  // Używaj odpowiedniego widoku
             podsumowanieWindow.Show();
         }
 

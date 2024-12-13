@@ -12,13 +12,14 @@ namespace ProjectManagementApp.ViewModels
 {
     public  class PlikiWindowViewModel : WszystkieViewModel<InfoProjekt>
     {
-        public PlikiWindowViewModel():base(" ") { }
+        public int ProjektID { get; set; }
+        public PlikiWindowViewModel(int projektID) :base(" ") { ProjektID = projektID; }
         public override void Load()
         {
             List = new ObservableCollection<InfoProjekt>
             (
                 from PlikiProjekty in zarzadanieProjektami2Entities.PlikiProjekty
-                where PlikiProjekty.projekt_id == 1093
+                where PlikiProjekty.projekt_id == ProjektID
                 select new InfoProjekt
                 {
 

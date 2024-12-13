@@ -19,10 +19,10 @@ namespace ProjectManagementApp.Views
     /// </summary>
     public partial class NotatkiWindowView : Window
     {
-        public NotatkiWindowView()
+        public NotatkiWindowView(int projektID)
         {
             InitializeComponent();
-            this.DataContext = new NotatkiWindowViewModel();
+            this.DataContext = new NotatkiWindowViewModel(projektID);
         }
     }
 }
