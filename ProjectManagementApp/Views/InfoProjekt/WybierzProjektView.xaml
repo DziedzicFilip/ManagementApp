@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ProjectManagementApp.Views"
              DataContext="{Binding RelativeSource={RelativeSource Self}}"
-             Height="550" Width="500">
+             Height="750" Width="500">
     <Grid>
         <StackPanel Margin="10">
             <!-- Pole do wprowadzania ID Projektu -->
@@ -11,23 +11,29 @@
             <TextBox Name="ProjektIDTextBox" Width="200" Margin="0,0,0,20"/>
 
             <!-- Tabela z nazwami tabel i przyciskami do szczegółów -->
-            <TextBlock Text="Tabela: Projekty" FontWeight="Bold" FontSize="16"/>
-            <Button Content="Zobacz informacje" Margin="0,10" Width="150" />
+            <TextBlock Text="Tabela: Czas Pracy" FontWeight="Bold" FontSize="16"/>
+            <Button Content="Zobacz informacje" Margin="0,10" Width="150"   Command="{Binding OpenCzasPracy}"/>
 
             <TextBlock Text="Tabela: Ryzyka" FontWeight="Bold" FontSize="16"/>
             <Button Content="Zobacz informacje" Margin="0,10" Width="150" Command="{Binding OpenRyzyko}" />
 
             <TextBlock Text="Tabela: Pliki" FontWeight="Bold" FontSize="16"/>
-            <Button Content="Zobacz informacje" Margin="0,10" Width="150"/>
+            <Button Content="Zobacz informacje" Margin="0,10" Width="150" Command="{Binding  OpenPliki }"/>
 
             <TextBlock Text="Tabela: Notatki" FontWeight="Bold" FontSize="16"/>
             <Button Content="Zobacz informacje" Margin="0,10" Width="150"  Command="{Binding  OpenNotatki}" />
 
             <TextBlock Text="Tabela: Budżet" FontWeight="Bold" FontSize="16"/>
-            <Button Content="Zobacz informacje" Margin="0,10" Width="150" />
+            <Button Content="Zobacz informacje" Margin="0,10" Width="150" Command="{Binding  OpenBUdzet}"/>
 
             <TextBlock Text="Tabela: Zadania" FontWeight="Bold" FontSize="16"/>
-            <Button Content="Zobacz informacje" Margin="0,10" Width="150"/>
+            <Button Content="Zobacz informacje" Margin="0,10" Width="150" Command="{Binding  OpenZadania }" />
+            
+            <TextBlock Text="Tabela: Historia " FontWeight="Bold" FontSize="16"/>
+            <Button Content="Zobacz informacje" Margin="0,10" Width="150"  Command="{Binding  OpenHistoria}" />
+
+            <TextBlock Text="Tabela:Podsumowanie " FontWeight="Bold" FontSize="16"/>
+            <Button Content="Zobacz informacje" Margin="0,10" Width="150"  Command="{Binding  OpenPodsumowanie}" />
         </StackPanel>
     </Grid>
 </UserControl>

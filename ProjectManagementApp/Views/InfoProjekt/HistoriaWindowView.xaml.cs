@@ -1,5 +1,4 @@
-﻿using ProjectManagementApp.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,18 +11,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ProjectManagementApp.ViewModels;
 
 namespace ProjectManagementApp.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy InforProjektuView.xaml
+    /// Logika interakcji dla klasy HistoriaWindowView.xaml
     /// </summary>
-    public partial class InforProjektuView : Window
+    public partial class HistoriaWindowView : Window
     {
-        public InforProjektuView()
+        public HistoriaWindowView()
         {
-           // InitializeComponent();
-          
+            InitializeComponent();
+            this.DataContext = new HistoriaWindowViewModel();
         }
     }
 }

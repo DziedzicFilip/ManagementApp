@@ -81,9 +81,7 @@ namespace ProjectManagementApp.ViewModels
                      new CommandViewModel(
                     "Wybierz Projekt",
                     new BaseCommand(() => this.CreateView(new WybierzProjektViewModel() ))),
-                      new CommandViewModel(
-                    "Ryzka dla konkretnego ID",
-                    new BaseCommand(() =>  this.ShowWorkspace<InfoProjektuViewModel>())),
+                     
 
 
 
