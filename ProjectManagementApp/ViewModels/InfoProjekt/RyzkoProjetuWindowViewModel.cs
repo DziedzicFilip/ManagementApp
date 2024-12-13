@@ -1,4 +1,5 @@
-﻿using ProjectManagementApp.Models.EntitiesForView;
+﻿using ProjectManagementApp.Models.Entities;
+using ProjectManagementApp.Models.EntitiesForView;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,18 +11,18 @@ namespace ProjectManagementApp.ViewModels
 {
     internal class RyzkoProjetuWindowViewModel : WszystkieViewModel<InfoProjekt>
     {
+        public int ProjektID { get; set; }
 
+        public RyzkoProjetuWindowViewModel(int projektID):base("Ryzko") {
 
-        public RyzkoProjetuWindowViewModel():base("Ryzko") {
-        
-        
+            ProjektID = projektID;
         }
         public override void Load()
         {
             List = new ObservableCollection<InfoProjekt>
             (
                 from RyzykaProjektu in zarzadanieProjektami2Entities.RyzykaProjektu
-                where RyzykaProjektu.projekt_id == 1093
+                where RyzykaProjektu.projekt_id == ProjektID
                 select new InfoProjekt
                 {
 

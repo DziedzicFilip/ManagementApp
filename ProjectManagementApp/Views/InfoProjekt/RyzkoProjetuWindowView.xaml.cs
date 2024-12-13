@@ -1,4 +1,5 @@
-﻿using ProjectManagementApp.ViewModels;
+﻿using ProjectManagementApp.Models.Entities;
+using ProjectManagementApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,10 @@ namespace ProjectManagementApp.Views
     /// </summary>
     public partial class RyzkoProjetuWindowView : Window
     {
-        public RyzkoProjetuWindowView()
+        public RyzkoProjetuWindowView(int projektID )
         {
             InitializeComponent();
-            this.DataContext = new RyzkoProjetuWindowViewModel();
+            this.DataContext = new RyzkoProjetuWindowViewModel(projektID);
         }
     }
 }

@@ -30,7 +30,16 @@ namespace ProjectManagementApp.ViewModels
             OpenZadania = new RelayCommand(OpenZadaniaWindow);
             OpenPodsumowanie = new RelayCommand(OpenPodsumowanieWindow);
         }
-
+        private int _projektID;
+        public int ProjektID
+        {
+            get { return _projektID; }
+            set
+            {
+                _projektID = value;
+                OnPropertyChanged(() => ProjektID); // Użycie wyrażenia lambda
+            }
+        }
 
 
         #region Command Methods
@@ -38,7 +47,7 @@ namespace ProjectManagementApp.ViewModels
         public void OpenRyzko()
         {
             Console.WriteLine("Otwarcie okna Ryzyko");
-            var infoWindow = new RyzkoProjetuWindowView();
+            var infoWindow = new RyzkoProjetuWindowView(ProjektID);
             infoWindow.Show();
         }
 

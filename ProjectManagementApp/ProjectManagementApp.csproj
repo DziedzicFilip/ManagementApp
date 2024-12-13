@@ -189,8 +189,8 @@
     <Compile Include="ViewModels\InfoProjekt\NotatkiWindowViewModel.cs" />
     <Compile Include="ViewModels\Eventy\NowyEventWindowViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\PlikiWindowViewModel.cs" />
-    <Compile Include="ViewModels\OpenBUdzetViewModel.cs" />
-    <Compile Include="ViewModels\PodsumowanieWindowViewModel.cs" />
+    <Compile Include="ViewModels\InfoProjekt\OpenBUdzetViewModel.cs" />
+    <Compile Include="ViewModels\InfoProjekt\PodsumowanieWindowViewModel.cs" />
     <Compile Include="ViewModels\Projekty\NowyProjektWindowViewModel.cs" />
     <Compile Include="ViewModels\Tagi\NowyTagWindowViewModel.cs" />
     <Compile Include="ViewModels\ProjectDetailsViewModel.cs" />
@@ -208,7 +208,7 @@
     <Compile Include="ViewModels\Abstract\WszystkieViewModel.cs" />
     <Compile Include="ViewModels\Tagi\WszystkieTagiViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\WybierzProjektViewModel.cs" />
-    <Compile Include="ViewModels\ZadaniaWindowViewModel.cs" />
+    <Compile Include="ViewModels\InfoProjekt\ZadaniaWindowViewModel.cs" />
     <Compile Include="Views\InfoProjekt\HistoriaWindowView.xaml.cs">
       <DependentUpon>HistoriaWindowView.xaml</DependentUpon>
     </Compile>
@@ -243,7 +243,7 @@
     <Compile Include="Views\InfoProjekt\OpenBUdzetView.xaml.cs">
       <DependentUpon>OpenBUdzetView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PodsumowanieWindowView.xaml.cs">
+    <Compile Include="Views\InfoProjekt\PodsumowanieWindowView.xaml.cs">
       <DependentUpon>PodsumowanieWindowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Projekty\NowyProjektWindow.xaml.cs">
@@ -385,7 +385,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PodsumowanieWindowView.xaml">
+    <Page Include="Views\InfoProjekt\PodsumowanieWindowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
