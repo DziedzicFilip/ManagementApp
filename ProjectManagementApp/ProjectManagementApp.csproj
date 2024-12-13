@@ -185,10 +185,12 @@
     <Compile Include="ViewModels\KalendarzViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Eventy\NowyEventViewModel.cs" />
+    <Compile Include="ViewModels\NotatkiWindowViewModel.cs" />
     <Compile Include="ViewModels\NowyEventWindowViewModel.cs" />
     <Compile Include="ViewModels\NowyProjektWindowViewModel.cs" />
     <Compile Include="ViewModels\NowyTagWindowViewModel.cs" />
     <Compile Include="ViewModels\ProjectDetailsViewModel.cs" />
+    <Compile Include="ViewModels\RyzkoProjetuWindowViewModel.cs" />
     <Compile Include="ViewModels\RyzykaProjektuViewModel.cs" />
     <Compile Include="ViewModels\Tagi\NowyTagViewModel.cs" />
     <Compile Include="ViewModels\Projekty\NowyProjektViewModel.cs" />
@@ -218,6 +220,9 @@
     <Compile Include="Views\Events\NowyEventView.xaml.cs">
       <DependentUpon>NowyEventView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\NotatkiWindowView.xaml.cs">
+      <DependentUpon>NotatkiWindowView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NowyEventWindow.xaml.cs">
       <DependentUpon>NowyEventWindow.xaml</DependentUpon>
     </Compile>
@@ -235,6 +240,9 @@
     </Compile>
     <Compile Include="Views\Projekty\RyzykaProjektuView.xaml.cs">
       <DependentUpon>RyzykaProjektuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RyzkoProjetuWindowView.xaml.cs">
+      <DependentUpon>RyzkoProjetuWindowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Tagi\NowyTagView.xaml.cs">
       <DependentUpon>NowyTagView.xaml</DependentUpon>
@@ -330,6 +338,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\NotatkiWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\NowyEventWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -351,6 +363,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Projekty\RyzykaProjektuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RyzkoProjetuWindowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

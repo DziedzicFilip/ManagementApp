@@ -22,7 +22,7 @@ namespace ProjectManagementApp.Views
     {
         public InforProjektuView()
         {
-            InitializeComponent();
+           // InitializeComponent();
             this.DataContext = new InfoProjektuViewModel();
         }
     }

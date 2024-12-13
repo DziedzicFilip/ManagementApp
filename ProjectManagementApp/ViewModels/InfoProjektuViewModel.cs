@@ -13,8 +13,8 @@ namespace ProjectManagementApp.ViewModels
         {
         }
 
-        int ProjektID = 1092;
-
+        int ProjektID = 1093;
+       
 
         public override void Load()
         {
@@ -88,12 +88,6 @@ namespace ProjectManagementApp.ViewModels
             // Przypisanie przefiltrowanej listy do widoku
             List = new ObservableCollection<InfoProjekt>(nonEmptyInfo);
         }
-
-
-
-
-
-
 
 
         public override void OpenNewProject()

@@ -1,5 +1,4 @@
-﻿using ProjectManagementApp.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,20 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using ProjectManagementApp.ViewModels;
 namespace ProjectManagementApp.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy WybierzProjektView.xaml
+    /// Logika interakcji dla klasy NotatkiWindowView.xaml
     /// </summary>
-    public partial class WybierzProjektView : UserControl
+    public partial class NotatkiWindowView : Window
     {
-        public WybierzProjektView()
+        public NotatkiWindowView()
         {
             InitializeComponent();
-            this.DataContext = new WybierzProjektViewModel();
+            this.DataContext = new NotatkiWindowViewModel();
         }
     }
 }

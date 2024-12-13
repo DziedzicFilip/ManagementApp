@@ -1,41 +1,41 @@
-﻿using ProjectManagementApp.Models.Entities;
-using ProjectManagementApp.Models.EntitiesForView;
-using ProjectManagementApp.Views;
+﻿using ProjectManagementApp.Models.EntitiesForView;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Documents;
 
 namespace ProjectManagementApp.ViewModels
 {
-    public class RyzykaProjektuViewModel : WszystkieViewModel<RyzykaProjketuForAllView>
+    internal class RyzkoProjetuWindowViewModel : WszystkieViewModel<InfoProjekt>
     {
-        public RyzykaProjektuViewModel()
-        : base("Ryzyka")
-        {
 
+
+        public RyzkoProjetuWindowViewModel():base("Ryzko") {
+        
+        
         }
         public override void Load()
         {
-            List = new ObservableCollection<RyzykaProjketuForAllView>
+            List = new ObservableCollection<InfoProjekt>
             (
                 from RyzykaProjektu in zarzadanieProjektami2Entities.RyzykaProjektu
-                
-                select new RyzykaProjketuForAllView
+                where RyzykaProjektu.projekt_id == 1093
+                select new InfoProjekt
                 {
-                    
+
                     SrodkiZapobiegawcze = RyzykaProjektu.srodki_zapobiegawcze,
                     Prawdopodobienstwo = RyzykaProjektu.prawdopodobienstwo,
                     Wplyw = RyzykaProjektu.wplyw,
                     Opis = RyzykaProjektu.opis,
                     NazwaProjektu = RyzykaProjektu.Projekty.nazwa
                 }
-                
+
             );
         }
+
+
         public override void OpenNewProject()
         {
 
@@ -44,12 +44,7 @@ namespace ProjectManagementApp.ViewModels
         }
         public override void OpenInfoView()
         {
-            throw new NotImplementedException();    
+                ///
         }
-
-
-
-
     }
 }
-
