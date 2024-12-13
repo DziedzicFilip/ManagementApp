@@ -29,5 +29,6 @@
                 Height="30"
                 Margin="10"
                 Command="{Binding ConfirmCommand}" />
+        <local:RyzykaProjektuView/>
     </Grid>
 </UserControl>

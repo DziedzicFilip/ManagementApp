@@ -11,20 +11,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ProjectManagementApp.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy WybierzProjektView.xaml
+    /// Logika interakcji dla klasy InforProjektuView.xaml
     /// </summary>
-    public partial class WybierzProjektView : UserControl
+    public partial class InforProjektuView : Window
     {
-        public WybierzProjektView()
+        public InforProjektuView()
         {
             InitializeComponent();
-            this.DataContext = new RyzykaProjektuViewModel();
+            this.DataContext = new InfoProjektuViewModel();
         }
     }
 }

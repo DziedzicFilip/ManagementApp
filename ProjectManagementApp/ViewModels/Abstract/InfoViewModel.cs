@@ -9,15 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace ProjectManagementApp.ViewModels
+namespace ProjectManagementApp.ViewModels.Abstract
 {
-    public abstract class WszystkieViewModel<T> : WorkspaceViewModel
+    public abstract class InfoViewModel<T> : WorkspaceViewModel
     {
         #region DB
         protected readonly ZarzadanieProjektami2Entities zarzadanieProjektami2Entities;
-
-
         #endregion
+
         #region LoadCommand
         private BaseCommand _LoadCommand;
         public ICommand LoadCommand
@@ -25,32 +24,16 @@ namespace ProjectManagementApp.ViewModels
             get
             {
                 if (_LoadCommand == null)
-
-                    _LoadCommand = new BaseCommand(() => Load());
+                    _LoadCommand = new BaseCommand(() => LoadAllForOne(0)); 
                 return _LoadCommand;
-
-            }
-
-
-        }
-        #endregion
-        #region RefreshCommand
-        private BaseCommand _RefreshCommand;
-        public ICommand RefreshCommand
-        {
-            get
-            {
-                if (_RefreshCommand == null)
-                    _RefreshCommand = new BaseCommand(() => Refresh());
-                return _RefreshCommand;
             }
         }
         #endregion
 
         #region OpenNewProjectCommand
         public ICommand OpenNewProjectCommand { get; private set; }
-        public ICommand OpenInfo {  get; private set; }
         #endregion
+
         #region List
         private ObservableCollection<T> _List;
         public ObservableCollection<T> List
@@ -59,7 +42,7 @@ namespace ProjectManagementApp.ViewModels
             {
                 if (_List == null)
                 {
-                    Load();
+                    LoadAllForOne(0); 
                 }
                 return _List;
             }
@@ -70,27 +53,18 @@ namespace ProjectManagementApp.ViewModels
             }
         }
         #endregion
+
         #region Constructor
-        public WszystkieViewModel(String displayName)
+        public InfoViewModel(String displayName)
         {
             zarzadanieProjektami2Entities = new ZarzadanieProjektami2Entities();
             base.DisplayName = displayName;
-            OpenNewProjectCommand = new RelayCommand(OpenNewProject);
-            OpenInfo = new RelayCommand(OpenInfoView);
         }
         #endregion
+
         #region Helpers
-        public abstract void Load();
-       
-        public  void Refresh()
-        {
-            List.Clear();
-            Load();
-        }
-        public abstract void OpenNewProject();
-        public abstract void OpenInfoView();
+        
+        public abstract void LoadAllForOne(int id);
         #endregion
-
     }
-
 }

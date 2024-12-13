@@ -56,6 +56,10 @@
         <vw:WybierzProjektView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:InfoProjektuViewModel}">
+        <vw:InforProjektuView/>
+    </DataTemplate>
+
 
 
 

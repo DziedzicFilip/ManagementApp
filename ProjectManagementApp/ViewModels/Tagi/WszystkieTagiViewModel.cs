@@ -29,6 +29,10 @@ namespace ProjectManagementApp.ViewModels
             var newProjectWindow = new NowyTagWindowView();
             newProjectWindow.Show();
         }
+        public override void OpenInfoView()
+        {
+            throw new NotImplementedException();
+        }
 
     }
    

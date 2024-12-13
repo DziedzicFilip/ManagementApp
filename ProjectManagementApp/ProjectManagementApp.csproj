@@ -114,6 +114,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\BaseCommand.cs" />
+    <Compile Include="Models\EntitiesForView\InfoProjekt.cs" />
     <Compile Include="Models\EntitiesForView\RyzykaProjketuForAllView.cs" />
     <Compile Include="Models\Entities\BudzetProjektu.cs">
       <DependentUpon>ModelProjekt.tt</DependentUpon>
@@ -175,10 +176,12 @@
     <Compile Include="Models\Entities\Zadania.cs">
       <DependentUpon>ModelProjekt.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Abstract\InfoViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
     <Compile Include="ViewModels\Eventy\InformacjeEventViewModel.cs" />
     <Compile Include="ViewModels\Abstract\JedenViewModel.cs" />
+    <Compile Include="ViewModels\InfoProjektuViewModel.cs" />
     <Compile Include="ViewModels\KalendarzViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Eventy\NowyEventViewModel.cs" />
@@ -203,6 +206,9 @@
       <DependentUpon>InformacjeEventView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Base\JedenViewBase.cs" />
+    <Compile Include="Views\InforProjektuView.xaml.cs">
+      <DependentUpon>InforProjektuView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\KalendarzView.xaml.cs">
       <DependentUpon>KalendarzView.xaml</DependentUpon>
     </Compile>
@@ -223,6 +229,9 @@
     </Compile>
     <Compile Include="Views\ProjectDetailsWindow.xaml.cs">
       <DependentUpon>ProjectDetailsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProjektInfoWindowView.xaml.cs">
+      <DependentUpon>ProjektInfoWindowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Projekty\RyzykaProjektuView.xaml.cs">
       <DependentUpon>RyzykaProjektuView.xaml</DependentUpon>
@@ -301,6 +310,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\InforProjektuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\KalendarzView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -330,6 +343,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProjectDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProjektInfoWindowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

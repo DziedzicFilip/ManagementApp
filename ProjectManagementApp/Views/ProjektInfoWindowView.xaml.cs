@@ -1,4 +1,4 @@
-﻿using ProjectManagementApp.ViewModels;
+﻿using ProjectManagementApp.Models.EntitiesForView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,20 +11,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ProjectManagementApp.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy WybierzProjektView.xaml
+    /// Logika interakcji dla klasy ProjektInfoWindowView.xaml
     /// </summary>
-    public partial class WybierzProjektView : UserControl
+    public partial class ProjektInfoWindowView : Window
     {
-        public WybierzProjektView()
+        public ProjektInfoWindowView(string projectName, string projectDescription, List<RyzykaProjketuForAllView> risks)
         {
             InitializeComponent();
-            this.DataContext = new RyzykaProjektuViewModel();
+            ProjectNameText.Text = projectName;
+            ProjectDescriptionText.Text = projectDescription;
+            RisksDataGrid.ItemsSource = risks;
+
         }
     }
 }

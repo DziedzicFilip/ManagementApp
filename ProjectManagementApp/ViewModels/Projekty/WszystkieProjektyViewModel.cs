@@ -28,18 +28,29 @@ namespace ProjectManagementApp.ViewModels
                 zarzadanieProjektami2Entities.Projekty.ToList()
             );
         }
-        #endregion
+       
         public override void OpenNewProject()
         {
-            throw new NotImplementedException();
+            var newProjektWindow = new NowyProjektWindow();
+            newProjektWindow.Show();
         }
-        #region Commands
         // Otwieranie nowego okna szczegółów projektu
         public void OpenProjectDetails(Projekty selectedProject)
         {
             var projectDetailsWindow = new ProjectDetailsWindow(selectedProject);
-            projectDetailsWindow.ShowDialog();  // Użyj ShowDialog() aby czekać na zamknięcie okna
+            projectDetailsWindow.ShowDialog();  
         }
+        public override void OpenInfoView()
+        {
+            var InfoWindow = new InforProjektuView();
+            InfoWindow.Show();
+        }
+        #endregion
+        #region Commands
+
+
+
+
         #endregion
     }
 }

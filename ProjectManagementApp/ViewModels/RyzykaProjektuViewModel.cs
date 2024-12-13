@@ -23,6 +23,7 @@ namespace ProjectManagementApp.ViewModels
             List = new ObservableCollection<RyzykaProjketuForAllView>
             (
                 from RyzykaProjektu in zarzadanieProjektami2Entities.RyzykaProjektu
+                
                 select new RyzykaProjketuForAllView
                 {
                     
@@ -37,8 +38,12 @@ namespace ProjectManagementApp.ViewModels
         public override void OpenNewProject()
         {
 
-            var newProjectWindow = new NowyProjektWindow();
-            newProjectWindow.Show();
+            //var newProjectWindow = new NowyProjektWindow();
+            //newProjectWindow.Show();
+        }
+        public override void OpenInfoView()
+        {
+            throw new NotImplementedException();    
         }
 
 

@@ -30,6 +30,10 @@ namespace ProjectManagementApp.ViewModels
             var newEventWindow = new NowyEventWindow();
             newEventWindow.Show();
         }
+        public override void OpenInfoView()
+        {
+            throw new NotImplementedException();    
+        }
         #endregion
     }
     }
