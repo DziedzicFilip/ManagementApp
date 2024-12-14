@@ -56,9 +56,13 @@
         <vw:WybierzProjektView/>
     </DataTemplate>
 
-    
-    <DataTemplate DataType="{x:Type vm:RyzkoProjetuWindowViewModel}">
-        <vw:RyzkoProjetuWindowView/>
+
+    <DataTemplate DataType="{x:Type vm:WybierzEventViewModel}">
+        <vw:WybierzEventView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:LogiZadaniaViewModel}">
+        <vw:LogiZadaniaView/>
     </DataTemplate>
 
 

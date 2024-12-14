@@ -114,8 +114,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\BaseCommand.cs" />
+    <Compile Include="Models\EntitiesForView\EventInfo.cs" />
     <Compile Include="Models\EntitiesForView\InfoProjekt.cs" />
     <Compile Include="Models\EntitiesForView\RyzykaProjketuForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\ZadanieInfo.cs" />
     <Compile Include="Models\Entities\BudzetProjektu.cs">
       <DependentUpon>ModelProjekt.tt</DependentUpon>
     </Compile>
@@ -184,6 +186,7 @@
     <Compile Include="ViewModels\Abstract\JedenViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\HistoriaWindowViewModel.cs" />
     <Compile Include="ViewModels\KalendarzViewModel.cs" />
+    <Compile Include="ViewModels\LogiZadaniaViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Eventy\NowyEventViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\NotatkiWindowViewModel.cs" />
@@ -191,6 +194,7 @@
     <Compile Include="ViewModels\InfoProjekt\PlikiWindowViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\OpenBUdzetViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\PodsumowanieWindowViewModel.cs" />
+    <Compile Include="ViewModels\NotatkiWindowEventViewModel.cs" />
     <Compile Include="ViewModels\Projekty\NowyProjektWindowViewModel.cs" />
     <Compile Include="ViewModels\Tagi\NowyTagWindowViewModel.cs" />
     <Compile Include="ViewModels\ProjectDetailsViewModel.cs" />
@@ -209,6 +213,8 @@
     <Compile Include="ViewModels\Tagi\WszystkieTagiViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\WybierzProjektViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\ZadaniaWindowViewModel.cs" />
+    <Compile Include="ViewModels\WybierzEventViewModel.cs" />
+    <Compile Include="ViewModels\ZadaniaWindowEventViewModel.cs" />
     <Compile Include="Views\InfoProjekt\HistoriaWindowView.xaml.cs">
       <DependentUpon>HistoriaWindowView.xaml</DependentUpon>
     </Compile>
@@ -224,6 +230,9 @@
     </Compile>
     <Compile Include="Views\KalendarzView.xaml.cs">
       <DependentUpon>KalendarzView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogiZadaniaView.xaml.cs">
+      <DependentUpon>LogiZadaniaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -245,6 +254,9 @@
     </Compile>
     <Compile Include="Views\InfoProjekt\PodsumowanieWindowView.xaml.cs">
       <DependentUpon>PodsumowanieWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NotatkiWindowEventView.xaml.cs">
+      <DependentUpon>NotatkiWindowEventView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Projekty\NowyProjektWindow.xaml.cs">
       <DependentUpon>NowyProjektWindow.xaml</DependentUpon>
@@ -297,6 +309,12 @@
     </Compile>
     <Compile Include="Views\InfoProjekt\ZadaniaWindowView.xaml.cs">
       <DependentUpon>ZadaniaWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WybierzEventView.xaml.cs">
+      <DependentUpon>WybierzEventView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ZadaniaWindowEventView.xaml.cs">
+      <DependentUpon>ZadaniaWindowEventView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -357,6 +375,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\LogiZadaniaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -386,6 +408,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\InfoProjekt\PodsumowanieWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NotatkiWindowEventView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -454,6 +480,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\InfoProjekt\ZadaniaWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WybierzEventView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ZadaniaWindowEventView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
