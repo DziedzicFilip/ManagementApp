@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="Helper\BaseCommand.cs" />
     <Compile Include="Models\BussinesLogic\DateBaseClass.cs" />
+    <Compile Include="Models\BussinesLogic\PodsumowanieCzasuB.cs" />
     <Compile Include="Models\BussinesLogic\ProjektB.cs" />
     <Compile Include="Models\BussinesLogic\StawkaGodzinowaB.cs" />
     <Compile Include="Models\EntitiesForView\EventInfo.cs" />
@@ -200,6 +201,7 @@
     <Compile Include="ViewModels\InfoProjekt\OpenBUdzetViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\PodsumowanieWindowViewModel.cs" />
     <Compile Include="ViewModels\InfoEvent\NotatkiWindowEventViewModel.cs" />
+    <Compile Include="ViewModels\PodsumowanieCzasuProjektuViewModel.cs" />
     <Compile Include="ViewModels\Projekty\NowyProjektWindowViewModel.cs" />
     <Compile Include="ViewModels\Tagi\NowyTagWindowViewModel.cs" />
     <Compile Include="ViewModels\Smietnik\ProjectDetailsViewModel.cs" />
@@ -232,6 +234,9 @@
     <Compile Include="Views\Base\JedenViewBase.cs" />
     <Compile Include="Views\KalkulatorStawkiView.xaml.cs">
       <DependentUpon>KalkulatorStawkiView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PodsumowanieCzasuProjektuView.xaml.cs">
+      <DependentUpon>PodsumowanieCzasuProjektuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Smietnik\InforProjektuView.xaml.cs">
       <DependentUpon>InforProjektuView.xaml</DependentUpon>
@@ -376,6 +381,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\KalkulatorStawkiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PodsumowanieCzasuProjektuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
