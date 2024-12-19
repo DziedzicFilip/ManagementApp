@@ -30,7 +30,7 @@
                       ItemsSource="{Binding ProjketyItems}" 
                       DisplayMemberPath="Value" 
                       SelectedValuePath="Key" 
-                      SelectedValue="{Binding Path=IdProjketu, Mode=TwoWay}" SelectionChanged="ComboBox_SelectionChanged" />
+                      SelectedValue="{Binding Path=IdProjketu, Mode=TwoWay}"   />
         </Grid>
 
         <!-- Wprowadzenie kwoty do wydania -->
@@ -40,7 +40,7 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TextBox Grid.Column="1" Margin="10,0" Text="{Binding Path=WydanaKwota, Mode=TwoWay}" HorizontalAlignment="Stretch"/>
+            <TextBox Grid.Column="1" Margin="10,0" Text="{Binding Path=WydanaKwota}" HorizontalAlignment="Stretch"/>
             <Button Grid.Column="2" Content="Oblicz" Margin="10,0" Command="{Binding ObliczCommand}" VerticalAlignment="Center" />
             <Label Grid.Column="0" Content="Podaj kwotę do wydania" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10"/>
         </Grid>

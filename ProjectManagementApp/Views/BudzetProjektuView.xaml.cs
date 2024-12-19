@@ -24,5 +24,6 @@ namespace ProjectManagementApp.Views
         {
             InitializeComponent();
         }
+
     }
 }

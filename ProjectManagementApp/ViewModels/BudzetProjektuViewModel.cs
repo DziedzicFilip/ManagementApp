@@ -21,7 +21,8 @@ namespace ProjectManagementApp.ViewModels
         {
             base.DisplayName = "Budzet Projektu";
             db = new ZarzadanieProjektami2Entities();
-          
+            LoadDataCommand = new BaseCommand(LoadDataForSelectedProject);
+
         }
         #endregion
         #region Pola
@@ -38,6 +39,7 @@ namespace ProjectManagementApp.ViewModels
                 {
                     _IdProjketu = value;
                     OnPropertyChanged(() => IdProjketu);
+                    LoadDataForSelectedProject();
                 }
             }
 
@@ -124,8 +126,16 @@ namespace ProjectManagementApp.ViewModels
         {
             PozostalaKwota = new BudzetProjektuB(db).BudzetProjektuKal(IdProjketu, WydanaKwota);
             WydanaKwota = new BudzetProjektuB(db).WyswietlWydanaKwote(IdProjketu) ?? 0;
-            CalkowityBudzet = new BudzetProjektuB(db).WyswietlCalkowityBudzet(IdProjketu) ?? 0;
 
+        }
+
+        public ICommand LoadDataCommand { get; private set; }
+        private void LoadDataForSelectedProject()
+        {
+           
+            CalkowityBudzet = new BudzetProjektuB(db).WyswietlCalkowityBudzet(IdProjketu);
+            WydanaKwota = new BudzetProjektuB(db).WyswietlWydanaKwote(IdProjketu) ?? 0;
+            PozostalaKwota = new BudzetProjektuB(db).WyswietlPozostalaKwota(IdProjketu) ?? 0;
         }
         #endregion
     }

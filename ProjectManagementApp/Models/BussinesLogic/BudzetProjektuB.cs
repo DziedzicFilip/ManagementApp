@@ -44,7 +44,7 @@ namespace ProjectManagementApp.Models.BussinesLogic
             // Pobierz całkowity budżet projektu
             return  (from b in db.BudzetProjektu
                                    where b.projekt_id == idProjektu
-                                   select b.calkowity_budzet).FirstOrDefault();
+                                   select b.calkowity_budzet).Sum();
 
            
         }
@@ -56,6 +56,15 @@ namespace ProjectManagementApp.Models.BussinesLogic
                                select b.wydana_kwota).Sum();
 
            
+        }
+        public decimal? WyswietlPozostalaKwota(int idProjektu)
+        {
+            // Pobierz wydaną kwotę projektu
+            return (from b in db.BudzetProjektu
+                    where b.projekt_id == idProjektu
+                    select b.pozostala_kwota).Sum();
+
+
         }
 
         #endregion
