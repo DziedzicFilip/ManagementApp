@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="ProjectManagementApp.Views.BudzetProjektuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProjectManagementApp.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <!-- Definicja wierszy -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Nagłówek: Wydatki Projektu -->
+        <Label Grid.Row="0" Content="Wydatki Projektu" Margin="10" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold"/>
+
+        <!-- Wybór projektu -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Wybierz Projekt" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10" Width="120"/>
+            <ComboBox Grid.Column="1" Margin="10,0" Width="200" 
+                      ItemsSource="{Binding ProjketyItems}" 
+                      DisplayMemberPath="Value" 
+                      SelectedValuePath="Key" 
+                      SelectedValue="{Binding Path=IdProjketu, Mode=TwoWay}" SelectionChanged="ComboBox_SelectionChanged" />
+        </Grid>
+
+        <!-- Wprowadzenie kwoty do wydania -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="1" Margin="10,0" Text="{Binding Path=WydanaKwota, Mode=TwoWay}" HorizontalAlignment="Stretch"/>
+            <Button Grid.Column="2" Content="Oblicz" Margin="10,0" Command="{Binding ObliczCommand}" VerticalAlignment="Center" />
+            <Label Grid.Column="0" Content="Podaj kwotę do wydania" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10"/>
+        </Grid>
+
+        <!-- Wyniki: Pozostała Kwota, Całkowity Budżet, Wydana Kwota -->
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Pozostała Kwota -->
+            <Label Grid.Column="0" Content="Pozostała Kwota" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10"/>
+            <Label Grid.Column="1" Content="{Binding PozostalaKwota }" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"/>
+
+            <!-- Całkowity Budżet -->
+            <Label Grid.Column="2" Content="Całkowity Budżet" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10"/>
+            <Label Grid.Column="3" Content="{Binding CalkowityBudzet}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"/>
+
+            <!-- Wydana Kwota -->
+            <Label Grid.Column="4" Content="Wydana Kwota" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10"/>
+            <Label Grid.Column="5" Content="{Binding WydanaKwota}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"/>
+        </Grid>
+    </Grid>
+</UserControl>

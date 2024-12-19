@@ -114,6 +114,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\BaseCommand.cs" />
+    <Compile Include="Models\BussinesLogic\BudzetProjektuB.cs" />
     <Compile Include="Models\BussinesLogic\DateBaseClass.cs" />
     <Compile Include="Models\BussinesLogic\PodsumowanieCzasuB.cs" />
     <Compile Include="Models\BussinesLogic\ProjektB.cs" />
@@ -185,6 +186,7 @@
     </Compile>
     <Compile Include="ViewModels\Abstract\InfoViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\BudzetProjektuViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\CzasPracyWindowViewModel.cs" />
     <Compile Include="ViewModels\Eventy\InformacjeEventViewModel.cs" />
@@ -222,6 +224,9 @@
     <Compile Include="ViewModels\InfoProjekt\ZadaniaWindowViewModel.cs" />
     <Compile Include="ViewModels\InfoEvent\WybierzEventViewModel.cs" />
     <Compile Include="ViewModels\InfoEvent\ZadaniaWindowEventViewModel.cs" />
+    <Compile Include="Views\BudzetProjektuView.xaml.cs">
+      <DependentUpon>BudzetProjektuView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\InfoProjekt\HistoriaWindowView.xaml.cs">
       <DependentUpon>HistoriaWindowView.xaml</DependentUpon>
     </Compile>
@@ -367,6 +372,10 @@
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BudzetProjektuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\InfoProjekt\HistoriaWindowView.xaml">
       <SubType>Designer</SubType>

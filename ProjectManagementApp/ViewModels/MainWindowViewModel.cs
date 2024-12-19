@@ -93,6 +93,9 @@ namespace ProjectManagementApp.ViewModels
                       new CommandViewModel(
                     "Podsumowanie Czasu Projektu",
                     new BaseCommand(() => this.CreateView(new PodsumowanieCzasuProjektuViewModel() ))),
+                      new CommandViewModel(
+                    "Budzet Projektu",
+                    new BaseCommand(() => this.CreateView(new BudzetProjektuViewModel ()))),
 
 
 
