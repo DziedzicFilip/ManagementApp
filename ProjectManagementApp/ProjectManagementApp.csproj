@@ -114,8 +114,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\BaseCommand.cs" />
+    <Compile Include="Models\BussinesLogic\DateBaseClass.cs" />
+    <Compile Include="Models\BussinesLogic\ProjektB.cs" />
+    <Compile Include="Models\BussinesLogic\StawkaGodzinowaB.cs" />
     <Compile Include="Models\EntitiesForView\EventInfo.cs" />
     <Compile Include="Models\EntitiesForView\InfoProjekt.cs" />
+    <Compile Include="Models\EntitiesForView\KeyAndValue.cs" />
     <Compile Include="Models\EntitiesForView\RyzykaProjketuForAllView.cs" />
     <Compile Include="Models\EntitiesForView\ZadanieInfo.cs" />
     <Compile Include="Models\Entities\BudzetProjektu.cs">

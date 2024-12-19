@@ -24,7 +24,7 @@
 
             </Grid.ColumnDefinitions>
             <Label Grid.Column="1" Content="Wybierz Projekt"  Margin="125,1,515,5" Width="120" />
-            <ComboBox Grid.Column="1" Margin="260,1,300,5" Width="200"></ComboBox>
+            <ComboBox Grid.Column="1" Margin="260,1,300,5" Width="200" ItemsSource="{Binding ProjketyItems}" DisplayMemberPath="Value" SelectedValuePath="Key" SelectedValue="{Binding  Path=IdProjketu,Mode=TwoWay}"  ></ComboBox>
 
 
         </Grid>
@@ -34,9 +34,9 @@
                 <ColumnDefinition Width="40"></ColumnDefinition>
                 <ColumnDefinition Width="40"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="2" Content="Stawka Godzinowa" Margin="85,0,-148,0"/>
-            <Button Grid.Column="2" Content="Oblicz" Margin="262,38,-338,-38"/>
-            <TextBox Grid.Column="2" Margin="253,0,-347,0" />
+            <Label Grid.Column="2" Content="Stawka Godzinowa" Margin="85,0,-148,0"  />
+            <Button Grid.Column="2" Content="Oblicz" Margin="262,38,-338,-38" Command="{Binding  ObliczCommand}"/>
+            <TextBox Grid.Column="2" Margin="253,0,-347,0" Text="{Binding Path=StawkaGodzinowa}" />
         </Grid>
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
@@ -45,7 +45,7 @@
 
             </Grid.ColumnDefinitions>
             <Label Grid.Column="1" Content="Wartosc wynosi"  Margin="131,44,509,-38" Width="120" />
-            <Label Grid.Column="1" Content="0"  Margin="303,44,337,-38" Width="120" />
+            <Label Grid.Column="1" Content="{Binding Wartosc }"  Margin="303,44,337,-38" Width="120" />
 
 
         </Grid>
