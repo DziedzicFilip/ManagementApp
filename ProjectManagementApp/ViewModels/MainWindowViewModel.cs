@@ -87,7 +87,9 @@ namespace ProjectManagementApp.ViewModels
                      new CommandViewModel(
                     "Wybierz Event",
                     new BaseCommand(() => this.CreateView(new WybierzEventViewModel() ))),
-
+                      new CommandViewModel(
+                    "Kalkulator",
+                    new BaseCommand(() => this.CreateView(new KalkulatorStawkiViewModel() ))),
 
 
 

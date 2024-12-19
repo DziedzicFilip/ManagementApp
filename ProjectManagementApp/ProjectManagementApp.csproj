@@ -185,8 +185,9 @@
     <Compile Include="ViewModels\Eventy\InformacjeEventViewModel.cs" />
     <Compile Include="ViewModels\Abstract\JedenViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\HistoriaWindowViewModel.cs" />
-    <Compile Include="ViewModels\KalendarzViewModel.cs" />
-    <Compile Include="ViewModels\LogiZadaniaViewModel.cs" />
+    <Compile Include="ViewModels\Kalendarz\KalendarzViewModel.cs" />
+    <Compile Include="ViewModels\InfoZadanie\LogiZadaniaViewModel.cs" />
+    <Compile Include="ViewModels\KalkulatorStawkiViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Eventy\NowyEventViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\NotatkiWindowViewModel.cs" />
@@ -194,10 +195,10 @@
     <Compile Include="ViewModels\InfoProjekt\PlikiWindowViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\OpenBUdzetViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\PodsumowanieWindowViewModel.cs" />
-    <Compile Include="ViewModels\NotatkiWindowEventViewModel.cs" />
+    <Compile Include="ViewModels\InfoEvent\NotatkiWindowEventViewModel.cs" />
     <Compile Include="ViewModels\Projekty\NowyProjektWindowViewModel.cs" />
     <Compile Include="ViewModels\Tagi\NowyTagWindowViewModel.cs" />
-    <Compile Include="ViewModels\ProjectDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Smietnik\ProjectDetailsViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\RyzkoProjetuWindowViewModel.cs" />
     <Compile Include="ViewModels\Projekty\RyzykaProjektuViewModel.cs" />
     <Compile Include="ViewModels\Tagi\NowyTagViewModel.cs" />
@@ -213,8 +214,8 @@
     <Compile Include="ViewModels\Tagi\WszystkieTagiViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\WybierzProjektViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\ZadaniaWindowViewModel.cs" />
-    <Compile Include="ViewModels\WybierzEventViewModel.cs" />
-    <Compile Include="ViewModels\ZadaniaWindowEventViewModel.cs" />
+    <Compile Include="ViewModels\InfoEvent\WybierzEventViewModel.cs" />
+    <Compile Include="ViewModels\InfoEvent\ZadaniaWindowEventViewModel.cs" />
     <Compile Include="Views\InfoProjekt\HistoriaWindowView.xaml.cs">
       <DependentUpon>HistoriaWindowView.xaml</DependentUpon>
     </Compile>
@@ -225,13 +226,16 @@
       <DependentUpon>InformacjeEventView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Base\JedenViewBase.cs" />
-    <Compile Include="Views\InforProjektuView.xaml.cs">
+    <Compile Include="Views\KalkulatorStawkiView.xaml.cs">
+      <DependentUpon>KalkulatorStawkiView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Smietnik\InforProjektuView.xaml.cs">
       <DependentUpon>InforProjektuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\KalendarzView.xaml.cs">
+    <Compile Include="Views\Kalendarz\KalendarzView.xaml.cs">
       <DependentUpon>KalendarzView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LogiZadaniaView.xaml.cs">
+    <Compile Include="Views\InfoZadania\LogiZadaniaView.xaml.cs">
       <DependentUpon>LogiZadaniaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
@@ -255,7 +259,7 @@
     <Compile Include="Views\InfoProjekt\PodsumowanieWindowView.xaml.cs">
       <DependentUpon>PodsumowanieWindowView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NotatkiWindowEventView.xaml.cs">
+    <Compile Include="Views\InfoEvent\NotatkiWindowEventView.xaml.cs">
       <DependentUpon>NotatkiWindowEventView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Projekty\NowyProjektWindow.xaml.cs">
@@ -264,10 +268,10 @@
     <Compile Include="Views\Tagi\NowyTagWindowView.xaml.cs">
       <DependentUpon>NowyTagWindowView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProjectDetailsWindow.xaml.cs">
+    <Compile Include="Views\Smietnik\ProjectDetailsWindow.xaml.cs">
       <DependentUpon>ProjectDetailsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProjektInfoWindowView.xaml.cs">
+    <Compile Include="Views\Smietnik\ProjektInfoWindowView.xaml.cs">
       <DependentUpon>ProjektInfoWindowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Projekty\RyzykaProjektuView.xaml.cs">
@@ -310,10 +314,10 @@
     <Compile Include="Views\InfoProjekt\ZadaniaWindowView.xaml.cs">
       <DependentUpon>ZadaniaWindowView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WybierzEventView.xaml.cs">
+    <Compile Include="Views\InfoEvent\WybierzEventView.xaml.cs">
       <DependentUpon>WybierzEventView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ZadaniaWindowEventView.xaml.cs">
+    <Compile Include="Views\InfoEvent\ZadaniaWindowEventView.xaml.cs">
       <DependentUpon>ZadaniaWindowEventView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -367,15 +371,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\InforProjektuView.xaml">
+    <Page Include="Views\KalkulatorStawkiView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\KalendarzView.xaml">
+    <Page Include="Views\Smietnik\InforProjektuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LogiZadaniaView.xaml">
+    <Page Include="Views\Kalendarz\KalendarzView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InfoZadania\LogiZadaniaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -411,7 +419,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NotatkiWindowEventView.xaml">
+    <Page Include="Views\InfoEvent\NotatkiWindowEventView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -423,11 +431,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ProjectDetailsWindow.xaml">
+    <Page Include="Views\Smietnik\ProjectDetailsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ProjektInfoWindowView.xaml">
+    <Page Include="Views\Smietnik\ProjektInfoWindowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -483,11 +491,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WybierzEventView.xaml">
+    <Page Include="Views\InfoEvent\WybierzEventView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ZadaniaWindowEventView.xaml">
+    <Page Include="Views\InfoEvent\ZadaniaWindowEventView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

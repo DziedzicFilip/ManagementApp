@@ -34,12 +34,14 @@ namespace ProjectManagementApp.ViewModels
             var newProjektWindow = new NowyProjektWindow();
             newProjektWindow.Show();
         }
-        // Otwieranie nowego okna szczegółów projektu
+        
+        //Do dopracowania 
         public void OpenProjectDetails(Projekty selectedProject)
         {
             var projectDetailsWindow = new ProjectDetailsWindow(selectedProject);
             projectDetailsWindow.ShowDialog();  
         }
+        //Do dopracowania 
         public override void OpenInfoView()
         {
             var InfoWindow = new InforProjektuView();

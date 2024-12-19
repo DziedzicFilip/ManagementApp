@@ -75,8 +75,11 @@ namespace ProjectManagementApp.ViewModels
         {
             zarzadanieProjektami2Entities = new ZarzadanieProjektami2Entities();
             base.DisplayName = displayName;
+
+            #region DoDopracowania
             OpenNewProjectCommand = new RelayCommand(OpenNewProject);
             OpenInfo = new RelayCommand(OpenInfoView);
+            #endregion
         }
         #endregion
         #region Helpers

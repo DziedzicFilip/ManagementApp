@@ -64,7 +64,9 @@
     <DataTemplate DataType="{x:Type vm:LogiZadaniaViewModel}">
         <vw:LogiZadaniaView/>
     </DataTemplate>
-
+    <DataTemplate DataType="{x:Type vm:KalkulatorStawkiViewModel}">
+        <vw:KalkulatorStawkiView/>
+    </DataTemplate>
 
 
 
