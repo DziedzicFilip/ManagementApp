@@ -186,7 +186,7 @@
     </Compile>
     <Compile Include="ViewModels\Abstract\InfoViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="ViewModels\BudzetProjektuViewModel.cs" />
+    <Compile Include="ViewModels\Biznes\BudzetProjektuViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\CzasPracyWindowViewModel.cs" />
     <Compile Include="ViewModels\Eventy\InformacjeEventViewModel.cs" />
@@ -194,7 +194,7 @@
     <Compile Include="ViewModels\InfoProjekt\HistoriaWindowViewModel.cs" />
     <Compile Include="ViewModels\Kalendarz\KalendarzViewModel.cs" />
     <Compile Include="ViewModels\InfoZadanie\LogiZadaniaViewModel.cs" />
-    <Compile Include="ViewModels\KalkulatorStawkiViewModel.cs" />
+    <Compile Include="ViewModels\Biznes\KalkulatorStawkiViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Eventy\NowyEventViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\NotatkiWindowViewModel.cs" />
@@ -203,7 +203,7 @@
     <Compile Include="ViewModels\InfoProjekt\OpenBUdzetViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\PodsumowanieWindowViewModel.cs" />
     <Compile Include="ViewModels\InfoEvent\NotatkiWindowEventViewModel.cs" />
-    <Compile Include="ViewModels\PodsumowanieCzasuProjektuViewModel.cs" />
+    <Compile Include="ViewModels\Biznes\PodsumowanieCzasuProjektuViewModel.cs" />
     <Compile Include="ViewModels\Projekty\NowyProjektWindowViewModel.cs" />
     <Compile Include="ViewModels\Tagi\NowyTagWindowViewModel.cs" />
     <Compile Include="ViewModels\Smietnik\ProjectDetailsViewModel.cs" />
@@ -224,7 +224,7 @@
     <Compile Include="ViewModels\InfoProjekt\ZadaniaWindowViewModel.cs" />
     <Compile Include="ViewModels\InfoEvent\WybierzEventViewModel.cs" />
     <Compile Include="ViewModels\InfoEvent\ZadaniaWindowEventViewModel.cs" />
-    <Compile Include="Views\BudzetProjektuView.xaml.cs">
+    <Compile Include="Views\Biznes\BudzetProjektuView.xaml.cs">
       <DependentUpon>BudzetProjektuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\InfoProjekt\HistoriaWindowView.xaml.cs">
@@ -237,10 +237,10 @@
       <DependentUpon>InformacjeEventView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Base\JedenViewBase.cs" />
-    <Compile Include="Views\KalkulatorStawkiView.xaml.cs">
+    <Compile Include="Views\Biznes\KalkulatorStawkiView.xaml.cs">
       <DependentUpon>KalkulatorStawkiView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PodsumowanieCzasuProjektuView.xaml.cs">
+    <Compile Include="Views\Biznes\PodsumowanieCzasuProjektuView.xaml.cs">
       <DependentUpon>PodsumowanieCzasuProjektuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Smietnik\InforProjektuView.xaml.cs">
@@ -373,7 +373,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\BudzetProjektuView.xaml">
+    <Page Include="Views\Biznes\BudzetProjektuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -389,11 +389,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\KalkulatorStawkiView.xaml">
+    <Page Include="Views\Biznes\KalkulatorStawkiView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PodsumowanieCzasuProjektuView.xaml">
+    <Page Include="Views\Biznes\PodsumowanieCzasuProjektuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementApp.Models.BussinesLogic
 {
-    public class StawkaGodzinowaB : DateBaseClass
+    public class StawkaGodzinowaB : PodsumowanieCzasuB
     {
         #region  Konstuktor
         public StawkaGodzinowaB(ZarzadanieProjektami2Entities db) : base(db) { }
@@ -15,6 +15,9 @@ namespace ProjectManagementApp.Models.BussinesLogic
         #region FunckcjaBiznesowa
         public decimal? Stawka(int idProjektu,decimal StawkaNaGodzine)
         {
+
+            SprawdzPodsumowanie(idProjektu);
+
             return (
 
                  from PodsumowanieCzasu in db.PodsumowanieCzasu

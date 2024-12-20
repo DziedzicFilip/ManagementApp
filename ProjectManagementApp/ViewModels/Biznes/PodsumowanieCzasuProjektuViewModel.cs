@@ -21,6 +21,7 @@ namespace ProjectManagementApp.ViewModels
         {
             base.DisplayName = "Podsumowanie Czasu";
             db = new ZarzadanieProjektami2Entities();
+           
 
         }
         #endregion
@@ -59,6 +60,22 @@ namespace ProjectManagementApp.ViewModels
 
 
         }
+        private List<RejestrCzasuPracyProjekt> _RejestrCzasuDane;
+        public List<RejestrCzasuPracyProjekt> RejestrCzasuDane
+        {
+            get
+            {
+                return _RejestrCzasuDane;
+            }
+            set
+            {
+                if (_RejestrCzasuDane != value)
+                {
+                    _RejestrCzasuDane = value;
+                    OnPropertyChanged(() => RejestrCzasuDane);
+                }
+            }
+        }
 
         public IQueryable<KeyAndValue> ProjketyItems
         {
@@ -89,6 +106,26 @@ namespace ProjectManagementApp.ViewModels
         private void ObliczWartosc()
         {
             CalkowityCzas = new PodsumowanieCzasuB(db).CalkowityCzasReturnVariable(IdProjketu);
+            Load();
+        }
+        private BaseCommand _LoadCommand;
+        public ICommand LoadCommand
+        {
+            get
+            {
+                if (_LoadCommand == null)
+
+                    _LoadCommand = new BaseCommand(() => Load());
+                return _LoadCommand;
+
+            }
+            set { }
+
+
+        }
+        private void Load()
+        {
+            RejestrCzasuDane = new PodsumowanieCzasuB(db).PobierzDaneRejestrCzasu(IdProjketu);
         }
 
         #endregion

@@ -72,5 +72,21 @@
                    FontWeight="Bold" 
                    Foreground="DarkGreen" />
         </Grid>
+        <DataGrid x:Name="ScheduleDataGrid" 
+          AutoGenerateColumns="False" 
+          CanUserAddRows="False" 
+          Margin="10,60,10,10" 
+          IsReadOnly="True" 
+          HeadersVisibility="Column" 
+          GridLinesVisibility="All"
+          ItemsSource="{Binding RejestrCzasuDane}"
+          Grid.Row="4"
+         >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Czas spedzony" Binding="{Binding czas_spedzony}" Width="*" />
+                <DataGridTextColumn Header="Data Rozpoczęcia" Binding="{Binding data}" Width="*" />
+                
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

@@ -83,6 +83,23 @@ namespace ProjectManagementApp.ViewModels
 
         }
 
+        private decimal? _CalkowityCzas;
+        public decimal? CalkowityCzas
+        {
+            get
+            {
+                return _CalkowityCzas;
+            }
+            set
+            {
+                if (_CalkowityCzas != value)
+                {
+                    _CalkowityCzas = value;
+                    OnPropertyChanged(() => CalkowityCzas);
+                }
+            }
+        }
+
 
         public IQueryable<KeyAndValue> ProjketyItems
         {
@@ -111,6 +128,7 @@ namespace ProjectManagementApp.ViewModels
         private void ObliczWartosc()
         {
             Wartosc = new StawkaGodzinowaB(db).Stawka(IdProjketu, StawkaGodzinowa);
+            CalkowityCzas = new PodsumowanieCzasuB(db).CalkowityCzas(IdProjketu);
         }
         #endregion
 

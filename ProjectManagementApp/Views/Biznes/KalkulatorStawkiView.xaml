@@ -5,9 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjectManagementApp.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="750" d:DesignWidth="800">
     <Grid Background="White">
         <Grid.RowDefinitions>
+            <RowDefinition Height="33"></RowDefinition>
             <RowDefinition Height="33"></RowDefinition>
             <RowDefinition Height="33"></RowDefinition>
             <RowDefinition Height="33"></RowDefinition>
@@ -37,6 +38,7 @@
             <Label Grid.Column="2" Content="Stawka Godzinowa" Margin="85,0,-148,0"  />
             <Button Grid.Column="2" Content="Oblicz" Margin="262,38,-338,-38" Command="{Binding  ObliczCommand}"/>
             <TextBox Grid.Column="2" Margin="253,0,-347,0" Text="{Binding Path=StawkaGodzinowa}" />
+            
         </Grid>
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
@@ -46,8 +48,22 @@
             </Grid.ColumnDefinitions>
             <Label Grid.Column="1" Content="Wartosc wynosi"  Margin="131,44,509,-38" Width="120" />
             <Label Grid.Column="1" Content="{Binding Wartosc }"  Margin="303,44,337,-38" Width="120" />
+            
 
 
         </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="1" Content="Ilosc Godzin"  Margin="131,44,509,-38" Width="120" />
+            <Label Grid.Column="1" Content="{Binding  CalkowityCzas }"  Margin="303,44,337,-38" Width="120" />
+
+
+
+        </Grid>
+
     </Grid>
 </UserControl>
