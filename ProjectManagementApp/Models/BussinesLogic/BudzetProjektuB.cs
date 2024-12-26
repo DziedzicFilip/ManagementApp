@@ -16,32 +16,20 @@ namespace ProjectManagementApp.Models.BussinesLogic
         #region FunkcjaBiznoeswa
         public decimal? BudzetProjektuKal(int idProjektu, decimal wydanaKwota)
         {
-            // Pobieranie rekordu budżetu dla danego projektu
+         
             var budzet = (from b in db.BudzetProjektu
                           where b.projekt_id == idProjektu
-                          select b).FirstOrDefault();
-
-           
-                
-       
-                
-                    // Aktualizacja wartości pozostałej kwoty (odjęcie wydanej kwoty)
-                    budzet.pozostala_kwota -= wydanaKwota;
-
-                    // Aktualizacja wartości wydanej kwoty (dodanie nowej kwoty)
+                          select b).FirstOrDefault();    
+                    budzet.pozostala_kwota -= wydanaKwota;        
                     budzet.wydana_kwota += wydanaKwota;
-
-                    // Zapisanie zmian w bazie danych
                     db.SaveChanges();
-
-                    // Zwracamy nową wartość pozostałej kwoty
                     return budzet.pozostala_kwota;
                 
               
         }
         public decimal? WyswietlCalkowityBudzet(int idProjektu)
         {
-            // Pobierz całkowity budżet projektu
+            
             return  (from b in db.BudzetProjektu
                                    where b.projekt_id == idProjektu
                                    select b.calkowity_budzet).Sum();
@@ -50,7 +38,7 @@ namespace ProjectManagementApp.Models.BussinesLogic
         }
         public decimal? WyswietlWydanaKwote(int idProjektu)
         {
-            // Pobierz wydaną kwotę projektu
+            
              return  (from b in db.BudzetProjektu
                                where b.projekt_id == idProjektu
                                select b.wydana_kwota).Sum();
@@ -59,7 +47,7 @@ namespace ProjectManagementApp.Models.BussinesLogic
         }
         public decimal? WyswietlPozostalaKwota(int idProjektu)
         {
-            // Pobierz wydaną kwotę projektu
+           
             return (from b in db.BudzetProjektu
                     where b.projekt_id == idProjektu
                     select b.pozostala_kwota).Sum();

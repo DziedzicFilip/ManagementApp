@@ -9,9 +9,7 @@
     <DataTemplate DataType="{x:Type vm:NowyProjektViewModel}">
         <vw:NowyProjektView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:ProjektInfromacjeViewModel}">
-        <vw:ProjektInformacjeView/>
-    </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:WyswietlNotatkeViewModel}">
         <vw:WyswietlNotatkeView/>
     </DataTemplate>
@@ -123,15 +121,17 @@
         <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Margin="2,6">
-            <Hyperlink Command="{Binding Path=Command}">
-              <TextBlock Text="{Binding Path=DisplayName}" />
-            </Hyperlink>
-          </TextBlock>
+                    <Button Command="{Binding Path=Command}" Margin="2,6" Width="120" Height="Auto">
+                        <Button.Content>
+                            <TextBlock Text="{Binding Path=DisplayName}" TextWrapping="Wrap" />
+                        </Button.Content>
+                    </Button>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
     </DataTemplate>
+
+
 
     <!-- 
   This template explains how to render 

@@ -3,10 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
         Title="MannageAPP" Height="300" Width="300" WindowState="Maximized"
         xmlns:vm="clr-namespace:ProjectManagementApp.Views"
-        Background="#1E1E1E">
+        Background="#1E1E1E"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        ui:WindowHelper.UseModernWindowStyle="True">
 
     <Window.Resources>
-        <ResourceDictionary Source="MainWindowResources.xaml"  />
+        <ResourceDictionary Source="MainWindowResources.xaml" />
     </Window.Resources>
 
     <Grid>
@@ -15,14 +17,14 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
         <!-- Menu -->
-        <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="2" Background="#2C2C2C" Foreground="White" BorderBrush="#444444" BorderThickness="1">
+        <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0" Background="#2C2C2C" Foreground="White" BorderBrush="#444444" BorderThickness="1">
             <MenuItem Header="_Plik"/>
             <MenuItem Header="Zakładki">
                 <MenuItem Header="Wszystkie Projekty"/>
@@ -30,7 +32,12 @@
                 <MenuItem Header=""/>
                 <MenuItem Header=""/>
             </MenuItem>
-            <MenuItem Header="Program"/>
+            <MenuItem Header="Program">
+                <MenuItem Header="Historia Projektu"/>
+                <MenuItem Header="Historia Eventy"/>
+                <MenuItem Header=""/>
+                <MenuItem Header=""/>
+            </MenuItem>
         </Menu>
 
         <!-- ToolBar -->
@@ -43,19 +50,18 @@
         <Border Grid.Row="2" Grid.Column="0" Background="#2C3E50" BorderBrush="#34495E" BorderThickness="2" CornerRadius="10">
             <HeaderedContentControl 
                 Header="Opcje" 
-                Background="#34495E" 
                 Content="{Binding Path=Commands}" 
                 ContentTemplate="{StaticResource CommandsTemplate}" 
                 Style="{StaticResource MainHCCStyle}"
-                />
+            />
         </Border>
 
         <!-- Przestrzeń robocza Border -->
         <Border Grid.Row="2" Grid.Column="1" Background="#34495E" BorderBrush="#2C3E50" BorderThickness="2" CornerRadius="10">
             <HeaderedContentControl 
-                Header=""
-                Content="{Binding Path=Workspaces}"
-                ContentTemplate="{StaticResource WorkspacesTemplate}"
+                Header="" 
+                Content="{Binding Path=Workspaces}" 
+                ContentTemplate="{StaticResource WorkspacesTemplate}" 
                 Style="{StaticResource MainHCCStyle}"
             />
         </Border>
@@ -63,11 +69,11 @@
         <!-- StatusBar -->
         <StatusBar Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Background="#2C2C2C" Foreground="White">
             <StatusBarItem>
-               
+                <!-- Add any content for the status bar here -->
             </StatusBarItem>
             <Separator/>
             <StatusBarItem>
-                
+                <!-- Add any content for the status bar here -->
             </StatusBarItem>
         </StatusBar>
     </Grid>

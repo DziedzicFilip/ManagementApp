@@ -19,7 +19,7 @@ namespace ProjectManagementApp.ViewModels
         #region Konstruktor 
         public KalkulatorStawkiViewModel()
         {
-            base.DisplayName = "Kalkulator";
+            base.DisplayName = "Stawka";
             db = new ZarzadanieProjektami2Entities();
             StawkaGodzinowa = 0;
         }

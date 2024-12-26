@@ -25,6 +25,7 @@
                    Margin="0,20,0,0"/>
 
         <!-- Tabela -->
+          
         <DataGrid x:Name="ScheduleDataGrid" 
                   AutoGenerateColumns="False" 
                   CanUserAddRows="False" 
@@ -35,6 +36,8 @@
                   ItemsSource="{Binding List}"
                   Grid.Row="0"
                   SelectionChanged="ScheduleDataGrid_SelectionChanged">
+          
+              
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nazwa" Binding="{Binding nazwa}" Width="*" />
                 <DataGridTextColumn Header="Data Rozpoczęcia" Binding="{Binding data_rozpoczecia}" Width="*" />
@@ -43,14 +46,15 @@
                 <DataGridTextColumn Header="Termin" Binding="{Binding termin}" Width="*" />
                 <DataGridTextColumn Header="Priorytet" Binding="{Binding priorytet}" Width="*" />
             </DataGrid.Columns>
+                
         </DataGrid>
+      
 
-        
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center">
             <TextBox x:Name="IntInput" Width="100" Height="30" Margin="5" VerticalAlignment="Center" Text="{Binding ProjektIdInput}" />
-            <Button Content="Wyswietl" Width="75" Height="30" Margin="5" VerticalAlignment="Center" Command="{Binding OpenInfo}"  />
-            <Button Content="Odswiez" Width="50" Height="50" Margin="5" Command="{Binding RefreshCommand}" />
-            <Button Content="Dodaj" Width="50" Height="50" Margin="5" Command="{Binding OpenNewProjectCommand}" />
+            <Button Content="Wyswietl" Width="75" Height="50" Margin="5" VerticalAlignment="Center" Command="{Binding OpenInfo}"  />
+            <Button Content="Odswiez" Width="75" Height="50" Margin="5" Command="{Binding RefreshCommand}" />
+            <Button Content="Dodaj" Width="75" Height="50" Margin="5" Command="{Binding OpenNewProjectCommand}" />
         </StackPanel>
     </Grid>
 </local:WszystkieViewBase>

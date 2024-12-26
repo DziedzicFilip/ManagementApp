@@ -21,7 +21,7 @@ namespace ProjectManagementApp.ViewModels
         {
             base.DisplayName = "Budzet Projektu";
             db = new ZarzadanieProjektami2Entities();
-            LoadDataCommand = new BaseCommand(LoadDataForSelectedProject);
+            //LoadDataCommand = new BaseCommand(LoadDataForSelectedProject);
 
         }
         #endregion

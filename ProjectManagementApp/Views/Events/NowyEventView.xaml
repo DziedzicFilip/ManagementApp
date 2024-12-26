@@ -26,13 +26,13 @@
             </StackPanel>
 
             <!-- Data rozpoczecia -->
-            <StackPanel Margin="0,0,0,10">
+            <StackPanel Margin="690,0,0,10">
                 <TextBlock Text="Data rozpoczecia:" FontWeight="Bold" />
                 <DatePicker Name="StartDatePicker" Width="300" SelectedDate="{Binding Path=Data_rozpoczecia, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
-            <StackPanel Margin="0,0,0,10">
+            <StackPanel Margin="690,0,0,10">
                 <TextBlock Text="Godzina rozpoczęcia:" FontWeight="Bold"/>
-                <ComboBox Name="HourComboBox" Width="100" SelectedItem="{Binding Path=Godzina_rozpoczecia, Mode=TwoWay}">
+                <ComboBox Name="HourComboBox" Width="300" SelectedItem="{Binding Path=Godzina_rozpoczecia, Mode=TwoWay}">
                     <ComboBox.ItemsSource>
                         <x:Array Type="{x:Type sys:Int32}">
                             <sys:Int32>0</sys:Int32>
@@ -65,9 +65,9 @@
             </StackPanel>
 
             <!-- Minuty rozpoczęcia -->
-            <StackPanel Margin="0,0,0,10">
+            <StackPanel Margin="690,0,0,10">
                 <TextBlock Text="Minuty rozpoczęcia:" FontWeight="Bold"/>
-                <ComboBox Name="MinuteComboBox" Width="100" SelectedItem="{Binding Path=Minuta_rozpoczecia, Mode=TwoWay}">
+                <ComboBox Name="MinuteComboBox" Width="300" SelectedItem="{Binding Path=Minuta_rozpoczecia, Mode=TwoWay}">
                     <ComboBox.ItemsSource>
                         <x:Array Type="{x:Type sys:Int32}">
                             <sys:Int32>0</sys:Int32>
@@ -87,13 +87,13 @@
                 </ComboBox>
             </StackPanel>
             <!-- Data zakonczenia -->
-            <StackPanel Margin="0,0,0,10">
+            <StackPanel Margin="690,0,0,10">
                 <TextBlock Text="Termin realizacji:" FontWeight="Bold"/>
                 <DatePicker Name="DeadlineDatePicker" Width="300"  SelectedDate="{Binding Path=Data_zakonczenia,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
-            <StackPanel Margin="0,0,0,10">
+            <StackPanel Margin="690,0,0,10">
                 <TextBlock Text="Godzina rozpoczęcia:" FontWeight="Bold"/>
-                <ComboBox Name="HourComboBoxEnd" Width="100" SelectedItem="{Binding Path=Godzina_rozpoczecia, Mode=TwoWay}">
+                <ComboBox Name="HourComboBoxEnd" Width="300" SelectedItem="{Binding Path=Godzina_rozpoczecia, Mode=TwoWay}">
                     <ComboBox.ItemsSource>
                         <x:Array Type="{x:Type sys:Int32}">
                             <sys:Int32>0</sys:Int32>
@@ -126,9 +126,9 @@
             </StackPanel>
 
             <!-- Minuty rozpoczęcia -->
-            <StackPanel Margin="0,0,0,10">
+            <StackPanel Margin="690,0,0,10">
                 <TextBlock Text="Minuty rozpoczęcia:" FontWeight="Bold"/>
-                <ComboBox Name="MinuteComboBoxEnd" Width="100" SelectedItem="{Binding Path=Minuta_rozpoczecia, Mode=TwoWay}">
+                <ComboBox Name="MinuteComboBoxEnd" Width="300" SelectedItem="{Binding Path=Minuta_rozpoczecia, Mode=TwoWay}">
                     <ComboBox.ItemsSource>
                         <x:Array Type="{x:Type sys:Int32}">
                             <sys:Int32>0</sys:Int32>

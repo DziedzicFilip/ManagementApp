@@ -45,12 +45,12 @@ namespace ProjectManagementApp.Models.BussinesLogic
                            select p).FirstOrDefault();
             if (podsumowanie != null)
             {
-                // Aktualizacja istniejącego rekordu
+                
                 podsumowanie.calkowity_czas = sumaCzasu;
             }
             else
             {
-                // Dodanie nowego rekordu
+                
                 db.PodsumowanieCzasu.Add(new PodsumowanieCzasu
                 {
                     projekt_id = idProjektu,
@@ -64,7 +64,7 @@ namespace ProjectManagementApp.Models.BussinesLogic
             db.SaveChanges();
         }
 
-        //Przyszlocciwoe dodoanie do bazy
+       
         public decimal? CalkowityCzasReturnVariable(int idProjektu)
         {
            SprawdzPodsumowanie(idProjektu);

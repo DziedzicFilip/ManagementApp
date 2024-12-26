@@ -43,59 +43,75 @@ namespace ProjectManagementApp.ViewModels
                 new CommandViewModel(
                     "Nowy Projekt",
                     new BaseCommand(() => this.CreateView(new NowyProjektViewModel() ))),
-
-                   new CommandViewModel(
-                    "Projket Informacje",
-                    new BaseCommand(() => this.CreateView(new ProjektInfromacjeViewModel() ))),
-
+                 
                 new CommandViewModel(
-                    "Tresc Notatki",
-                    new BaseCommand(() => this.CreateView(new WyswietlNotatkeViewModel() ))),
-                new CommandViewModel(
-                    "Historia Projektu ",
-                    new BaseCommand(() => this.CreateView(new WyswietlHistorieProjektuViewModel() ))),
-                new CommandViewModel(
-                    "Nowy Event ",
-                    new BaseCommand(() => this.CreateView(new NowyEventViewModel() ))),
-                new CommandViewModel(
-                    "Event informacje",
-                    new BaseCommand(() => this.CreateView(new InformacjeEventViewModel() ))),
-                 new CommandViewModel(
-                    "Eventy",
-                    new BaseCommand(() =>  this.ShowWorkspace<WszystkieEventyViewModel>())),
-                    new CommandViewModel(
-                    "Tagi",
-                    new BaseCommand(() =>  this.ShowWorkspace<WszystkieTagiViewModel>())),
-                  new CommandViewModel(
-                    "Event Historia",
-                    new BaseCommand(() => this.CreateView(new WyswietlHistorieEventuViewModel () ))),
-                   new CommandViewModel(
-                    "Nowy Tag",
-                    new BaseCommand(() => this.CreateView(new NowyTagViewModel () ))),
-                    new CommandViewModel(
-                    "Kalendarz",
-                    new BaseCommand(() => this.CreateView(new KalendarzViewModel () ))),
-                     new CommandViewModel(
                     "Ryzyka",
                     new BaseCommand(() =>  this.ShowWorkspace<RyzykaProjektuViewModel>())),
-                     new CommandViewModel(
+
+                  new CommandViewModel(
                     "Wybierz Projekt",
                     new BaseCommand(() => this.CreateView(new WybierzProjektViewModel() ))),
-                     new CommandViewModel(
-                    "Logi Zadan",
-                    new BaseCommand(() =>  this.ShowWorkspace<LogiZadaniaViewModel>())),
-                     new CommandViewModel(
-                    "Wybierz Event",
-                    new BaseCommand(() => this.CreateView(new WybierzEventViewModel() ))),
+
+
                       new CommandViewModel(
-                    "Kalkulator",
+                    "Stawka",
                     new BaseCommand(() => this.CreateView(new KalkulatorStawkiViewModel() ))),
+
                       new CommandViewModel(
                     "Podsumowanie Czasu Projektu",
                     new BaseCommand(() => this.CreateView(new PodsumowanieCzasuProjektuViewModel() ))),
+
                       new CommandViewModel(
                     "Budzet Projektu",
                     new BaseCommand(() => this.CreateView(new BudzetProjektuViewModel ()))),
+
+
+                new CommandViewModel(
+                    "Eventy",
+                    new BaseCommand(() =>  this.ShowWorkspace<WszystkieEventyViewModel>())),
+                
+                new CommandViewModel(
+                    "Nowy Event ",
+                    new BaseCommand(() => this.CreateView(new NowyEventViewModel() ))),
+
+                     new CommandViewModel(
+                    "Wybierz Event",
+                    new BaseCommand(() => this.CreateView(new WybierzEventViewModel() ))),
+
+                //new CommandViewModel(
+                //    "Historia Projektu ",
+                //    new BaseCommand(() => this.CreateView(new WyswietlHistorieProjektuViewModel() ))),
+
+              
+
+                //new CommandViewModel(
+                //    "Event informacje",
+                //    new BaseCommand(() => this.CreateView(new InformacjeEventViewModel() ))),
+
+                 
+
+                    new CommandViewModel(
+                    "Tagi",
+                    new BaseCommand(() =>  this.ShowWorkspace<WszystkieTagiViewModel>())),
+
+                 
+                   new CommandViewModel(
+                    "Nowy Tag",
+                    new BaseCommand(() => this.CreateView(new NowyTagViewModel () ))),
+
+                    //new CommandViewModel(
+                    //"Kalendarz",
+                    //new BaseCommand(() => this.CreateView(new KalendarzViewModel () ))),
+
+                    
+
+                   
+
+                    // new CommandViewModel(
+                    //"Logi Zadan",
+                    //new BaseCommand(() =>  this.ShowWorkspace<LogiZadaniaViewModel>())),
+
+                
 
 
 
