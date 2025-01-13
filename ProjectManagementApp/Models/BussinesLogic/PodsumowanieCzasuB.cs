@@ -83,6 +83,36 @@ namespace ProjectManagementApp.Models.BussinesLogic
             ).ToList();
         }
 
+        public List<Zadania> PobierzZadaniaProjektu(int idProjektu)
+        {
+            return (
+                from z in db.Zadania
+                where z.projekt_id == idProjektu
+                select z
+            ).ToList();
+        }
+
+        public int ObliczDniOpoznienia(int idProjektu)
+        {
+            var projekt = (from p in db.Projekty
+                           where p.projekt_id == idProjektu
+                           select p).FirstOrDefault();
+
+            if (projekt == null || !projekt.data_zakonczenia.HasValue || !projekt.termin.HasValue)
+            {
+                throw new InvalidOperationException("Projekt nie istnieje lub nie ma ustawionych dat zakończenia i terminu.");
+            }
+
+            var dataZakonczenia = projekt.data_zakonczenia.Value;
+            var terminProjektu = projekt.termin.Value;
+
+            var dniOpoznienia = (dataZakonczenia - terminProjektu).Days;
+
+            return dniOpoznienia;
+        }
+
+        
+
         #endregion
     }
 }

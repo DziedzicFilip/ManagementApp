@@ -5,69 +5,343 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjectManagementApp.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="800" d:DesignWidth="700">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="400"  />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!-- Nagłówek -->
+            <Label Grid.Row="0" 
+          Content="Kalkulator Stawki za godzinę" 
+          Margin="0,10" 
+          HorizontalAlignment="Center" 
+          FontSize="20" 
+          FontWeight="Bold" />
 
-        <!-- Nagłówek -->
-        <Label Grid.Row="0" 
-               Content="Podsumowanie Czasu" 
+            <!-- Wybór projektu -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" 
+              Content="Wybierz Projekt"  
+              VerticalAlignment="Center" 
+              FontSize="14" 
+              Margin="10,0" />
+                <ComboBox Grid.Column="1" 
+                 Margin="10,0" 
+                 Width="200" 
+                 ItemsSource="{Binding ProjketyItems}" 
+                 DisplayMemberPath="Value" 
+                 SelectedValuePath="Key" 
+                 SelectedValue="{Binding Path=IdProjketu,Mode=TwoWay}" />
+            </Grid>
+
+            <!-- Wybór typu umowy -->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" 
+           Content="Wybierz Typ Umowy"  
+           VerticalAlignment="Center" 
+           FontSize="14" 
+           Margin="10,0" />
+                <ComboBox Grid.Column="1" 
+              Margin="10,0" 
+              Width="200" 
+              ItemsSource="{Binding TypyUmowyItems}" 
+              DisplayMemberPath="Value" 
+              SelectedValuePath="Key" 
+              SelectedValue="{Binding Path=WybranyTypUmowy,Mode=TwoWay}">
+                    <ComboBoxItem Content="B2B" />
+                    <ComboBoxItem Content="UMOWA Zlecenie" />
+                    <ComboBoxItem Content="Umowa o dzieło" />
+                </ComboBox>
+            </Grid>
+
+         
+            <!-- Wybór waluty -->
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" 
+           Content="Wybierz Walutę"  
+           VerticalAlignment="Center" 
+           FontSize="14" 
+           Margin="10,0" />
+                <ComboBox Grid.Column="1" 
+          Margin="10,0" 
+          Width="200" 
+          SelectedValue="{Binding Path=WybranaWaluta, Mode=TwoWay}"
+          SelectedValuePath="Content">
+                    <ComboBoxItem Content="Euro" />
+                    <ComboBoxItem Content="PLN" />
+                </ComboBox>
+            </Grid>
+
+
+
+
+            <!-- Stawka godzinowa i przycisk obliczania -->
+            <Grid Grid.Row="4" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" 
+              Content="Stawka Godzinowa" 
+              VerticalAlignment="Center" 
+              FontSize="14" 
+              Margin="10,0" />
+                <TextBox Grid.Column="1" 
+                Margin="10,0" 
+                Width="150" 
+                Text="{Binding Path=StawkaGodzinowa}" />
+                <Button Grid.Column="2" 
+               Content="Oblicz" 
                HorizontalAlignment="Center" 
-               FontSize="20" 
-               FontWeight="Bold" 
-               Margin="0,10,0,20" />
+               VerticalAlignment="Center" 
+               Command="{Binding ObliczCommand}" 
+               Width="100" 
+               Padding="5" />
+            </Grid>
 
-        <!-- Wybór projektu -->
-        <Grid Grid.Row="1" Margin="690,10,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+            <!-- Wyświetlanie wartości netto -->
+            <Grid Grid.Row="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" 
-                   Content="Wybierz Projekt:" 
-                   VerticalAlignment="Center" 
-                   FontSize="14" 
-                   Margin="10,0" />
-            <ComboBox Grid.Column="1" 
-                      ItemsSource="{Binding ProjketyItems}" 
-                      DisplayMemberPath="Value" 
-                      SelectedValuePath="Key" 
-                      SelectedValue="{Binding Path=IdProjketu, Mode=TwoWay}" 
-                      Margin="10,0" 
-                      Width="200" />
+                <Label Grid.Column="0" 
+           Content="Wartość Netto (PLN)" 
+           VerticalAlignment="Center" 
+           FontSize="14" 
+           Margin="10,0" />
+                <Label Grid.Column="1" 
+           Content="{Binding WartoscNettoPLN}" 
+           VerticalAlignment="Center" 
+           FontSize="14" 
+           FontWeight="Bold" 
+           Foreground="DarkGreen" 
+           Margin="10,0" />
+                <Label Grid.Column="2" 
+           Content="Netto (EUR)" 
+           VerticalAlignment="Center" 
+           FontSize="14" 
+           Margin="10,0" />
+                <Label Grid.Column="3" 
+           Content="{Binding WartoscNettoEUR}" 
+           VerticalAlignment="Center" 
+           FontSize="14" 
+           FontWeight="Bold" 
+           Foreground="DarkGreen" 
+           Margin="10,0" />
+            </Grid>
+
+
+
+            <!-- Wyświetlanie wartości brutto -->
+            <Grid Grid.Row="9">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" 
+           Content="Wartość Brutto (PLN)" 
+           VerticalAlignment="Center" 
+           FontSize="14" 
+           Margin="10,0" />
+                <Label Grid.Column="1" 
+           Content="{Binding WartoscBruttoPLN}" 
+           VerticalAlignment="Center" 
+           FontSize="14" 
+           FontWeight="Bold" 
+           Foreground="DarkGreen" 
+           Margin="10,0" />
+                <Label Grid.Column="2" 
+           Content="Brutto (EUR)" 
+           VerticalAlignment="Center" 
+           FontSize="14" 
+           Margin="10,0" />
+                <Label Grid.Column="3" 
+           Content="{Binding WartoscBruttoEUR}" 
+           VerticalAlignment="Center" 
+           FontSize="14" 
+           FontWeight="Bold" 
+           Foreground="DarkGreen" 
+           Margin="10,0" />
+            </Grid>
+            <!-- Wyświetlanie liczby godzin -->
+            <Grid Grid.Row="5" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" 
+              Content="Ilość Godzin" 
+              VerticalAlignment="Center" 
+              FontSize="14" 
+              Margin="10,0" />
+                <Label Grid.Column="1" 
+              Content="{Binding CalkowityCzas}" 
+              VerticalAlignment="Center" 
+              FontSize="14" 
+              FontWeight="Bold" 
+              Foreground="DarkGreen" 
+              Margin="10,0" />
+            </Grid>
+
+            <!-- Wyświetlanie dni opóźnienia -->
+            <Grid Grid.Row="6" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" 
+              Content="Dni Opóźnienia" 
+              VerticalAlignment="Center" 
+              FontSize="14" 
+              Margin="10,0" />
+                <Label Grid.Column="1" 
+              Content="{Binding DniOpoznienia}" 
+              VerticalAlignment="Center" 
+              FontSize="14" 
+              FontWeight="Bold" 
+              Foreground="DarkRed" 
+              Margin="10,0" />
+            </Grid>
+            <Grid Grid.Row="7" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" 
+  Content="Rabat" 
+  VerticalAlignment="Center" 
+  FontSize="14" 
+  Margin="10,0" />
+                <Label Grid.Column="1" 
+  Content="{Binding Rabat}" 
+  VerticalAlignment="Center" 
+  FontSize="14" 
+  FontWeight="Bold" 
+  Foreground="DarkRed" 
+  Margin="10,0" />
+            </Grid>
         </Grid>
 
-        <!-- Przycisk obliczania -->
-        <Grid Grid.Row="2" Margin="0,10">
-            <Button Content="Oblicz" 
-                    Command="{Binding ObliczCommand}" 
-                    HorizontalAlignment="Center" 
-                    Width="100" 
-                    Padding="10" 
-                    VerticalAlignment="Center" />
-        </Grid>
+        <!-- DataGrid z rejestrami czasu -->
+        <DataGrid x:Name="ScheduleDataGrid" 
+                    AutoGenerateColumns="False" 
+                    CanUserAddRows="False" 
+                    
+                    IsReadOnly="True" 
+                    HeadersVisibility="Column" 
+                    GridLinesVisibility="All"
+                    ItemsSource="{Binding RejestrCzasuDane}"
+                    Grid.Row="1" Grid.Column="0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Czas Spędzony" 
+                                      Binding="{Binding czas_spedzony}" 
+                                      Width="*" />
+                <DataGridTextColumn Header="Data Rozpoczęcia" 
+                                      Binding="{Binding data}" 
+                                      Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
 
-        <!-- Wyświetlanie całkowitego czasu -->
-        <Grid Grid.Row="3" Margin="0,20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Label Grid.Column="0" 
-                   Content="Całkowity Czas:" 
+        <!-- Grid z opcją generowania podsumowania do pliku PDF -->
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" 
+                    Content="Generuj Podsumowanie do PDF" 
+                    Command="{Binding GenerujPdfCommand}" 
+                    Margin="10" />
+            <Label Grid.Row="1" 
+                   Content="Data wygenerowania dokumentu" 
                    VerticalAlignment="Center" 
                    FontSize="14" 
-                   Margin="10,0" />
-            <Label Grid.Column="1" 
-                   Content="{Binding CalkowityCzas}" 
+                   Margin="10,10" />
+            <DatePicker Grid.Row="2" 
+                        SelectedDate="{Binding DataWygenerowaniaDokumentu}" 
+                        Margin="10,10" />
+        </Grid>
+
+        <!-- DataGrid do wyświetlania zadań i pole zliczające wykonane zadania -->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <DataGrid x:Name="TasksDataGrid" 
+                      AutoGenerateColumns="False" 
+                      CanUserAddRows="False" 
+                      IsReadOnly="True" 
+                      HeadersVisibility="Column" 
+                      GridLinesVisibility="All"
+                      ItemsSource="{Binding Zadania}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Zadanie" 
+                                        Binding="{Binding NazwaZadania}" 
+                                        Width="*" />
+                    <DataGridTextColumn Header="Status" 
+                                        Binding="{Binding StatusZadania}" 
+                                        Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Grid.Row="1" 
+                   Content="{Binding LiczbaWykonanychZadan}" 
                    VerticalAlignment="Center" 
                    FontSize="14" 
                    FontWeight="Bold" 
@@ -75,24 +349,14 @@
                    Margin="10,0" />
         </Grid>
 
-        <!-- DataGrid z rejestrami czasu -->
-        <DataGrid x:Name="ScheduleDataGrid" 
-                  AutoGenerateColumns="False" 
-                  CanUserAddRows="False" 
-                  Margin="10,10,10,10" 
-                  IsReadOnly="True" 
-                  HeadersVisibility="Column" 
-                  GridLinesVisibility="All"
-                  ItemsSource="{Binding RejestrCzasuDane}"
-                  Grid.Row="4">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Czas Spędzony" 
-                                    Binding="{Binding czas_spedzony}" 
-                                    Width="*" />
-                <DataGridTextColumn Header="Data Rozpoczęcia" 
-                                    Binding="{Binding data}" 
-                                    Width="*" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <!-- Miejsce na wykresy -->
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <Label Content="Wykresy" 
+                   HorizontalAlignment="Center" 
+                   FontSize="16" 
+                   FontWeight="Bold" 
+                   Margin="10" />
+            <!-- Dodaj tutaj kontrolki wykresów -->
+        </Grid>
     </Grid>
 </UserControl>
