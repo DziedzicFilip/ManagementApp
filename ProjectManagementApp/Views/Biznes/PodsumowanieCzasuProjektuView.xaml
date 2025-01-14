@@ -341,8 +341,9 @@ Margin="10,0" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Button Grid.Row="0" 
-                    Content="Generuj Podsumowanie do PDF" 
-                    Command="{Binding GenerujPdfCommand}" 
+                    Content="Generuj PDF" 
+ 
+Command="{Binding GenerujPdfCommand}" 
                     Margin="10" />
             <Label Grid.Row="1" 
                    Content="Data wygenerowania dokumentu" 
@@ -350,7 +351,7 @@ Margin="10,0" />
                    FontSize="14" 
                    Margin="10,10" />
             <DatePicker Grid.Row="2" 
-                        SelectedDate="{Binding DataWygenerowaniaDokumentu}" 
+                        SelectedDate="{Binding DataWystawienia, Mode=TwoWay}" 
                         Margin="10,10" />
            
         </Grid>

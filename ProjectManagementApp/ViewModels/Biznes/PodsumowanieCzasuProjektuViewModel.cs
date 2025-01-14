@@ -313,6 +313,22 @@ namespace ProjectManagementApp.ViewModels
                 OnPropertyChanged(()=>WykonaneZadaniaSeries);
             }
         }
+        private PdfGenerator pdfGenerator;
+        private DateTime _DataWystawienia=DateTime.Now;
+        public DateTime DataWystawienia
+        {
+            get
+            {
+                return _DataWystawienia;
+            }
+            set
+            {
+               
+                    _DataWystawienia = value;
+                    OnPropertyChanged(() => DataWystawienia);
+                
+            }
+        }
 
 
         public IQueryable<KeyAndValue> ProjketyItems
@@ -449,6 +465,36 @@ namespace ProjectManagementApp.ViewModels
             }
         };
         }
+        private BaseCommand _GenerujPdfCommand;
+        public ICommand GenerujPdfCommand
+        {
+            get
+            {
+                if (_GenerujPdfCommand == null)
+                    _GenerujPdfCommand = new BaseCommand(() => GenerujPdf());
+                return _GenerujPdfCommand;
+            }
+            set { }
+        }
+
+        private void GenerujPdf()
+        {
+
+            try
+            {
+                pdfGenerator = new PdfGenerator(db);
+                string outputPath = pdfGenerator.GetOutputPath(IdProjketu);
+                pdfGenerator.GenerateProjectSummaryPdf(IdProjketu, outputPath, CalkowityCzas, DniOpoznienia, WartoscEuroBezRabatu, WartoscPLNBezRabatu, WartoscNettoPLN, WartoscNettoEUR, WartoscBruttoPLN, WartoscBruttoEUR, WybranaWaluta, StawkaGodzinowa, WybranyTypUmowy, Rabat, LiczbaZadan, LiczbaWykonanychZadan, RejestrCzasuDane, Zadania, DataWystawienia);
+                ShowMessageBox("Pomyślne wygenerowanie");
+            }
+            catch (Exception ex)
+            {
+                // Pokaż szczegółowy komunikat o błędzie
+                ShowMessageBox($"Błąd: {ex.Message}\nSzczegóły: {ex.StackTrace}");
+            }
+        }
+
+
 
     }
 }
