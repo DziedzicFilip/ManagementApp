@@ -132,8 +132,8 @@ namespace ProjectManagementApp.Models.BussinesLogic
 
         public (int liczbaZadan, int liczbaWykonanychZadan) PobierzDaneWykresu(int idProjektu)
         {
-            var liczbaZadan = db.Zadania.Count(z => z.projekt_id == idProjektu);
-            var liczbaWykonanychZadan = db.Zadania.Count(z => z.projekt_id == idProjektu && z.status == "Zakończone");
+            var liczbaZadan = LiczbaZadan(idProjektu);
+            var liczbaWykonanychZadan = LiczbaWykonanychZadan(idProjektu);
             return (liczbaZadan, liczbaWykonanychZadan);
         }
 

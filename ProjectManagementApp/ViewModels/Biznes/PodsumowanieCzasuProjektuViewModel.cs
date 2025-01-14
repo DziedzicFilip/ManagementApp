@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using LiveCharts;
+using LiveCharts.Wpf;
+using System.ComponentModel;
 
 namespace ProjectManagementApp.ViewModels
 {
@@ -300,7 +303,16 @@ namespace ProjectManagementApp.ViewModels
                 }
             }
         }
-
+        private SeriesCollection _wykonaneZadaniaSeries;
+        public SeriesCollection WykonaneZadaniaSeries
+        {
+            get { return _wykonaneZadaniaSeries; }
+            set
+            {
+                _wykonaneZadaniaSeries = value;
+                OnPropertyChanged(()=>WykonaneZadaniaSeries);
+            }
+        }
 
 
         public IQueryable<KeyAndValue> ProjketyItems
@@ -411,10 +423,32 @@ namespace ProjectManagementApp.ViewModels
         {
             RejestrCzasuDane = new PodsumowanieCzasuB(db).PobierzDaneRejestrCzasu(IdProjketu);
             Zadania = new PodsumowanieCzasuB(db).PobierzZadaniaProjektu(IdProjketu);
+            LoadData();
         }
         #endregion
 
-        
-      
+        private void LoadData()
+        {
+            var daneWykresu = new PodsumowanieCzasuB(db).PobierzDaneWykresu(IdProjketu);
+            LiczbaZadan = daneWykresu.liczbaZadan;
+            LiczbaWykonanychZadan = daneWykresu.liczbaWykonanychZadan;
+
+            WykonaneZadaniaSeries = new SeriesCollection
+        {
+            new PieSeries
+            {
+                Title = "Wykonane",
+                Values = new ChartValues<int> { LiczbaWykonanychZadan },
+                DataLabels = true
+            },
+            new PieSeries
+            {
+                Title = "Niewykonane",
+                Values = new ChartValues<int> { LiczbaZadan - LiczbaWykonanychZadan },
+                DataLabels = true
+            }
+        };
+        }
+
     }
 }
