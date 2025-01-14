@@ -39,9 +39,6 @@ namespace ProjectManagementApp.Models.BussinesLogic
         {
 
             SprawdzPodsumowanie(idProjektu);
-            int dniOpoznienia = ObliczDniOpoznienia(idProjektu);
-            decimal rabat = dniOpoznienia * 0.05m * StawkaNaGodzine;
-
             return (
 
                  from PodsumowanieCzasu in db.PodsumowanieCzasu
@@ -50,6 +47,52 @@ namespace ProjectManagementApp.Models.BussinesLogic
 
                 ).Sum();
 
+        }
+
+        public (decimal? WartoscBruttoPLN, decimal? WartoscNettoPLN, decimal? WartoscBruttoEUR, decimal? WartoscNettoEUR, decimal? WartoscPLNBezRabatu, decimal? WartoscEuroBezRabatu) 
+        ObliczWartosci(int idProjektu, decimal stawkaGodzinowa, string wybranaWaluta, string wybranyTypUmowy)
+        {
+            decimal kursEuroNaPln = 4.5m;
+            decimal VatRate = 0.23m;
+
+            switch (wybranyTypUmowy)
+            {
+                case "Dzieło":
+                case "Zlecenie":
+                    VatRate = 0m;
+                    break;
+                case "B2B":
+                    VatRate = 0.23m;
+                    break;
+            }
+
+            decimal? wartoscBruttoPLN = null;
+            decimal? wartoscNettoPLN = null;
+            decimal? wartoscBruttoEUR = null;
+            decimal? wartoscNettoEUR = null;
+            decimal? wartoscPLNBezRabatu = null;
+            decimal? wartoscEuroBezRabatu = null;
+
+            if (wybranaWaluta == "PLN")
+            {
+                wartoscBruttoPLN = Math.Round((Stawka(idProjektu, stawkaGodzinowa, "PLN") ?? 0), 2);
+                wartoscNettoPLN = Math.Round((wartoscBruttoPLN.GetValueOrDefault() * (1 - VatRate)), 2);
+                wartoscBruttoEUR = Math.Round((wartoscBruttoPLN.GetValueOrDefault() / kursEuroNaPln), 2);
+                wartoscNettoEUR = Math.Round((wartoscBruttoEUR.GetValueOrDefault() * (1 - VatRate)), 2);
+                wartoscPLNBezRabatu = Math.Round((Stawka(idProjektu, stawkaGodzinowa) ?? 0), 2);
+                wartoscEuroBezRabatu = Math.Round((wartoscPLNBezRabatu.GetValueOrDefault() / kursEuroNaPln), 2);
+            }
+            else
+            {
+                wartoscBruttoEUR = Math.Round((Stawka(idProjektu, stawkaGodzinowa, "EURO") ?? 0), 2);
+                wartoscNettoEUR = Math.Round((wartoscBruttoEUR.GetValueOrDefault() * (1 - VatRate)), 2);
+                wartoscEuroBezRabatu = Math.Round((Stawka(idProjektu, stawkaGodzinowa) ?? 0), 2);
+                wartoscPLNBezRabatu = Math.Round((wartoscEuroBezRabatu.GetValueOrDefault() * kursEuroNaPln), 2);
+                wartoscBruttoPLN = Math.Round((wartoscBruttoEUR.GetValueOrDefault() * kursEuroNaPln), 2);
+                wartoscNettoPLN = Math.Round((wartoscBruttoPLN.GetValueOrDefault() * (1 - VatRate)), 2);
+            }
+
+            return (wartoscBruttoPLN, wartoscNettoPLN, wartoscBruttoEUR, wartoscNettoEUR, wartoscPLNBezRabatu, wartoscEuroBezRabatu);
         }
         #endregion
     }

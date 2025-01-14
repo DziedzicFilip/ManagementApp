@@ -91,6 +91,23 @@ namespace ProjectManagementApp.Models.BussinesLogic
                 select z
             ).ToList();
         }
+        public int LiczbaZadan(int idProjektu)
+        {
+            return (
+                from z in db.Zadania
+                where z.projekt_id == idProjektu
+                select z
+            ).Count();
+        }
+
+        public int LiczbaWykonanychZadan(int idProjektu)
+        {
+            return (
+                from z in db.Zadania
+                where z.projekt_id == idProjektu && z.status == "Zakończone"
+                select z
+            ).Count();
+        }
 
         public int ObliczDniOpoznienia(int idProjektu)
         {
@@ -111,7 +128,17 @@ namespace ProjectManagementApp.Models.BussinesLogic
             return dniOpoznienia;
         }
 
-        
+
+
+        public (int liczbaZadan, int liczbaWykonanychZadan) PobierzDaneWykresu(int idProjektu)
+        {
+            var liczbaZadan = db.Zadania.Count(z => z.projekt_id == idProjektu);
+            var liczbaWykonanychZadan = db.Zadania.Count(z => z.projekt_id == idProjektu && z.status == "Zakończone");
+            return (liczbaZadan, liczbaWykonanychZadan);
+        }
+
+
+
 
         #endregion
     }

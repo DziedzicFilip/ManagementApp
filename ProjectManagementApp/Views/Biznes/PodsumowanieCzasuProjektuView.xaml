@@ -18,7 +18,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="450"></ColumnDefinition>
+            <ColumnDefinition Width="500"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0" Grid.Column="0">
@@ -215,6 +215,40 @@
            Foreground="DarkGreen" 
            Margin="10,0" />
             </Grid>
+
+            <Grid Grid.Row="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" 
+Content="Wartość Netto bez rabatu (PLN)" 
+VerticalAlignment="Center" 
+FontSize="14" 
+Margin="10,0" />
+                <Label Grid.Column="1" 
+Content="{Binding WartoscPLNBezRabatu}" 
+VerticalAlignment="Center" 
+FontSize="14" 
+FontWeight="Bold" 
+Foreground="DarkGreen" 
+Margin="10,0" />
+                <Label Grid.Column="2" 
+Content=" Netto bez rabatu (EUR)" 
+VerticalAlignment="Center" 
+FontSize="14" 
+Margin="10,0" />
+                <Label Grid.Column="3" 
+Content="{Binding WartoscEuroBezRabatu}" 
+VerticalAlignment="Center" 
+FontSize="14" 
+FontWeight="Bold" 
+Foreground="DarkGreen" 
+Margin="10,0" />
+            </Grid>
             <!-- Wyświetlanie liczby godzin -->
             <Grid Grid.Row="5" >
                 <Grid.ColumnDefinitions>
@@ -303,6 +337,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Button Grid.Row="0" 
                     Content="Generuj Podsumowanie do PDF" 
@@ -316,6 +351,7 @@
             <DatePicker Grid.Row="2" 
                         SelectedDate="{Binding DataWygenerowaniaDokumentu}" 
                         Margin="10,10" />
+           
         </Grid>
 
         <!-- DataGrid do wyświetlania zadań i pole zliczające wykonane zadania -->
@@ -323,30 +359,60 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <DataGrid x:Name="TasksDataGrid" 
-                      AutoGenerateColumns="False" 
-                      CanUserAddRows="False" 
-                      IsReadOnly="True" 
-                      HeadersVisibility="Column" 
-                      GridLinesVisibility="All"
+                     
+                    AutoGenerateColumns="False" 
+                    CanUserAddRows="False" 
+                    
+                    IsReadOnly="True" 
+                    HeadersVisibility="Column" 
+                    GridLinesVisibility="All"
                       ItemsSource="{Binding Zadania}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Zadanie" 
-                                        Binding="{Binding NazwaZadania}" 
+                                        Binding="{Binding nazwa}" 
                                         Width="*" />
                     <DataGridTextColumn Header="Status" 
-                                        Binding="{Binding StatusZadania}" 
+                                        Binding="{Binding status}" 
                                         Width="*" />
                 </DataGrid.Columns>
             </DataGrid>
             <Label Grid.Row="1" 
-                   Content="{Binding LiczbaWykonanychZadan}" 
-                   VerticalAlignment="Center" 
-                   FontSize="14" 
-                   FontWeight="Bold" 
-                   Foreground="DarkGreen" 
-                   Margin="10,0" />
+Content="Liczba wykonanych zadan" 
+VerticalAlignment="Center" 
+
+FontSize="14" 
+FontWeight="Bold" 
+
+Margin="10,0" />
+            <Label Grid.Row="2" 
+Content="{Binding LiczbaWykonanychZadan}" 
+VerticalAlignment="Center" 
+
+FontSize="14" 
+FontWeight="Bold" 
+
+Margin="10,0" />
+            <Label Grid.Row="3" 
+Content="Liczba zadan" 
+VerticalAlignment="Center" 
+
+FontSize="14" 
+FontWeight="Bold" 
+
+Margin="10,0" />
+            <Label Grid.Row="4" 
+Content="{Binding LiczbaZadan}" 
+VerticalAlignment="Center" 
+
+FontSize="14" 
+FontWeight="Bold" 
+
+Margin="10,0" />
         </Grid>
 
         <!-- Miejsce na wykresy -->
