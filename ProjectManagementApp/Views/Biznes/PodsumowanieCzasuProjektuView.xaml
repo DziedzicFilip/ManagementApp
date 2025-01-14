@@ -82,13 +82,13 @@
                 <ComboBox Grid.Column="1" 
               Margin="10,0" 
               Width="200" 
-              ItemsSource="{Binding TypyUmowyItems}" 
-              DisplayMemberPath="Value" 
-              SelectedValuePath="Key" 
+             
+             
+             SelectedValuePath="Content" 
               SelectedValue="{Binding Path=WybranyTypUmowy,Mode=TwoWay}">
                     <ComboBoxItem Content="B2B" />
-                    <ComboBoxItem Content="UMOWA Zlecenie" />
-                    <ComboBoxItem Content="Umowa o dzieło" />
+                    <ComboBoxItem Content="Zlecenie" />
+                    <ComboBoxItem Content="Dzieło" />
                 </ComboBox>
             </Grid>
 

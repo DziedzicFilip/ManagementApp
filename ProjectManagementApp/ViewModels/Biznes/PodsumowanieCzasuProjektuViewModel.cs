@@ -59,6 +59,22 @@ namespace ProjectManagementApp.ViewModels
                 }
             }
         }
+        private int? _DniOpoznienia;
+        public int? DniOpoznienia
+        {
+            get
+            {
+                return _DniOpoznienia;
+            }
+            set
+            {
+                if (_DniOpoznienia != value)
+                {
+                    _DniOpoznienia = value;
+                    OnPropertyChanged(() => DniOpoznienia);
+                }
+            }
+        }
 
         private decimal? _Wartosc;
         public decimal? Wartosc
@@ -153,6 +169,37 @@ namespace ProjectManagementApp.ViewModels
             }
         }
 
+        private string _WybranyTypUmowy;
+        public string WybranyTypUmowy
+        {
+            get => _WybranyTypUmowy;
+            set
+            {
+                if (_WybranyTypUmowy != value)
+                {
+                    _WybranyTypUmowy = value;
+                    OnPropertyChanged(() => WybranyTypUmowy);
+                }
+            }
+        }
+
+        private decimal _Rabat;
+        public decimal Rabat
+        {
+            get
+            {
+                return _Rabat;
+            }
+            set
+            {
+                if (_Rabat != value)
+                {
+                    _Rabat = value;
+                    OnPropertyChanged(() => Rabat);
+                }
+            }
+        }
+
         private List<RejestrCzasuPracyProjekt> _RejestrCzasuDane;
         public List<RejestrCzasuPracyProjekt> RejestrCzasuDane
         {
@@ -196,26 +243,40 @@ namespace ProjectManagementApp.ViewModels
         private void ObliczWartosc()
         {
             CalkowityCzas = new PodsumowanieCzasuB(db).CalkowityCzasReturnVariable(IdProjketu);
+            DniOpoznienia= new PodsumowanieCzasuB(db).ObliczDniOpoznienia(IdProjketu);
+            Rabat = new StawkaGodzinowaB(db).Rabat(DniOpoznienia ?? 0, IdProjketu, StawkaGodzinowa);
             decimal kursEuroNaPln = 4.5m;
-            decimal VatRate = 0.23m;
-
+            decimal VatRate=0.23m;
+            ShowMessageBox("Wybrany typ umowy: " + WybranyTypUmowy);
+            switch (WybranyTypUmowy)
+            {
+                case "Dzieło":
+                    VatRate= 0m;
+                    break;
+                case "Zlecenie":
+                    VatRate = 0m;
+                    break;
+                case "B2B":
+                    VatRate = 0.23m;
+                    break;
+            }
+            
             if (WybranaWaluta == "PLN")
             {
                 WartoscBruttoPLN = Math.Round((new StawkaGodzinowaB(db).Stawka(IdProjketu, StawkaGodzinowa, "PLN") ?? 0), 2);
                 WartoscNettoPLN = Math.Round((WartoscBruttoPLN.GetValueOrDefault() * (1 - VatRate)), 2);
-
                 WartoscBruttoEUR = Math.Round((WartoscBruttoPLN.GetValueOrDefault() / kursEuroNaPln), 2);
                 WartoscNettoEUR = Math.Round((WartoscBruttoEUR.GetValueOrDefault() * (1 - VatRate)), 2);
+               
             }
             else
             {
                 WartoscBruttoEUR = Math.Round((new StawkaGodzinowaB(db).Stawka(IdProjketu, StawkaGodzinowa, "EURO") ?? 0), 2);
                 WartoscNettoEUR = Math.Round((WartoscBruttoEUR.GetValueOrDefault() * (1 - VatRate)), 2);
-
+             
                 WartoscBruttoPLN = Math.Round((WartoscBruttoEUR.GetValueOrDefault() * kursEuroNaPln), 2);
                 WartoscNettoPLN = Math.Round((WartoscBruttoPLN.GetValueOrDefault() * (1 - VatRate)), 2);
             }
-
             Load();
         }
 
