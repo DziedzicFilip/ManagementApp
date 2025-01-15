@@ -61,6 +61,9 @@ namespace ProjectManagementApp.ViewModels
                     "Budzet Projektu",
                     new BaseCommand(() => this.CreateView(new BudzetProjektuViewModel ()))),
 
+                      new CommandViewModel(
+                    "Dodaj Budzet",
+                    new BaseCommand(() => this.CreateView(new DodajBudzetProjektuViewModel ()))),
 
              
 

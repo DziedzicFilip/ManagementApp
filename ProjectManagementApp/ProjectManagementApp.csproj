@@ -212,6 +212,7 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\Biznes\BudzetProjektuViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
+    <Compile Include="ViewModels\DodajBudzetProjektuViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\CzasPracyWindowViewModel.cs" />
     <Compile Include="ViewModels\Eventy\InformacjeEventViewModel.cs" />
     <Compile Include="ViewModels\Abstract\JedenViewModel.cs" />
@@ -250,6 +251,9 @@
     <Compile Include="ViewModels\InfoEvent\ZadaniaWindowEventViewModel.cs" />
     <Compile Include="Views\Biznes\BudzetProjektuView.xaml.cs">
       <DependentUpon>BudzetProjektuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DodawanieProjektowe\DodajBudzetProjektuView.xaml.cs">
+      <DependentUpon>DodajBudzetProjektuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\InfoProjekt\HistoriaWindowView.xaml.cs">
       <DependentUpon>HistoriaWindowView.xaml</DependentUpon>
@@ -355,6 +359,7 @@
     <Compile Include="Views\InfoEvent\ZadaniaWindowEventView.xaml.cs">
       <DependentUpon>ZadaniaWindowEventView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Base\WybierzProjektViewBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -395,6 +400,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Biznes\BudzetProjektuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DodawanieProjektowe\DodajBudzetProjektuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -539,7 +548,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModels\DodawanieProjektowe\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Models\Entities\ModelProjekt.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

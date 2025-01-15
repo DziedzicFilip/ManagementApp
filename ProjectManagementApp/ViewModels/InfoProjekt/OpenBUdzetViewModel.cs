@@ -22,11 +22,9 @@ namespace ProjectManagementApp.ViewModels
                 select new InfoProjekt
                 {
                     NazwaProjektu = BudzetProjektu.Projekty.nazwa,
-                    CalkowityBudzet =(double)( BudzetProjektu.calkowity_budzet),
-                    WydanaKwota = (double)(BudzetProjektu.wydana_kwota),
-                    PozostalaKwota = (double)(BudzetProjektu.pozostala_kwota),
-
-
+                    CalkowityBudzet = (double?)(BudzetProjektu.calkowity_budzet) ?? 0,
+                    WydanaKwota = (double?)(BudzetProjektu.wydana_kwota) ?? 0,
+                    PozostalaKwota = (double?)(BudzetProjektu.pozostala_kwota) ?? 0,
                 }
 
             );

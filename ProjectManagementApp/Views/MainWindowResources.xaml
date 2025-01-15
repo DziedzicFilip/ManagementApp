@@ -102,6 +102,9 @@
     <DataTemplate DataType="{x:Type vm:ZadaniaWindowEventViewModel}">
         <vw:ZadaniaWindowEventView></vw:ZadaniaWindowEventView>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:DodajBudzetProjektuViewModel}">
+        <vw:DodajBudzetProjektuView></vw:DodajBudzetProjektuView>
+    </DataTemplate>
 
 
 
