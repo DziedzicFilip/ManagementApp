@@ -12,8 +12,8 @@ namespace ProjectManagementApp.ViewModels
     public class NotatkiWindowViewModel :  WszystkieViewModel<InfoProjekt> 
     {
         public int ProjektID { get; set; }
-        public NotatkiWindowViewModel(int projektID) :base(" ") {
-            ProjektID = projektID;
+        public NotatkiWindowViewModel() :base(" ") {
+           
 
         }
 
@@ -22,9 +22,10 @@ namespace ProjectManagementApp.ViewModels
             List = new ObservableCollection<InfoProjekt>
             (
                 from NotatkiProjekty in zarzadanieProjektami2Entities.NotatkiProjekty
-                where NotatkiProjekty.projekt_id == ProjektID
+              
                 select new InfoProjekt
                 {
+                    NazwaProjektu = NotatkiProjekty.Projekty.nazwa,
                     tresc = NotatkiProjekty.tresc_notatki,
                     DataUtworzeniaNotatki = NotatkiProjekty.data_utworzenia ?? DateTime.MinValue,
 

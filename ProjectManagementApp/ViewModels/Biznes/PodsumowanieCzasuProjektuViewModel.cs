@@ -465,6 +465,7 @@ namespace ProjectManagementApp.ViewModels
             }
         };
         }
+
         private BaseCommand _GenerujPdfCommand;
         public ICommand GenerujPdfCommand
         {

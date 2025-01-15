@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:vm="clr-namespace:ProjectManagementApp.ViewModels"
                     xmlns:vw="clr-namespace:ProjectManagementApp.Views" 
+                   
                    >
     <DataTemplate DataType="{x:Type vm:WszystkieProjektyViewModel}">
         <vw:WszystkieProjektyView/>
@@ -71,6 +72,31 @@
     <DataTemplate DataType="{x:Type vm:BudzetProjektuViewModel}">
         <vw:BudzetProjektuView></vw:BudzetProjektuView>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:CzasPracyWindowViewModel}">
+        <vw:CzasPracyWindowView></vw:CzasPracyWindowView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:HistoriaWindowViewModel}">
+        <vw:HistoriaWindowView></vw:HistoriaWindowView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NotatkiWindowViewModel}">
+        <vw:NotatkiWindowView></vw:NotatkiWindowView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:PlikiWindowViewModel}">
+        <vw:PlikiWindowView></vw:PlikiWindowView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:RyzkoProjetuWindowViewModel}">
+        <vw:RyzkoProjetuWindowView></vw:RyzkoProjetuWindowView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:ZadaniaWindowViewModel}">
+        <vw:ZadaniaWindowView></vw:ZadaniaWindowView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:PodsumowanieWindowViewModel}">
+        <vw:PodsumowanieWindowView></vw:PodsumowanieWindowView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:OpenBUdzetViewModel}">
+        <vw:OpenBUdzetView></vw:OpenBUdzetView>
+    </DataTemplate>
+    
 
 
 

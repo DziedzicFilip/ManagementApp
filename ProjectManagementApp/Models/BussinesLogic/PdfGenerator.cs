@@ -106,5 +106,70 @@ namespace ProjectManagementApp.Models.BussinesLogic
 
             return filePath;
         }
+        public string GetOutputPathBudget(int projectId)
+        {
+            var project = (from p in db.Projekty
+                           where p.projekt_id == projectId
+                           select p).FirstOrDefault();
+            if (project == null)
+            {
+                throw new ArgumentException("Invalid project ID");
+            }
+
+            string projectName = project.nazwa;
+            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string baseFileName = $"{projectName}_PodsumowanieBudgetu";
+            string fileExtension = ".pdf";
+            string filePath = Path.Combine(documentsPath, baseFileName + fileExtension);
+
+            int fileIndex = 1;
+            while (File.Exists(filePath))
+            {
+                filePath = Path.Combine(documentsPath, $"{baseFileName}_{fileIndex}{fileExtension}");
+                fileIndex++;
+            }
+
+            return filePath;
+        }
+        public void GenerateBudgetPdf(int projectId, string recenzja, string outputPath)
+        {
+            var project = db.Projekty.FirstOrDefault(p => p.projekt_id == projectId);
+            if (project == null)
+            {
+                throw new ArgumentException("Invalid project ID");
+            }
+
+            var document = new Document();
+            PdfWriter.GetInstance(document, new FileStream(outputPath, FileMode.Create));
+            document.Open();
+
+            // Dodanie tytułu
+            var titleFont = FontFactory.GetFont("Arial", 20, Font.BOLD);
+            var title = new Paragraph("Budżet Projektu", titleFont)
+            {
+                Alignment = Element.ALIGN_CENTER,
+                SpacingAfter = 20
+            };
+            document.Add(title);
+
+            // Dodanie nazwy projektu
+            var projectNameFont = FontFactory.GetFont("Arial", 16, Font.BOLD);
+            var projectName = new Paragraph($"Nazwa projektu: {project.nazwa}", projectNameFont)
+            {
+                SpacingAfter = 10
+            };
+            document.Add(projectName);
+
+            // Dodanie szczegółów budżetu
+            
+
+            // Dodanie recenzji
+            var reviewFont = FontFactory.GetFont("Arial", 12, Font.ITALIC);
+            var review = new Paragraph($"Recenzja:\n{recenzja}", reviewFont);
+            document.Add(review);
+
+            document.Close();
+        }
+
     }
 }

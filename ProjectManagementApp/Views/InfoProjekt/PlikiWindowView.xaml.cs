@@ -17,12 +17,12 @@ namespace ProjectManagementApp.Views
     /// <summary>
     /// Logika interakcji dla klasy PlikiWindowView.xaml
     /// </summary>
-    public partial class PlikiWindowView : Window
+    public partial class PlikiWindowView : UserControl
     {
-        public PlikiWindowView(int projektID)
+        public PlikiWindowView()
         {
             InitializeComponent();
-            this.DataContext = new PlikiWindowViewModel( projektID);
+           
         }
     }
 }

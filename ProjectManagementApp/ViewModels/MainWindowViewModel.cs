@@ -48,11 +48,7 @@ namespace ProjectManagementApp.ViewModels
                     "Ryzyka",
                     new BaseCommand(() =>  this.ShowWorkspace<RyzykaProjektuViewModel>())),
 
-                  new CommandViewModel(
-                    "Wybierz Projekt",
-                    new BaseCommand(() => this.CreateView(new WybierzProjektViewModel() ))),
-
-
+              
                       new CommandViewModel(
                     "Stawka",
                     new BaseCommand(() => this.CreateView(new KalkulatorStawkiViewModel() ))),
@@ -74,9 +70,6 @@ namespace ProjectManagementApp.ViewModels
                     "Nowy Event ",
                     new BaseCommand(() => this.CreateView(new NowyEventViewModel() ))),
 
-                     new CommandViewModel(
-                    "Wybierz Event",
-                    new BaseCommand(() => this.CreateView(new WybierzEventViewModel() ))),
 
                 //new CommandViewModel(
                 //    "Historia Projektu ",
@@ -90,22 +83,42 @@ namespace ProjectManagementApp.ViewModels
 
                  
 
-                    new CommandViewModel(
-                    "Tagi",
-                    new BaseCommand(() =>  this.ShowWorkspace<WszystkieTagiViewModel>())),
+                    //new CommandViewModel(
+                    //"Tagi",
+                    //new BaseCommand(() =>  this.ShowWorkspace<WszystkieTagiViewModel>())),
 
                  
-                   new CommandViewModel(
-                    "Nowy Tag",
-                    new BaseCommand(() => this.CreateView(new NowyTagViewModel () ))),
+                   //new CommandViewModel(
+                   // "Nowy Tag",
+                   // new BaseCommand(() => this.CreateView(new NowyTagViewModel () ))),
 
                     //new CommandViewModel(
                     //"Kalendarz",
                     //new BaseCommand(() => this.CreateView(new KalendarzViewModel () ))),
 
                     
-
-                   
+                    new CommandViewModel(
+                    "Czas Pracy",
+                    new BaseCommand(() =>  this.ShowWorkspace<CzasPracyWindowViewModel>())),
+                      new CommandViewModel(
+                    "Historie Pracy ",
+                    new BaseCommand(() =>  this.ShowWorkspace<HistoriaWindowViewModel>())),
+                       new CommandViewModel(
+                    "Notatki Proejktu ",
+                    new BaseCommand(() =>  this.ShowWorkspace<NotatkiWindowViewModel>())),
+                       new CommandViewModel(
+                    "Budzet Projektu ",
+                    new BaseCommand(() =>  this.ShowWorkspace<OpenBUdzetViewModel>())),
+                          new CommandViewModel(
+                    "Pliki Projektu",
+                    new BaseCommand(() =>  this.ShowWorkspace<PlikiWindowViewModel>())),
+                    //         new CommandViewModel(
+                    //"PodsumowanieCzasuProjektu",
+                    //new BaseCommand(() =>  this.ShowWorkspace<PodsumowanieWindowViewModel>())),
+                                new CommandViewModel(
+                    "Zadanie Projektu",
+                    new BaseCommand(() =>  this.ShowWorkspace<ZadaniaWindowViewModel>())),
+                    
 
                     // new CommandViewModel(
                     //"Logi Zadan",

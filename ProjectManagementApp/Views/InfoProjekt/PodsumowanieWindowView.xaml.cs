@@ -18,12 +18,12 @@ namespace ProjectManagementApp.Views
     /// <summary>
     /// Logika interakcji dla klasy PodsumowanieWindowView.xaml
     /// </summary>
-    public partial class PodsumowanieWindowView : Window
+    public partial class PodsumowanieWindowView : UserControl
     {
-        public PodsumowanieWindowView(int projektID)
+        public PodsumowanieWindowView()
         {
             InitializeComponent();
-            this.DataContext = new PodsumowanieWindowViewModel(projektID);
+           
         }
     }
 }

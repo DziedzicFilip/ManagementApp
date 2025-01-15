@@ -12,16 +12,17 @@ namespace ProjectManagementApp.ViewModels
     public  class HistoriaWindowViewModel : WszystkieViewModel<InfoProjekt>
     {
         public int ProjektID { get; set; }
-        public HistoriaWindowViewModel(int projektID) :base(" ") { ProjektID = projektID; }
+        public HistoriaWindowViewModel() :base(" ") {  }
 
         public override void Load()
         {
             List = new ObservableCollection<InfoProjekt>
             (
                 from HistoriaDzialanProjektu in zarzadanieProjektami2Entities.HistoriaDzialanProjektu
-                where HistoriaDzialanProjektu.projekt_id == ProjektID
+               
                 select new InfoProjekt
                 {
+                    NazwaProjektu = HistoriaDzialanProjektu.Projekty.nazwa,
                     Dzialanie = HistoriaDzialanProjektu.dzialanie,
                     DataZdarzenia = HistoriaDzialanProjektu.data_zdarzenia ?? DateTime.Now,
 

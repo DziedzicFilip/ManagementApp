@@ -19,12 +19,12 @@ namespace ProjectManagementApp.Views
     /// <summary>
     /// Logika interakcji dla klasy RyzkoProjetuWindowView.xaml
     /// </summary>
-    public partial class RyzkoProjetuWindowView : Window
+    public partial class RyzkoProjetuWindowView : UserControl
     {
-        public RyzkoProjetuWindowView(int projektID )
+        public RyzkoProjetuWindowView( )
         {
             InitializeComponent();
-            this.DataContext = new RyzkoProjetuWindowViewModel(projektID);
+           
         }
     }
 }

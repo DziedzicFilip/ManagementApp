@@ -12,15 +12,16 @@ namespace ProjectManagementApp.ViewModels
     public  class OpenBUdzetViewModel : WszystkieViewModel<InfoProjekt>
     {
         public int ProjektID { get; set; }
-        public OpenBUdzetViewModel(int projektID) :base(":") { ProjektID = projektID; }
+        public OpenBUdzetViewModel() :base(":") { }
         public override void Load()
         {
             List = new ObservableCollection<InfoProjekt>
             (
                 from BudzetProjektu in zarzadanieProjektami2Entities.BudzetProjektu
-                where BudzetProjektu.projekt_id == ProjektID
+              
                 select new InfoProjekt
                 {
+                    NazwaProjektu = BudzetProjektu.Projekty.nazwa,
                     CalkowityBudzet =(double)( BudzetProjektu.calkowity_budzet),
                     WydanaKwota = (double)(BudzetProjektu.wydana_kwota),
                     PozostalaKwota = (double)(BudzetProjektu.pozostala_kwota),

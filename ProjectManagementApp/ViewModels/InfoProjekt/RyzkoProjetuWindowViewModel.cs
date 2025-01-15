@@ -13,19 +13,19 @@ namespace ProjectManagementApp.ViewModels
     {
         public int ProjektID { get; set; }
 
-        public RyzkoProjetuWindowViewModel(int projektID):base("Ryzko") {
+        public RyzkoProjetuWindowViewModel():base("Ryzko") {
 
-            ProjektID = projektID;
+         
         }
         public override void Load()
         {
             List = new ObservableCollection<InfoProjekt>
             (
                 from RyzykaProjektu in zarzadanieProjektami2Entities.RyzykaProjektu
-                where RyzykaProjektu.projekt_id == ProjektID
+              
                 select new InfoProjekt
                 {
-
+                    
                     SrodkiZapobiegawcze = RyzykaProjektu.srodki_zapobiegawcze,
                     Prawdopodobienstwo = RyzykaProjektu.prawdopodobienstwo,
                     Wplyw = RyzykaProjektu.wplyw,

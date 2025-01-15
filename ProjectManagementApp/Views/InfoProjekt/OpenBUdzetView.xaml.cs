@@ -18,12 +18,12 @@ namespace ProjectManagementApp.Views
     /// <summary>
     /// Logika interakcji dla klasy OpenBUdzetView.xaml
     /// </summary>
-    public partial class OpenBUdzetView : Window
+    public partial class OpenBUdzetView : UserControl
     {
-        public OpenBUdzetView(int projektID)
+        public OpenBUdzetView()
         {
             InitializeComponent();
-            this.DataContext = new OpenBUdzetViewModel( projektID);
+           
         }
     }
 }

@@ -17,12 +17,14 @@ namespace ProjectManagementApp.Views
     /// <summary>
     /// Logika interakcji dla klasy NotatkiWindowView.xaml
     /// </summary>
-    public partial class NotatkiWindowView : Window
+    public partial class NotatkiWindowView : UserControl
     {
-        public NotatkiWindowView(int projektID)
+        public NotatkiWindowView(
+           )
         {
             InitializeComponent();
-            this.DataContext = new NotatkiWindowViewModel(projektID);
+            
+
         }
     }
 }

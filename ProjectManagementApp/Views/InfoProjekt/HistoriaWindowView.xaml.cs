@@ -18,12 +18,12 @@ namespace ProjectManagementApp.Views
     /// <summary>
     /// Logika interakcji dla klasy HistoriaWindowView.xaml
     /// </summary>
-    public partial class HistoriaWindowView : Window
+    public partial class HistoriaWindowView :UserControl
     {
-        public HistoriaWindowView(int projektID)
+        public HistoriaWindowView()
         {
             InitializeComponent();
-            this.DataContext = new HistoriaWindowViewModel(  projektID);
+           
         }
     }
 }

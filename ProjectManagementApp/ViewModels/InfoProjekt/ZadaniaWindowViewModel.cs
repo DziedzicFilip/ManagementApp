@@ -12,13 +12,13 @@ namespace ProjectManagementApp.ViewModels
     public  class ZadaniaWindowViewModel :  WszystkieViewModel<InfoProjekt>
     {
         public int ProjektID { get; set; }
-        public ZadaniaWindowViewModel(int projektID) :base("") { ProjektID = projektID; }
+        public ZadaniaWindowViewModel() :base("") {  }
         public override void Load()
         {
             List = new ObservableCollection<InfoProjekt>
             (
                 from Zadania in zarzadanieProjektami2Entities.Zadania
-                where Zadania.projekt_id == ProjektID
+              
                 select new InfoProjekt
                 {
                     NazwaZadania = Zadania.nazwa,
@@ -26,6 +26,7 @@ namespace ProjectManagementApp.ViewModels
                     StatusZadania = Zadania.status,
                     DataRozpoczeciaZadnia = Zadania.data_rozpoczecia ?? DateTime.Now,
                     DataZakaonczeniaZadania = Zadania.data_zakonczenia ?? DateTime.Now,
+                    NazwaProjektu = Zadania.Projekty.nazwa,
 
                 }
 

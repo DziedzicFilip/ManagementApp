@@ -18,12 +18,12 @@ namespace ProjectManagementApp.Views
     /// <summary>
     /// Logika interakcji dla klasy ZadaniaWindowView.xaml
     /// </summary>
-    public partial class ZadaniaWindowView : Window
+    public partial class ZadaniaWindowView : UserControl
     {
-        public ZadaniaWindowView(int projektID)
+        public ZadaniaWindowView()
         {
             InitializeComponent();
-            this.DataContext = new ZadaniaWindowViewModel( projektID);
+        
         }
     }
 }

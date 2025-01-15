@@ -18,12 +18,12 @@ namespace ProjectManagementApp.Views
     /// <summary>
     /// Logika interakcji dla klasy CzasPracyWindowView.xaml
     /// </summary>
-    public partial class CzasPracyWindowView : Window
+    public partial class CzasPracyWindowView : UserControl
     {
-        public CzasPracyWindowView(int projektID)
+        public CzasPracyWindowView()
         {
             InitializeComponent();
-            this.DataContext = new CzasPracyWindowViewModel(projektID);
+           
         }
     }
 }
