@@ -12,8 +12,8 @@ namespace ProjectManagementApp.ViewModels
     public  class ZadaniaWindowEventViewModel : WszystkieViewModel<EventInfo>
     {
         public int EventID { get; set; }
-        public ZadaniaWindowEventViewModel(int eventID) :base (" ") {
-            EventID = eventID;
+        public ZadaniaWindowEventViewModel() :base (" ") {
+          
 
         }
         public override void Load()
@@ -21,10 +21,11 @@ namespace ProjectManagementApp.ViewModels
             List = new ObservableCollection<EventInfo>
             (
                 from PlikiWydarzenia in zarzadanieProjektami2Entities.PlikiWydarzenia
-                where PlikiWydarzenia.wydarzenie_id == EventID
+              
                 select new EventInfo
                 {
-                   NazwaPlikuEvent = PlikiWydarzenia.nazwa_pliku,
+                    NazwaEventu = PlikiWydarzenia.Wydarzenia.nazwa,
+                    NazwaPlikuEvent = PlikiWydarzenia.nazwa_pliku,
                    SciezkaPlikuEvent = PlikiWydarzenia.sciezka_pliku,
                    DataWgraniaPlikuEvent = PlikiWydarzenia.data_wgrania ?? DateTime.Now,
 

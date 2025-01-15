@@ -96,7 +96,14 @@
     <DataTemplate DataType="{x:Type vm:OpenBUdzetViewModel}">
         <vw:OpenBUdzetView></vw:OpenBUdzetView>
     </DataTemplate>
-    
+    <DataTemplate DataType="{x:Type vm:NotatkiWindowEventViewModel}">
+        <vw:NotatkiWindowEventView></vw:NotatkiWindowEventView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:ZadaniaWindowEventViewModel}">
+        <vw:ZadaniaWindowEventView></vw:ZadaniaWindowEventView>
+    </DataTemplate>
+
+
 
 
 

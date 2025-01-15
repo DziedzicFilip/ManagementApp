@@ -18,12 +18,12 @@ namespace ProjectManagementApp.Views
     /// <summary>
     /// Logika interakcji dla klasy ZadaniaWindowEventView.xaml
     /// </summary>
-    public partial class ZadaniaWindowEventView : Window
+    public partial class ZadaniaWindowEventView  : UserControl
     {
-        public ZadaniaWindowEventView(int EventID)
+        public ZadaniaWindowEventView()
         {
             InitializeComponent();
-            this.DataContext = new ZadaniaWindowEventViewModel(EventID);
+    
         }
     }
 }

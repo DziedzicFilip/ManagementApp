@@ -18,12 +18,12 @@ namespace ProjectManagementApp.Views
     /// <summary>
     /// Logika interakcji dla klasy NotatkiWindowEventView.xaml
     /// </summary>
-    public partial class NotatkiWindowEventView : Window
+    public partial class NotatkiWindowEventView : UserControl
     {
-        public NotatkiWindowEventView(int EventID)
+        public NotatkiWindowEventView()
         {
             InitializeComponent();
-            this.DataContext = new  NotatkiWindowEventViewModel(EventID);
+        
         }
     }
 }

@@ -20,10 +20,7 @@ namespace ProjectManagementApp.ViewModels
         {
             base.DisplayName = "Wybierz Event";
 
-            
-            OpenNotatki = new RelayCommand(OpenNotatkiWindow);
-     
-            OpenZadania = new RelayCommand(OpenZadaniaWindow);
+         
           
         }
         private int _eventID;
@@ -36,17 +33,6 @@ namespace ProjectManagementApp.ViewModels
                 OnPropertyChanged(() => EventID);
             }
         }
-        public void OpenNotatkiWindow()
-        {
-           
-            var notatkiWindow = new NotatkiWindowEventView(EventID);  
-            notatkiWindow.Show();
-        }
-        public void OpenZadaniaWindow()
-        {
-          
-            var zadaniaWindow = new ZadaniaWindowEventView(EventID);  
-           zadaniaWindow.Show();
-        }
+      
     }
 }

@@ -62,13 +62,7 @@ namespace ProjectManagementApp.ViewModels
                     new BaseCommand(() => this.CreateView(new BudzetProjektuViewModel ()))),
 
 
-                new CommandViewModel(
-                    "Eventy",
-                    new BaseCommand(() =>  this.ShowWorkspace<WszystkieEventyViewModel>())),
-                
-                new CommandViewModel(
-                    "Nowy Event ",
-                    new BaseCommand(() => this.CreateView(new NowyEventViewModel() ))),
+             
 
 
                 //new CommandViewModel(
@@ -123,8 +117,20 @@ namespace ProjectManagementApp.ViewModels
                     // new CommandViewModel(
                     //"Logi Zadan",
                     //new BaseCommand(() =>  this.ShowWorkspace<LogiZadaniaViewModel>())),
+                       new CommandViewModel(
+                    "Eventy",
+                    new BaseCommand(() =>  this.ShowWorkspace<WszystkieEventyViewModel>())),
 
-                
+                new CommandViewModel(
+                    "Nowy Event ",
+                    new BaseCommand(() => this.CreateView(new NowyEventViewModel() ))),
+                new CommandViewModel(
+                    "Eventy Notatki",
+                    new BaseCommand(() =>  this.ShowWorkspace<NotatkiWindowEventViewModel>())),
+                 new CommandViewModel(
+                    "Eventy Zadania",
+                    new BaseCommand(() =>  this.ShowWorkspace<ZadaniaWindowEventViewModel>())),
+
 
 
 
