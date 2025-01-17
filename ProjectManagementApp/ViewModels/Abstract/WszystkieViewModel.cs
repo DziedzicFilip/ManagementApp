@@ -49,7 +49,7 @@ namespace ProjectManagementApp.ViewModels
 
         #region OpenNewProjectCommand
         public ICommand OpenNewProjectCommand { get; private set; }
-        public ICommand OpenInfo {  get; private set; }
+     
         #endregion
         #region List
         private ObservableCollection<T> _List;
@@ -76,10 +76,7 @@ namespace ProjectManagementApp.ViewModels
             zarzadanieProjektami2Entities = new ZarzadanieProjektami2Entities();
             base.DisplayName = displayName;
 
-            #region DoDopracowania
-            OpenNewProjectCommand = new RelayCommand(OpenNewProject);
-            OpenInfo = new RelayCommand(OpenInfoView);
-            #endregion
+         
         }
         #endregion
         #region Helpers
@@ -90,8 +87,7 @@ namespace ProjectManagementApp.ViewModels
             List.Clear();
             Load();
         }
-        public abstract void OpenNewProject();
-        public abstract void OpenInfoView();
+        
         #endregion
 
     }

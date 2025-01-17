@@ -1,4 +1,5 @@
-﻿using iTextSharp.text.pdf;
+﻿using GalaSoft.MvvmLight.Messaging;
+using iTextSharp.text.pdf;
 using ProjectManagementApp.Models.BussinesLogic;
 using ProjectManagementApp.Models.Entities;
 using ProjectManagementApp.Models.EntitiesForView;
@@ -16,10 +17,11 @@ namespace ProjectManagementApp.ViewModels
         {
 
             item = new Zadania();
+            Messenger.Default.Register<Projekty>(this, getWybranyProjetk);
         }
 
         #region  Pola
-
+        public string NazwaProjektu { get; set; }
         public string Nazwa
         {
             get
@@ -103,6 +105,13 @@ namespace ProjectManagementApp.ViewModels
             
             zarzadanieProjektami2Entities.Zadania.Add(item);
             zarzadanieProjektami2Entities.SaveChanges();
+        }
+   
+        private void getWybranyProjetk(Projekty projekt)
+        {
+            NazwaProjektu = projekt.nazwa;
+            IdProjektu = projekt.projekt_id;
+            OnPropertyChanged(() => NazwaProjektu);
         }
         #endregion
     }

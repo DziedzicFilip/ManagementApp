@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjectManagementApp.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="600">
+             d:DesignHeight="400" d:DesignWidth="600"
+                          >
 
     <Grid>
         <!-- Zdefiniowanie układu z dwoma wierszami -->
@@ -35,7 +36,7 @@
                   GridLinesVisibility="All"
                   ItemsSource="{Binding List}"
                   Grid.Row="0"
-                  SelectionChanged="ScheduleDataGrid_SelectionChanged">
+                   SelectedItem="{Binding Path=SelectedProjekt,Mode=TwoWay}">
           
               
             <DataGrid.Columns>

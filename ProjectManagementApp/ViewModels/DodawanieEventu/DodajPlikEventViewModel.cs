@@ -1,4 +1,5 @@
-﻿using ProjectManagementApp.Helper;
+﻿using GalaSoft.MvvmLight.Messaging;
+using ProjectManagementApp.Helper;
 using ProjectManagementApp.Models.BussinesLogic;
 using ProjectManagementApp.Models.Entities;
 using ProjectManagementApp.Models.EntitiesForView;
@@ -16,6 +17,7 @@ namespace ProjectManagementApp.ViewModels
         public DodajPlikEventViewModel() : base("Dodaj Plik")
         {
             item = new PlikiWydarzenia();
+            Messenger.Default.Register<Wydarzenia>(this, getWybraneWydarzenie);
         }
 
         #region Pola
@@ -31,6 +33,7 @@ namespace ProjectManagementApp.ViewModels
                 OnPropertyChanged(() => NazwaPliku);
             }
         }
+        public string NazwaEventu{ get; set; }
 
         public string SciezkaPliku
         {
@@ -113,6 +116,31 @@ namespace ProjectManagementApp.ViewModels
             SciezkaPliku = plikiB.WybierzPlik(SciezkaPliku);
             NazwaPliku = SciezkaPliku.Substring(SciezkaPliku.LastIndexOf("\\") + 1);
 
+        }
+
+        private BaseCommand _ShowAllEventy;
+        public ICommand ShowAllEventyCommand
+        {
+            get
+            {
+                if (_ShowAllEventy == null)
+                {
+                    _ShowAllEventy = new BaseCommand(() => showAllEventy());
+
+                }
+                return _ShowAllEventy;
+            }
+        }
+        public void showAllEventy()
+        {
+        
+            Messenger.Default.Send("EventyALL");
+        }
+        public void getWybraneWydarzenie(Wydarzenia Event)
+        {
+            NazwaEventu = Event.nazwa;
+            WydarzenieID = Event.wydarzenie_id;
+            OnPropertyChanged(() => NazwaEventu);
         }
         #endregion
 

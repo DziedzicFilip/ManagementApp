@@ -10,13 +10,9 @@
         <StackPanel VerticalAlignment="Top">
 
 
-            <ComboBox Grid.Column="1" 
-Margin="10,0" 
-Width="200" 
-ItemsSource="{Binding EventItems}" 
-DisplayMemberPath="Value" 
-SelectedValuePath="Key" 
-SelectedValue="{Binding Path= wydarzenie_id, Mode=TwoWay}" />
+            <Label Grid.Row="0">Wybierz Projekt</Label>
+            <TextBox Grid.Row="1" IsEnabled="False" Width="200"  Text="{Binding Path=NazwaEventu }" ></TextBox>
+            <Button Grid.Row="2" HorizontalAlignment="Center"  Content="..." Command="{Binding ShowAllEventyCommand}"></Button>
 
 
             <TextBlock Text="Tresc notatki" FontWeight="Bold" Grid.Row="1" Grid.Column="0" />

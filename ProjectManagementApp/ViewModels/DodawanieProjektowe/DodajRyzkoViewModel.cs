@@ -10,6 +10,7 @@ using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 using ProjectManagementApp.Models.EntitiesForView;
 using ProjectManagementApp.Models.BussinesLogic;
 using System.Reflection;
+using GalaSoft.MvvmLight.Messaging;
 namespace ProjectManagementApp.ViewModels
 {
    public class DodajRyzkoViewModel : JedenViewModel<RyzykaProjektu>
@@ -18,13 +19,14 @@ namespace ProjectManagementApp.ViewModels
           public DodajRyzkoViewModel() : base("Dodaj Ryzko")
         {
             item = new RyzykaProjektu();
+            Messenger.Default.Register<Projekty>(this, getWybranyProjetk);
         }
 
         #endregion
 
         #region Pola
 
-      
+        public string NazwaProjektu { get; set; }
 
         public int? IdProjektu
         {
@@ -150,6 +152,14 @@ namespace ProjectManagementApp.ViewModels
             }
             zarzadanieProjektami2Entities.SaveChanges();
         }
+      
+        private void getWybranyProjetk(Projekty projekt)
+        {
+            NazwaProjektu = projekt.nazwa;
+            IdProjektu = projekt.projekt_id;
+            OnPropertyChanged(() => NazwaProjektu);
+        }
+
 
         #endregion
     }

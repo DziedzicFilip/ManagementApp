@@ -1,4 +1,5 @@
-﻿using ProjectManagementApp.Models.Entities;
+﻿using GalaSoft.MvvmLight.Messaging;
+using ProjectManagementApp.Models.Entities;
 using ProjectManagementApp.Views;
 using System;
 using System.Collections.Generic;
@@ -24,16 +25,25 @@ namespace ProjectManagementApp.ViewModels
                    zarzadanieProjektami2Entities.Wydarzenia.ToList()
                 );
         }
-        public override void OpenNewProject()
-        {
 
-            var newEventWindow = new NowyEventWindow();
-            newEventWindow.Show();
-        }
-        public override void OpenInfoView()
-        {
-            throw new NotImplementedException();    
-        }
+
+
         #endregion
+        private Wydarzenia _SelectedEvent;
+        public Wydarzenia SelectedEvent
+        {
+            get
+            {
+                return _SelectedEvent;
+            }
+            set
+            {
+
+                _SelectedEvent = value;
+                Messenger.Default.Send(_SelectedEvent);
+                OnRequestClose();
+            }
+        }
+       
     }
     }

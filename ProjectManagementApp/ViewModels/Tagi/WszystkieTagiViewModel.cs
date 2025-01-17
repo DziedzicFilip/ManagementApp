@@ -23,16 +23,7 @@ namespace ProjectManagementApp.ViewModels
                    zarzadanieProjektami2Entities.Tagi.ToList()
                 );
         }
-        public override void OpenNewProject()
-        {
-
-            var newProjectWindow = new NowyTagWindowView();
-            newProjectWindow.Show();
-        }
-        public override void OpenInfoView()
-        {
-            throw new NotImplementedException();
-        }
+       
 
     }
    

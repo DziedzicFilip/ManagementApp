@@ -9,6 +9,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Windows.Data;
 using ProjectManagementApp.Views;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace ProjectManagementApp.ViewModels
 {
@@ -18,6 +19,10 @@ namespace ProjectManagementApp.ViewModels
         private ReadOnlyCollection<CommandViewModel> _Commands;
         private ObservableCollection<WorkspaceViewModel> _Workspaces;
         #endregion
+        public MainWindowViewModel()
+        {
+            Messenger.Default.Register<string>(this, open);
+        }
 
         #region Commands
         public ReadOnlyCollection<CommandViewModel> Commands
@@ -34,6 +39,7 @@ namespace ProjectManagementApp.ViewModels
         }
         private List<CommandViewModel> CreateCommands()
         {
+           
             return new List<CommandViewModel>
             {
                 new CommandViewModel(
@@ -108,9 +114,9 @@ namespace ProjectManagementApp.ViewModels
                     new CommandViewModel(
                     "Czas Pracy",
                     new BaseCommand(() =>  this.ShowWorkspace<CzasPracyWindowViewModel>())),
-                      new CommandViewModel(
-                    "Historie Pracy ",
-                    new BaseCommand(() =>  this.ShowWorkspace<HistoriaWindowViewModel>())),
+                    //  new CommandViewModel(
+                    //"Historie Pracy ",
+                    //new BaseCommand(() =>  this.ShowWorkspace<HistoriaWindowViewModel>())),
                        new CommandViewModel(
                     "Notatki Proejktu ",
                     new BaseCommand(() =>  this.ShowWorkspace<NotatkiWindowViewModel>())),
@@ -226,6 +232,14 @@ namespace ProjectManagementApp.ViewModels
                 collectionView.MoveCurrentTo(workspace);
         }
 
+        private void open(string name)
+        {
+           
+            if (name== "ProjektyALL")
+                    ShowWorkspace<WszystkieProjektyViewModel>();
+            if(name == "EventyALL")
+                ShowWorkspace<WszystkieEventyViewModel>();
+        }
         
         #endregion
     }

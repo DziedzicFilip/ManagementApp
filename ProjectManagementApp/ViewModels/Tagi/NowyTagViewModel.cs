@@ -1,4 +1,5 @@
-﻿using ProjectManagementApp.Models.Entities;
+﻿using GalaSoft.MvvmLight.Messaging;
+using ProjectManagementApp.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,5 +39,6 @@ namespace ProjectManagementApp.ViewModels
             MessageBox.Show("TAG został pomyślnie dodany!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
             Close();
         }
+       
     }
 }

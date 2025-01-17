@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Win32;
 using ProjectManagementApp.Helper;
 using ProjectManagementApp.Models.BussinesLogic;
@@ -19,10 +20,12 @@ namespace ProjectManagementApp.ViewModels
         public DodajPlikProjektuViewModel():base("Dodaj Pliki") 
         {
             item =new  PlikiProjekty();
+            Messenger.Default.Register<Projekty>(this, getWybranyProjetk);
         }
 
         #region Pola
-       public string NazwaPliku
+        public string NazwaProjektu { get; set; }
+        public string NazwaPliku
         {
             get
             {
@@ -118,7 +121,13 @@ namespace ProjectManagementApp.ViewModels
             NazwaPliku = SciezkaPliku.Substring(SciezkaPliku.LastIndexOf("\\") + 1);
         }
 
-
+       
+        private void getWybranyProjetk(Projekty projekt)
+        {
+            NazwaProjektu = projekt.nazwa;
+            IdProjektu = projekt.projekt_id;
+            OnPropertyChanged(() => NazwaProjektu);
+        }
 
         #endregion
 

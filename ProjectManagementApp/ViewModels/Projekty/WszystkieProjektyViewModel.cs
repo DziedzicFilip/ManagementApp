@@ -8,6 +8,7 @@ using ProjectManagementApp.Helper;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using ProjectManagementApp.Views;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace ProjectManagementApp.ViewModels
 {
@@ -28,29 +29,30 @@ namespace ProjectManagementApp.ViewModels
                 zarzadanieProjektami2Entities.Projekty.ToList()
             );
         }
-       
-        public override void OpenNewProject()
-        {
-            var newProjektWindow = new NowyProjektWindow();
-            newProjektWindow.Show();
-        }
-        
-        //Do dopracowania 
-        public void OpenProjectDetails(Projekty selectedProject)
-        {
-            var projectDetailsWindow = new ProjectDetailsWindow(selectedProject);
-            projectDetailsWindow.ShowDialog();  
-        }
-        //Do dopracowania 
-        public override void OpenInfoView()
-        {
-            var InfoWindow = new InforProjektuView();
-            InfoWindow.Show();
-        }
+
+
         #endregion
-        #region Commands
+        #region DoDopracowania
+      
+       
+        #endregion
 
-
+        #region Props
+        private Projekty _SelectedProjekt;
+        public Projekty SelectedProjekt
+        {
+            get
+            {
+                return _SelectedProjekt;
+            }
+            set
+            {
+                
+                _SelectedProjekt = value;
+                Messenger.Default.Send(_SelectedProjekt);
+                OnRequestClose();
+            }
+        }
 
 
         #endregion

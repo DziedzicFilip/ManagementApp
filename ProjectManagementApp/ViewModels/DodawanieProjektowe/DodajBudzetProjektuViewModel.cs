@@ -1,7 +1,10 @@
-﻿using ProjectManagementApp.Models.BussinesLogic;
+﻿using GalaSoft.MvvmLight.Messaging;
+using ProjectManagementApp.Helper;
+using ProjectManagementApp.Models.BussinesLogic;
 using ProjectManagementApp.Models.Entities;
 using ProjectManagementApp.Models.EntitiesForView;
 using System.Linq;
+using System.Windows.Input;
 
 namespace ProjectManagementApp.ViewModels
 {
@@ -11,6 +14,7 @@ namespace ProjectManagementApp.ViewModels
         public DodajBudzetProjektuViewModel() : base("Dodaj Budzet Projektu")
         {
             item = new BudzetProjektu();
+            Messenger.Default.Register<Projekty>(this, getWybranyProjetk);
         }
         #endregion
 
@@ -42,6 +46,9 @@ namespace ProjectManagementApp.ViewModels
             }
         }
 
+        
+        
+
         #endregion
 
         #region Propertis Dla ComboBox
@@ -54,9 +61,23 @@ namespace ProjectManagementApp.ViewModels
             }
         }
         #endregion
+        #region  WyswietlanieAllProkety
+        //private BaseCommand _ShowAllProjkety;
+        //public ICommand ShowProjekty
+        //{
+        //    get
+        //    {
+        //        if (_ShowAllProjkety == null)
+        //        {
+        //            _ShowAllProjkety = new BaseCommand(() => showAllProjekty());
 
+        //        }
+        //        return _ShowAllProjkety;
+        //    }
+        //}
+        #endregion
         #region Helpers
-
+       
         public override void ADD()
         {
             var existingBudget = new ProjektB(zarzadanieProjektami2Entities).existingBudget(item.projekt_id);
@@ -75,6 +96,13 @@ namespace ProjectManagementApp.ViewModels
             }
 
             zarzadanieProjektami2Entities.SaveChanges();
+        }
+        public string NazwaProjektu { get; set; }
+        private void getWybranyProjetk(Projekty projekt)
+        {
+           NazwaProjektu = projekt.nazwa;
+            IdProjektu = projekt.projekt_id;
+            OnPropertyChanged(() => NazwaProjektu);
         }
 
         #endregion

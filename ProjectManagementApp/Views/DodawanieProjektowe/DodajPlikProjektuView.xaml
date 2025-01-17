@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectManagementApp.Views"
         mc:Ignorable="d"
-         Height="450" Width="800">
+         Height="950" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -15,16 +15,18 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"></ColumnDefinition>
-            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0">Nazwa Pliku</Label>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=NazwaPliku, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+       
 
-        <Label Grid.Row="1" Grid.Column="0">Wybierz Ścieżkę do Pliku</Label>
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+        <Label Grid.Row="0" Grid.Column="0">Wybierz Ścieżkę do Pliku</Label>
+        
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Margin="0,5,0,6">
             <TextBox Width="150" Text="{Binding Path=SciezkaPliku, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
-            <Button Content="Wybierz Plik" Command="{Binding Path=WybierzPlikCommand}" Margin="5,0,0,0"/>
+            <Button Content="Wybierz Plik" Command="{Binding Path=WybierzPlikCommand}" Width="150" Margin="5,0,0,0" />
         </StackPanel>
+        <Label Grid.Row="1" Grid.Column="0">Nazwa Pliku</Label>
+        <Label Grid.Row="1" Grid.Column="1"  IsEnabled="False" Content="{Binding Path=NazwaPliku,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></Label>
     </Grid>
 </local:WybierzProjektViewBase>

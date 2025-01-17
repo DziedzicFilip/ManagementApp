@@ -1,4 +1,5 @@
-﻿using ProjectManagementApp.Models.BussinesLogic;
+﻿using GalaSoft.MvvmLight.Messaging;
+using ProjectManagementApp.Models.BussinesLogic;
 using ProjectManagementApp.Models.Entities;
 using ProjectManagementApp.Models.EntitiesForView;
 using System;
@@ -14,13 +15,14 @@ namespace ProjectManagementApp.ViewModels
         public DodajNotatakiProjektViewModel() : base("Dodaj Notatki Projektu")
         {
             item = new NotatkiProjekty();
+            Messenger.Default.Register<Projekty>(this, getWybranyProjetk);
         }
 
 
 
 
         #region Pola
-
+        public string NazwaProjektu { get; set; }
         public string tresc_notatki
         {
             get
@@ -79,6 +81,13 @@ namespace ProjectManagementApp.ViewModels
             DataDodania = DateTime.Now;
             zarzadanieProjektami2Entities.NotatkiProjekty.Add(item);
             zarzadanieProjektami2Entities.SaveChanges();
+        }
+       
+        private void getWybranyProjetk(Projekty projekt)
+        {
+            NazwaProjektu = projekt.nazwa;
+            IdProjektu = projekt.projekt_id;
+            OnPropertyChanged(() => NazwaProjektu);
         }
         #endregion
 

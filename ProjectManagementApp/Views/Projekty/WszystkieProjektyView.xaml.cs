@@ -14,22 +14,8 @@ namespace ProjectManagementApp.Views
             this.DataContext = new WszystkieProjektyViewModel();
         }
 
-        // Metoda obsługująca zdarzenie SelectionChanged w DataGrid
-        private void ScheduleDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (ScheduleDataGrid.SelectedItem is Projekty selectedProject)
-            {
-                var viewModel = (WszystkieProjektyViewModel)this.DataContext;
-                viewModel.OpenProjectDetails(selectedProject);  // Otwarcie okna szczegółów
-            }
-        }
-        public void OpenInfoView()
-        {
-            
-
-            var newEventWindow = new InforProjektuView();
-            newEventWindow.Show();
-        }
+        
+       
 
     }
 }

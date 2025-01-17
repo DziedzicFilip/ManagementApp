@@ -1,4 +1,5 @@
-﻿using ProjectManagementApp.Helper;
+﻿using GalaSoft.MvvmLight.Messaging;
+using ProjectManagementApp.Helper;
 using ProjectManagementApp.Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -130,6 +131,8 @@ namespace ProjectManagementApp.ViewModels
 
             Close();
         }
+
+       
         #endregion
     }
 
