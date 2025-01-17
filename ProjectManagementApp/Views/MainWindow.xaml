@@ -48,12 +48,14 @@
 
         <!-- Operacje Border -->
         <Border Grid.Row="2" Grid.Column="0" Background="#2C3E50" BorderBrush="#34495E" BorderThickness="2" CornerRadius="10">
-            <HeaderedContentControl 
-                Header="Opcje" 
-                Content="{Binding Path=Commands}" 
-                ContentTemplate="{StaticResource CommandsTemplate}" 
-                Style="{StaticResource MainHCCStyle}"
-            />
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <HeaderedContentControl 
+            Header="Opcje" 
+            Content="{Binding Path=Commands}" 
+            ContentTemplate="{StaticResource CommandsTemplate}" 
+            Style="{StaticResource MainHCCStyle}"
+        />
+            </ScrollViewer>
         </Border>
 
         <!-- Przestrzeń robocza Border -->

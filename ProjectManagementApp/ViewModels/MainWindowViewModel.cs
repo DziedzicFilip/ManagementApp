@@ -64,6 +64,15 @@ namespace ProjectManagementApp.ViewModels
                       new CommandViewModel(
                     "Dodaj Budzet",
                     new BaseCommand(() => this.CreateView(new DodajBudzetProjektuViewModel ()))),
+                        new CommandViewModel(
+                    "Dodaj Ryzko",
+                    new BaseCommand(() => this.CreateView(new DodajRyzkoViewModel ()))),
+                         new CommandViewModel(
+                    "Dodaj Notatke",
+                    new BaseCommand(() => this.CreateView(new DodajNotatakiProjektViewModel()))),
+                          new CommandViewModel(
+                    "Dodaj Plik",
+                    new BaseCommand(() => this.CreateView(new DodajPlikProjektuViewModel()))),
 
              
 
@@ -104,7 +113,7 @@ namespace ProjectManagementApp.ViewModels
                     "Notatki Proejktu ",
                     new BaseCommand(() =>  this.ShowWorkspace<NotatkiWindowViewModel>())),
                        new CommandViewModel(
-                    "Budzet Projektu ",
+                    "Wszystkie Budzety ",
                     new BaseCommand(() =>  this.ShowWorkspace<OpenBUdzetViewModel>())),
                           new CommandViewModel(
                     "Pliki Projektu",

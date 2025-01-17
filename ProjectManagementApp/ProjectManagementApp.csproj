@@ -140,6 +140,7 @@
     <Compile Include="Models\BussinesLogic\BudzetProjektuB.cs" />
     <Compile Include="Models\BussinesLogic\DateBaseClass.cs" />
     <Compile Include="Models\BussinesLogic\PdfGenerator.cs" />
+    <Compile Include="Models\BussinesLogic\PlikiB.cs" />
     <Compile Include="Models\BussinesLogic\PodsumowanieCzasuB.cs" />
     <Compile Include="Models\BussinesLogic\ProjektB.cs" />
     <Compile Include="Models\BussinesLogic\StawkaGodzinowaB.cs" />
@@ -213,6 +214,9 @@
     <Compile Include="ViewModels\Biznes\BudzetProjektuViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
     <Compile Include="ViewModels\DodajBudzetProjektuViewModel.cs" />
+    <Compile Include="ViewModels\DodajNotatakiProjektViewModel.cs" />
+    <Compile Include="ViewModels\DodajPlikProjektuViewModel.cs" />
+    <Compile Include="ViewModels\DodajRyzkoViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\CzasPracyWindowViewModel.cs" />
     <Compile Include="ViewModels\Eventy\InformacjeEventViewModel.cs" />
     <Compile Include="ViewModels\Abstract\JedenViewModel.cs" />
@@ -251,6 +255,15 @@
     <Compile Include="ViewModels\InfoEvent\ZadaniaWindowEventViewModel.cs" />
     <Compile Include="Views\Biznes\BudzetProjektuView.xaml.cs">
       <DependentUpon>BudzetProjektuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DodajNotatkeView.xaml.cs">
+      <DependentUpon>DodajNotatkeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DodajPlikProjektuView.xaml.cs">
+      <DependentUpon>DodajPlikProjektuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DodajRyzkoView.xaml.cs">
+      <DependentUpon>DodajRyzkoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DodawanieProjektowe\DodajBudzetProjektuView.xaml.cs">
       <DependentUpon>DodajBudzetProjektuView.xaml</DependentUpon>
@@ -400,6 +413,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Biznes\BudzetProjektuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DodajNotatkeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DodajPlikProjektuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DodajRyzkoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

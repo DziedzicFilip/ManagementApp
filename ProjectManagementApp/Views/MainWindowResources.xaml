@@ -105,6 +105,16 @@
     <DataTemplate DataType="{x:Type vm:DodajBudzetProjektuViewModel}">
         <vw:DodajBudzetProjektuView></vw:DodajBudzetProjektuView>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:DodajRyzkoViewModel}">
+        <vw:DodajRyzkoView></vw:DodajRyzkoView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:DodajNotatakiProjektViewModel}">
+        <vw:DodajNotatkeView></vw:DodajNotatkeView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:DodajPlikProjektuViewModel}">
+        <vw:DodajPlikProjektuView></vw:DodajPlikProjektuView>
+    </DataTemplate>
+
 
 
 

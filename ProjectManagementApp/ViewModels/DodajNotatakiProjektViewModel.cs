@@ -1,34 +1,38 @@
 ﻿using ProjectManagementApp.Models.BussinesLogic;
 using ProjectManagementApp.Models.Entities;
 using ProjectManagementApp.Models.EntitiesForView;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ProjectManagementApp.ViewModels
 {
-    public class DodajBudzetProjektuViewModel : JedenViewModel<BudzetProjektu>
+    public class DodajNotatakiProjektViewModel : JedenViewModel<NotatkiProjekty> 
     {
-        #region Konstruktor
-        public DodajBudzetProjektuViewModel() : base("Dodaj Budzet Projektu")
+        public DodajNotatakiProjektViewModel() : base("Dodaj Notatki Projektu")
         {
-            item = new BudzetProjektu();
+            item = new NotatkiProjekty();
         }
-        #endregion
+
+
+
 
         #region Pola
 
-        public decimal? CalkowityBudzet
+        public string tresc_notatki
         {
             get
             {
-                return item.calkowity_budzet;
+                return item.tresc_notatki;
             }
             set
             {
-                item.calkowity_budzet = value;
-                OnPropertyChanged(() => CalkowityBudzet);
+                item.tresc_notatki = value;
+                OnPropertyChanged(() => tresc_notatki);
             }
         }
-
         public int? IdProjektu
         {
             get
@@ -39,6 +43,19 @@ namespace ProjectManagementApp.ViewModels
             {
                 item.projekt_id = value;
                 OnPropertyChanged(() => IdProjektu);
+            }
+        }
+        public DateTime DataDodania
+        {
+            get
+            {
+                return item.data_utworzenia.Value;
+            }
+            set
+            {
+                item.data_utworzenia = value;
+                OnPropertyChanged(() =>DataDodania);
+
             }
         }
 
@@ -59,24 +76,17 @@ namespace ProjectManagementApp.ViewModels
 
         public override void ADD()
         {
-            var existingBudget = new ProjektB(zarzadanieProjektami2Entities).existingBudget(item.projekt_id);
-
-            if (existingBudget != null)
-            {
-                // Aktualizuj istniejący budżet
-                existingBudget.calkowity_budzet = item.calkowity_budzet;
-                existingBudget.wydana_kwota = item.wydana_kwota;
-                existingBudget.pozostala_kwota = item.pozostala_kwota;
-            }
-            else
-            {
-                // Dodaj nowy budżet
-                zarzadanieProjektami2Entities.BudzetProjektu.Add(item);
-            }
-
+            DataDodania = DateTime.Now;
+            zarzadanieProjektami2Entities.NotatkiProjekty.Add(item);
             zarzadanieProjektami2Entities.SaveChanges();
         }
-
         #endregion
+
+
     }
+
+
+
+
+
 }
