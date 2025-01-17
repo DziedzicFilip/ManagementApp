@@ -114,6 +114,17 @@
     <DataTemplate DataType="{x:Type vm:DodajPlikProjektuViewModel}">
         <vw:DodajPlikProjektuView></vw:DodajPlikProjektuView>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:DodajZadaniaProjektuViewModel}">
+        <vw:DodajZadanieView></vw:DodajZadanieView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:DodajNotatkeEventViewModel}">
+        <vw:DodajNotatkeEventView></vw:DodajNotatkeEventView>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:DodajPlikEventViewModel}">
+        <vw:DodajPlikiEventView></vw:DodajPlikiEventView>
+    </DataTemplate>
+
 
 
 

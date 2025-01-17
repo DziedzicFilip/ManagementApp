@@ -24,6 +24,7 @@ namespace ProjectManagementApp.Models.BussinesLogic
             if (openFileDialog.ShowDialog() == true)
             {
                 return SciezkaPliku = openFileDialog.FileName;
+                
 
 
             }

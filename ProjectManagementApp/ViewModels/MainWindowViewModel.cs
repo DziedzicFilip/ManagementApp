@@ -73,7 +73,9 @@ namespace ProjectManagementApp.ViewModels
                           new CommandViewModel(
                     "Dodaj Plik",
                     new BaseCommand(() => this.CreateView(new DodajPlikProjektuViewModel()))),
-
+                              new CommandViewModel(
+                    "Dodaj Zadanie",
+                    new BaseCommand(() => this.CreateView(new DodajZadaniaProjektuViewModel()))),
              
 
 
@@ -140,10 +142,16 @@ namespace ProjectManagementApp.ViewModels
                     "Eventy Notatki",
                     new BaseCommand(() =>  this.ShowWorkspace<NotatkiWindowEventViewModel>())),
                  new CommandViewModel(
-                    "Eventy Zadania",
+                    "Eventy Pliki",
                     new BaseCommand(() =>  this.ShowWorkspace<ZadaniaWindowEventViewModel>())),
 
+                 new CommandViewModel(
+                    "Dodaj Event Notatka",
+                    new BaseCommand(() => this.CreateView(new DodajNotatkeEventViewModel()))),
 
+                 new CommandViewModel(
+                    "Dodaj Event Plik",
+                    new BaseCommand(() => this.CreateView(new DodajPlikEventViewModel()))),
 
 
 

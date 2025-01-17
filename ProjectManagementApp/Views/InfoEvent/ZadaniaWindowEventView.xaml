@@ -37,7 +37,9 @@ ItemsSource="{Binding List}"
                 <DataGridTextColumn Header="DataWgraniaPlikuEvent" 
   Binding="{Binding  DataWgraniaPlikuEvent}" 
   Width="*" />
-
+                <DataGridTextColumn Header="Wydarzenie" 
+Binding="{Binding  NazwaEventu}" 
+Width="*" />
 
             </DataGrid.Columns>
         </DataGrid>

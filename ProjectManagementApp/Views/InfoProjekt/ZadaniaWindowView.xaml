@@ -41,13 +41,7 @@ ItemsSource="{Binding List}"
   Binding="{Binding  StatusZadania}" 
   Width="*" />
 
-                <DataGridTextColumn Header="DataRozpoczeciaZadnia" 
-  Binding="{Binding DataRozpoczeciaZadniaa}" 
-  Width="*" />
-
-                <DataGridTextColumn Header="DataZakaonczeniaZadania" 
-  Binding="{Binding  DataZakaonczeniaZadania}" 
-  Width="*" />
+               
                 <DataGridTextColumn Header=" NazwaProjektu" 
 Binding="{Binding  NazwaProjektu}" 
 Width="*" />

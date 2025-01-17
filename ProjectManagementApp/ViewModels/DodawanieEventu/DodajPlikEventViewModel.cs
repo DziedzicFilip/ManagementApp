@@ -1,6 +1,4 @@
-﻿using CommunityToolkit.Mvvm.Input;
-using Microsoft.Win32;
-using ProjectManagementApp.Helper;
+﻿using ProjectManagementApp.Helper;
 using ProjectManagementApp.Models.BussinesLogic;
 using ProjectManagementApp.Models.Entities;
 using ProjectManagementApp.Models.EntitiesForView;
@@ -13,16 +11,15 @@ using System.Windows.Input;
 
 namespace ProjectManagementApp.ViewModels
 {
-    public  class DodajPlikProjektuViewModel : JedenViewModel<PlikiProjekty>
+    public class DodajPlikEventViewModel : JedenViewModel<PlikiWydarzenia>
     {
-
-        public DodajPlikProjektuViewModel():base("Dodaj Pliki") 
+        public DodajPlikEventViewModel() : base("Dodaj Plik")
         {
-            item =new  PlikiProjekty();
+            item = new PlikiWydarzenia();
         }
 
         #region Pola
-       public string NazwaPliku
+        public string NazwaPliku
         {
             get
             {
@@ -60,34 +57,31 @@ namespace ProjectManagementApp.ViewModels
                 OnPropertyChanged(() => DataWgraniaPliku);
             }
         }
-
-        public int? IdProjektu
+        public int? WydarzenieID
         {
             get
             {
-                return item.projekt_id;
+                return item.wydarzenie_id;
             }
             set
             {
-                item.projekt_id = value;
-                OnPropertyChanged(() => IdProjektu);
+                item.wydarzenie_id = value;
+                OnPropertyChanged(() => WydarzenieID);
             }
+           
         }
 
         #endregion
-
         #region Propertis Dla ComboBox
 
-        public IQueryable<KeyAndValue> ProjketyItems
+        public IQueryable<KeyAndValue> EventItems
         {
             get
             {
-                return new ProjektB(zarzadanieProjektami2Entities).GetProjektyKeyAndValue();
+                return new EventB(zarzadanieProjektami2Entities).GetEventKeyAndValue();
             }
         }
         #endregion
-
-
         #region Commands
 
         private ICommand _wybierzPlikCommand;
@@ -103,22 +97,23 @@ namespace ProjectManagementApp.ViewModels
             }
         }
         #endregion
+
         #region Helpers
         public override void ADD()
         {
-            DataWgraniaPliku = DateTime.Now;
-            zarzadanieProjektami2Entities.PlikiProjekty.Add(item);
+            item.data_wgrania = DateTime.Now;
+            zarzadanieProjektami2Entities.PlikiWydarzenia.Add(item);
             zarzadanieProjektami2Entities.SaveChanges();
+
         }
-       
+
         public void WybierzPlik()
         {
             PlikiB plikiB = new PlikiB(zarzadanieProjektami2Entities);
             SciezkaPliku = plikiB.WybierzPlik(SciezkaPliku);
+            NazwaPliku = SciezkaPliku.Substring(SciezkaPliku.LastIndexOf("\\") + 1);
+
         }
-
-
-
         #endregion
 
     }

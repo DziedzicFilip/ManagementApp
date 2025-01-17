@@ -139,6 +139,7 @@
     <Compile Include="Helper\BaseCommand.cs" />
     <Compile Include="Models\BussinesLogic\BudzetProjektuB.cs" />
     <Compile Include="Models\BussinesLogic\DateBaseClass.cs" />
+    <Compile Include="Models\BussinesLogic\EventB.cs" />
     <Compile Include="Models\BussinesLogic\PdfGenerator.cs" />
     <Compile Include="Models\BussinesLogic\PlikiB.cs" />
     <Compile Include="Models\BussinesLogic\PodsumowanieCzasuB.cs" />
@@ -215,8 +216,11 @@
     <Compile Include="ViewModels\CommandViewModel.cs" />
     <Compile Include="ViewModels\DodajBudzetProjektuViewModel.cs" />
     <Compile Include="ViewModels\DodajNotatakiProjektViewModel.cs" />
+    <Compile Include="ViewModels\DodajNotatkeEventViewModel.cs" />
+    <Compile Include="ViewModels\DodajPlikEventViewModel.cs" />
     <Compile Include="ViewModels\DodajPlikProjektuViewModel.cs" />
     <Compile Include="ViewModels\DodajRyzkoViewModel.cs" />
+    <Compile Include="ViewModels\DodajZadaniaProjektuViewModel.cs" />
     <Compile Include="ViewModels\InfoProjekt\CzasPracyWindowViewModel.cs" />
     <Compile Include="ViewModels\Eventy\InformacjeEventViewModel.cs" />
     <Compile Include="ViewModels\Abstract\JedenViewModel.cs" />
@@ -256,14 +260,23 @@
     <Compile Include="Views\Biznes\BudzetProjektuView.xaml.cs">
       <DependentUpon>BudzetProjektuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DodajNotatkeView.xaml.cs">
+    <Compile Include="Views\DodajNotatkeEventView.xaml.cs">
+      <DependentUpon>DodajNotatkeEventView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DodajPlikiEventView.xaml.cs">
+      <DependentUpon>DodajPlikiEventView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DodawanieProjektowe\DodajNotatkeView.xaml.cs">
       <DependentUpon>DodajNotatkeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DodajPlikProjektuView.xaml.cs">
+    <Compile Include="Views\DodawanieProjektowe\DodajPlikProjektuView.xaml.cs">
       <DependentUpon>DodajPlikProjektuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DodajRyzkoView.xaml.cs">
+    <Compile Include="Views\DodawanieProjektowe\DodajRyzkoView.xaml.cs">
       <DependentUpon>DodajRyzkoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DodawanieProjektowe\DodajZadanieView.xaml.cs">
+      <DependentUpon>DodajZadanieView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DodawanieProjektowe\DodajBudzetProjektuView.xaml.cs">
       <DependentUpon>DodajBudzetProjektuView.xaml</DependentUpon>
@@ -373,6 +386,7 @@
       <DependentUpon>ZadaniaWindowEventView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Base\WybierzProjektViewBase.cs" />
+    <Compile Include="Views\Base\WybierzEventViewBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -416,15 +430,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DodajNotatkeView.xaml">
+    <Page Include="Views\DodajNotatkeEventView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DodajPlikProjektuView.xaml">
+    <Page Include="Views\DodajPlikiEventView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DodajRyzkoView.xaml">
+    <Page Include="Views\DodawanieProjektowe\DodajNotatkeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DodawanieProjektowe\DodajPlikProjektuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DodawanieProjektowe\DodajRyzkoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DodawanieProjektowe\DodajZadanieView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
