@@ -239,6 +239,10 @@ namespace ProjectManagementApp.ViewModels
                     ShowWorkspace<WszystkieProjektyViewModel>();
             if(name == "EventyALL")
                 ShowWorkspace<WszystkieEventyViewModel>();
+            if(name == "ProjektyADD")
+                CreateView(new NowyProjektViewModel());
+            if (name == "WydarzeniaADD")
+                CreateView(new NowyEventViewModel());
         }
         
         #endregion

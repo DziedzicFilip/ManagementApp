@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using GalaSoft.MvvmLight.Messaging;
 using ProjectManagementApp.Helper;
 using ProjectManagementApp.Models.Entities;
 using System;
@@ -18,7 +19,7 @@ namespace ProjectManagementApp.ViewModels
 
 
         #endregion
-        #region LoadCommand
+        #region Command
         private BaseCommand _LoadCommand;
         public ICommand LoadCommand
         {
@@ -33,6 +34,18 @@ namespace ProjectManagementApp.ViewModels
 
 
         }
+
+        private BaseCommand _Dodawania;
+        public ICommand DodawaniaCommand
+        {
+            get
+            {
+                if (_Dodawania == null)
+                    _Dodawania = new BaseCommand(() => Dodaj());
+                return _Dodawania;
+            }
+        }
+
         #endregion
         #region RefreshCommand
         private BaseCommand _RefreshCommand;
@@ -87,7 +100,11 @@ namespace ProjectManagementApp.ViewModels
             List.Clear();
             Load();
         }
-        
+        public void Dodaj()
+        {
+            //ShowMessageBox(DisplayName);
+            Messenger.Default.Send(DisplayName+"ADD");
+        }
         #endregion
 
     }

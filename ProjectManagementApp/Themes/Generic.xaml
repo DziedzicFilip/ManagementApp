@@ -29,8 +29,8 @@
                                 <ComboBoxItem Content="Tagi"/>
                             </ComboBox>
                             <Button Content="Filtruj" Width="80" Margin="5"/>
-                            <!-- 
-                            <Button Content="Dodaj" Width="100" Margin="5" HorizontalAlignment="Right"/> -->
+
+                            <Button Content="Dodaj" Width="100" Margin="5" HorizontalAlignment="Right" Command="{Binding DodawaniaCommand}"/> 
                             <Button Content="Usun" Width="100" Margin="5" HorizontalAlignment="Right"/>
                         </StackPanel>
 
