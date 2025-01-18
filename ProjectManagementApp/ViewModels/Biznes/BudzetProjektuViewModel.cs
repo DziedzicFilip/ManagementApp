@@ -4,8 +4,10 @@ using ProjectManagementApp.Helper;
 using ProjectManagementApp.Models.BussinesLogic;
 using ProjectManagementApp.Models.Entities;
 using ProjectManagementApp.Models.EntitiesForView;
+using ProjectManagementApp.Models.Walidator;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +17,7 @@ using System.Windows.Media.Animation;
 
 namespace ProjectManagementApp.ViewModels
 {
-    public  class BudzetProjektuViewModel : WorkspaceViewModel
+    public  class BudzetProjektuViewModel : WorkspaceViewModel, IDataErrorInfo
     {
         #region DB
         ZarzadanieProjektami2Entities db;
@@ -265,7 +267,32 @@ namespace ProjectManagementApp.ViewModels
                 }
             }
         }
+        #region Walidacja
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+               if(name == "DodajDoBudzetu")
+                    komunikat = BiznesWalidator.SprawdzLiczbeNieUjemna(DodajDoBudzetu ?? 0);
+                if (name == "OdejmijZBudzetu")
+                    komunikat = BiznesWalidator.SprawdzLiczbeNieUjemna(OdejmijZBudzetu ?? 0);
+                if (name == "WydanaKwota")
+                    komunikat = BiznesWalidator.SprawdzLiczbeNieUjemna(WydanaKwota);
 
+
+
+                return komunikat;
+            }
+        }
+        #endregion
         private SeriesCollection _BudzetSeries;
         public SeriesCollection BudzetSeries
         {

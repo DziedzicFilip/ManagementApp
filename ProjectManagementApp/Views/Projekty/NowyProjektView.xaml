@@ -16,19 +16,19 @@
             <!-- Pole do wprowadzenia Nazwy  -->
             <StackPanel Margin="0,0,20,10">
                 <TextBlock Text="Nazwa:" FontWeight="Bold"/>
-                <TextBox Name="ProjectNameTextBox" Width="300"  Text="{Binding Path=Nazwa, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Name="ProjectNameTextBox" Width="300"  Text="{Binding Path=Nazwa, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"/>
             </StackPanel>
 
             <!-- Pole do wprowadzenia Opisu -->
             <StackPanel Margin="0,0,20,10">
                 <TextBlock Text="Opis :" FontWeight="Bold"/>
-                <TextBox Name="DescriptionTextBox" Width="300" Text="{Binding Path=opis, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Name="DescriptionTextBox" Width="300" Text="{Binding Path=opis, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" />
             </StackPanel>
 
             <!-- Data rozpoczecia -->
             <StackPanel Margin="0,0,0,10">
                 <TextBlock Text="Data rozpoczecia:" FontWeight="Bold" />
-                <DatePicker Name="StartDatePicker" Width="300" SelectedDate="{Binding Path=data_rozpoczecia, UpdateSourceTrigger=PropertyChanged}" />
+                <DatePicker Name="StartDatePicker" Width="300" SelectedDate="{Binding Path=data_rozpoczecia, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" />
             </StackPanel>
 
             <!-- Status -->
@@ -55,7 +55,7 @@
             <!-- Termin -->
             <StackPanel Margin="0,0,0,10">
                 <TextBlock Text="Termin realizacji:" FontWeight="Bold"/>
-                <DatePicker Name="DeadlineDatePicker" Width="300"  SelectedDate="{Binding Path=termin,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DatePicker Name="DeadlineDatePicker" Width="300"  SelectedDate="{Binding Path=termin,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" />
             </StackPanel>
         </StackPanel>
     </Grid>

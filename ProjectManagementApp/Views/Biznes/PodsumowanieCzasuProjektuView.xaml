@@ -135,7 +135,7 @@
                 <TextBox Grid.Column="1" 
                 Margin="10,0" 
                 Width="150" 
-                Text="{Binding Path=StawkaGodzinowa}" />
+                Text="{Binding Path=StawkaGodzinowa,ValidatesOnDataErrors=True}" />
                 <Button Grid.Column="2" 
                Content="Oblicz" 
                HorizontalAlignment="Center" 

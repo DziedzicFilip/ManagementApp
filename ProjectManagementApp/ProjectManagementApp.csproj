@@ -225,6 +225,9 @@
     <Compile Include="Models\Entities\Zadania.cs">
       <DependentUpon>ModelProjekt.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Walidator\BiznesWalidator.cs" />
+    <Compile Include="Models\Walidator\StringWalidator.cs" />
+    <Compile Include="Models\Walidator\Walidator.cs" />
     <Compile Include="ViewModels\Abstract\InfoViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\Biznes\BudzetProjektuViewModel.cs" />

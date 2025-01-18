@@ -11,10 +11,12 @@ using System.Windows.Input;
 using LiveCharts;
 using LiveCharts.Wpf;
 using System.ComponentModel;
+using ProjectManagementApp.Models.Walidator;
+using System.Windows;
 
 namespace ProjectManagementApp.ViewModels
 {
-    public class PodsumowanieCzasuProjektuViewModel : WorkspaceViewModel
+    public class PodsumowanieCzasuProjektuViewModel : WorkspaceViewModel,IDataErrorInfo
     {
         #region DB
         ZarzadanieProjektami2Entities db;
@@ -330,7 +332,28 @@ namespace ProjectManagementApp.ViewModels
             }
         }
 
+        #region      Walidacja
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                if (name == "StawkaGodzinowa")
+                   komunikat = BiznesWalidator.SprawdzLiczbeNieUjemna(StawkaGodzinowa);
 
+
+
+                return komunikat;
+            }
+        }
+        #endregion
         public IQueryable<KeyAndValue> ProjketyItems
         {
             get
@@ -396,25 +419,30 @@ namespace ProjectManagementApp.ViewModels
         //    Load();
         //}
 
+       
         private void ObliczWartosc()
         {
-            CalkowityCzas = new PodsumowanieCzasuB(db).CalkowityCzasReturnVariable(IdProjketu);
-            DniOpoznienia = new PodsumowanieCzasuB(db).ObliczDniOpoznienia(IdProjketu);
-            Rabat = new StawkaGodzinowaB(db).Rabat(DniOpoznienia ?? 0, IdProjketu, StawkaGodzinowa);
-            LiczbaWykonanychZadan = new PodsumowanieCzasuB(db).LiczbaWykonanychZadan(IdProjketu);
-            LiczbaZadan = new PodsumowanieCzasuB(db).LiczbaZadan(IdProjketu);
+            
+            
+                CalkowityCzas = new PodsumowanieCzasuB(db).CalkowityCzasReturnVariable(IdProjketu);
+                DniOpoznienia = new PodsumowanieCzasuB(db).ObliczDniOpoznienia(IdProjketu);
+                Rabat = new StawkaGodzinowaB(db).Rabat(DniOpoznienia ?? 0, IdProjketu, StawkaGodzinowa);
+                LiczbaWykonanychZadan = new PodsumowanieCzasuB(db).LiczbaWykonanychZadan(IdProjketu);
+                LiczbaZadan = new PodsumowanieCzasuB(db).LiczbaZadan(IdProjketu);
 
-            var stawkaGodzinowaB = new StawkaGodzinowaB(db);
-            var wyniki = stawkaGodzinowaB.ObliczWartosci(IdProjketu, StawkaGodzinowa, WybranaWaluta, WybranyTypUmowy);
+                var stawkaGodzinowaB = new StawkaGodzinowaB(db);
+                var wyniki = stawkaGodzinowaB.ObliczWartosci(IdProjketu, StawkaGodzinowa, WybranaWaluta, WybranyTypUmowy);
 
-            WartoscBruttoPLN = wyniki.WartoscBruttoPLN;
-            WartoscNettoPLN = wyniki.WartoscNettoPLN;
-            WartoscBruttoEUR = wyniki.WartoscBruttoEUR;
-            WartoscNettoEUR = wyniki.WartoscNettoEUR;
-            WartoscPLNBezRabatu = wyniki.WartoscPLNBezRabatu;
-            WartoscEuroBezRabatu = wyniki.WartoscEuroBezRabatu;
-
-            Load();
+                WartoscBruttoPLN = wyniki.WartoscBruttoPLN;
+                WartoscNettoPLN = wyniki.WartoscNettoPLN;
+                WartoscBruttoEUR = wyniki.WartoscBruttoEUR;
+                WartoscNettoEUR = wyniki.WartoscNettoEUR;
+                WartoscPLNBezRabatu = wyniki.WartoscPLNBezRabatu;
+                WartoscEuroBezRabatu = wyniki.WartoscEuroBezRabatu;
+                Load();
+            
+           
+            
         }
 
 

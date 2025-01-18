@@ -88,7 +88,13 @@ namespace ProjectManagementApp.ViewModels
            
             Messenger.Default.Send<string>("ProjektyALL");
         }
-        
+
+        #endregion
+        #region Validation
+        public virtual bool IsValid()
+        {
+            return true;
+        }
         #endregion
     }
 }
