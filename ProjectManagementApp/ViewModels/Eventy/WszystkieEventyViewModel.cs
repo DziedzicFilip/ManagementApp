@@ -44,6 +44,74 @@ namespace ProjectManagementApp.ViewModels
                 OnRequestClose();
             }
         }
-       
+
+        #region  Sort
+
+        public override List<string> GetComoboBoxFindList()
+        {
+            return new List<string> { "Nazwa", "Data Zakończenia", "Data Rozpoczęcia" };
+        }
+        public override List<string> GetComoboBoxSortList()
+        {
+            return new List<string> { "Nazwa", "Data Zakończenia", "Data Rozpoczęcia"};
+        }
+        public override void Find()
+        {
+            Load();
+            if (FindField == "Nazwa")
+            {
+                List = new ObservableCollection<Wydarzenia>
+                (
+                    List.Where(item => item.nazwa != null && item.nazwa.Contains(FindText))
+                );
+            }
+            if (FindField == "Data Zakończenia")
+            {
+                List = new ObservableCollection<Wydarzenia>
+                (
+                    List.Where(item => item.data_zakonczenia != null &&
+                        (item.data_zakonczenia.Value.Month.ToString() + "/" +
+                         item.data_zakonczenia.Value.Day.ToString()).Contains(FindText))
+                );
+            }
+
+
+            if (FindField == "Data Rozpoczęcia")
+            {
+                List = new ObservableCollection<Wydarzenia>
+                (
+                    List.Where(item => item.data_rozpoczecia != null &&
+                        (item.data_rozpoczecia.Value.Month.ToString() + "/" +
+                         item.data_rozpoczecia.Value.Day.ToString()).Contains(FindText))
+                );
+            }
+
+        }
+        public override void Sort()
+        {
+            if (SortField == "Nazwa")
+            {
+                List = new ObservableCollection<Wydarzenia>
+                (
+                    List.OrderBy(item => item.nazwa)
+                );
+            }
+            if(SortField == "Data Zakończenia")
+            {
+                List = new ObservableCollection<Wydarzenia>
+                (
+                    List.OrderBy(item => item.data_zakonczenia)
+                );
+            }
+            if(SortField == "Data Rozpoczęcia")
+            {
+                List = new ObservableCollection<Wydarzenia>
+                (
+                    List.OrderBy(item => item.data_rozpoczecia)
+                );
+            }
+        }
+        #endregion
+
     }
-    }
+}

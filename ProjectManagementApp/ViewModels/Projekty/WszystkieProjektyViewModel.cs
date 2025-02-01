@@ -55,6 +55,70 @@ namespace ProjectManagementApp.ViewModels
         }
 
 
+
+
         #endregion
+        #region  Sort
+
+        public override List<string> GetComoboBoxFindList()
+        {
+            return new List<string> {"Nazwa", "Priorytet" } ;
+        }
+        public override List<string> GetComoboBoxSortList()
+        {
+            return new List<string> { "Nazwa", "Priorytet", "Status","Nazwie i Statusie" };
+        }
+        public override void Find()
+        {
+            Load();
+            if (FindField == "Nazwa")
+            {
+                List = new ObservableCollection<Projekty>
+                (
+                    List.Where(item => item.nazwa != null && item.nazwa.Contains(FindText))
+                );
+            }
+            if (FindField == "Priorytet")
+            {
+                List = new ObservableCollection<Projekty>
+                (
+                    List.Where(item => item.priorytet != null && item.priorytet.Contains(FindText))
+                );
+            }
+
+        }
+        public override void Sort()
+        {
+            if(SortField == "Nazwa")
+            {
+                List = new ObservableCollection<Projekty>
+                (
+                    List.OrderBy(item => item.nazwa)
+                );
+            }
+            if (SortField == "Priorytet")
+            {
+                List = new ObservableCollection<Projekty>
+                (
+                    List.OrderBy(item => item.priorytet)
+                );
+            }
+            if (SortField == "Status")
+            {
+                List = new ObservableCollection<Projekty>
+                (
+                    List.OrderBy(item => item.status)
+                );
+            }
+            if (SortField == "Nazwie i Statusie")
+            {
+                List = new ObservableCollection<Projekty>
+                (
+                    List.OrderBy(item => item.nazwa).OrderBy(item => item.status)
+                );
+            }
+        }
+        #endregion
+
     }
 }

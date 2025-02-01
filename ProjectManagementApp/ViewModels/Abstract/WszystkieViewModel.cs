@@ -107,6 +107,64 @@ namespace ProjectManagementApp.ViewModels
         }
         #endregion
 
+
+        #region SortandFiltr
+
+        public string SortField { get; set; }
+        public List<string> SortComboBoxItems
+        {
+            get
+            {
+                return GetComoboBoxSortList();
+            }
+        }
+        public virtual List<string> GetComoboBoxSortList()
+        {
+            return null;
+        }
+        private BaseCommand _SortCommand;
+        public ICommand SortCommand
+        {
+            get
+            {
+                if (_SortCommand == null)
+                    _SortCommand = new BaseCommand(() => Sort());
+                return _SortCommand;
+            }
+        }
+        public virtual void Sort()
+        {
+            
+        } 
+        //filrtowanie
+        public string FindField { get; set; }
+        public string FindText { get; set; }
+        public List<string> FindComboBoxItems
+        {
+            get
+            {
+                return GetComoboBoxFindList();
+            }
+        }
+        public virtual  List<string> GetComoboBoxFindList()
+        {
+            return null;
+        }
+        private BaseCommand _FindCommand;
+        public ICommand FindCommand
+        {
+            get
+            {
+                if (_FindCommand == null)
+                    _FindCommand = new BaseCommand(() => Find());
+                return _FindCommand;
+            }
+        }
+        public virtual  void Find()
+        {
+
+        }
+        #endregion
     }
 
 }
