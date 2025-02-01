@@ -85,7 +85,7 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <StackPanel VerticalAlignment="Top">
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
 
                             <Label Grid.Row="0">Wybierz Projekt</Label>
                             <TextBox Grid.Row="1" IsEnabled="False" Width="200"  Text="{Binding Path=NazwaProjektu }" ></TextBox>

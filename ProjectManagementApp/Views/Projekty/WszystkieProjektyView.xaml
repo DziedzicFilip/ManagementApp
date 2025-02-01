@@ -40,7 +40,7 @@
           
               
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nazwa" Binding="{Binding nazwa}" Width="*" />
+                <DataGridTextColumn Header="Nazwa" Binding="{Binding nazwa}" Width="*" IsReadOnly="True" />
                 <DataGridTextColumn Header="Data Rozpoczęcia" Binding="{Binding data_rozpoczecia}" Width="*" />
                 <DataGridTextColumn Header="Data Zakończenia" Binding="{Binding data_zakonczenia}" Width="*" />
                 <DataGridTextColumn Header="Status" Binding="{Binding status}" Width="*" />

@@ -15,7 +15,7 @@ namespace ProjectManagementApp.Models.Walidator
             {
                 if (dataRozpoczecia.HasValue && dataZakonczenia.HasValue)
                 {
-                    if (dataRozpoczecia.Value >= dataZakonczenia.Value)
+                    if (dataRozpoczecia.Value > dataZakonczenia.Value)
                         return "Data rozpoczęcia musi być wcześniejsza niż data zakończenia";
                 }
             }
@@ -36,7 +36,7 @@ namespace ProjectManagementApp.Models.Walidator
             if (!data.HasValue)
                 return "Data nie może być pusta";
 
-            if (data.Value <= DateTime.Now)
+            if (data.Value < DateTime.Now)
                 return "Data musi być w przyszłości";
 
             return null;

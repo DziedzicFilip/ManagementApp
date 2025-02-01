@@ -451,17 +451,7 @@ namespace ProjectManagementApp.ViewModels
 
 
 
-        private BaseCommand _LoadCommand;
-        public ICommand LoadCommand
-        {
-            get
-            {
-                if (_LoadCommand == null)
-                    _LoadCommand = new BaseCommand(() => Load());
-                return _LoadCommand;
-            }
-            set { }
-        }
+        
 
         private void Load()
         {

@@ -15,6 +15,10 @@ namespace ProjectManagementApp.Models.BussinesLogic
         #region FunkcjaBiznesowa
         public decimal Rabat(int dniOpoznienia, int  idProjektu, decimal stawkaNaGodzine) 
         {
+            if(dniOpoznienia <= 0)
+            {
+                return 0;
+            }
             return dniOpoznienia * 1.05m * stawkaNaGodzine;
         }
         public decimal? Stawka(int idProjektu, decimal stawkaNaGodzine, string waluta)

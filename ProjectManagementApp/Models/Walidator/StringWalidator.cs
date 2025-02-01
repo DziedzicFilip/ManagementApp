@@ -30,7 +30,7 @@ namespace ProjectManagementApp.Models.Walidator
 
             var words = opis.Split(' ');
             if (words.Length < 5)
-                return "Opis musi zawierać minimum 5 słów";
+                return "Opis musi zawierać minimum 4 ";
 
             return null;
         }
